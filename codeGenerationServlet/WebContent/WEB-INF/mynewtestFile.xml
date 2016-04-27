@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GCDocument color="-1" dimTicks="25" dpwsInterface="" dpwsPort="-1" height="946" horizontalScrollBar="1" modifiable="1" name="J1" saveVersion="4" scale="0.9" simulationMode="0" socketHost="" socketIsServer="0" socketPort="-1" socketSendMode="Changed" threadSpeed="4" tokenLuminance="0" verticalScrollBar="1" viewPositionX="0" viewPositionY="0" width="1273" x="0" y="0">
+   <LabCommObject height="60" isSocketServer="0" name="LC" socketHost="192.168.125.1" socketPort="8888" specification="sample struct {&#10;&#9;string command;&#10;&#9;int status;&#10;int extCntr;&#10;&#9;&#10;int sensor1;&#10;int sensor2;&#10;int sensor3;&#10;int sensor4;&#10;int sensor5;&#10;int sensor6;&#10;}proc;" width="60" x="250" y="10"/>
+  <FreeText alignment="1" autoResize="1" backgroundColor="-1" bold="1" clipping="0" draggable="1" editOnSingleClick="1" editable="1" fontName="SansSerif" fontSize="20" height="25" italic="0" multiline="0" name="" resizable="1" selectBackground="0" selectable="1" strikeThrough="0" text="" textColor="-16777216" transparent="1" twoDScale="0" underline="0" visible="1" width="10" x="180" y="110"/>
+  <FreeText alignment="1" autoResize="1" backgroundColor="-1" bold="1" clipping="0" draggable="1" editOnSingleClick="1" editable="1" fontName="SansSerif" fontSize="20" height="25" italic="0" multiline="0" name="" resizable="1" selectBackground="0" selectable="1" strikeThrough="0" text="" textColor="-16777216" transparent="1" twoDScale="0" underline="0" visible="1" width="10" x="310" y="110"/>
+   <LabCommObject height="60" input="0" isSocketServer="0" name="o" orca="1" output="1" socketHost="127.0.0.1" socketPort="2000" specification="//// JGrafchart ---&gt; ExtCtrl&#10;&#10;// Communication and coordination&#10;sample double startExtCtrl[2];&#10;sample double skillFinished[2];&#10;sample double state;&#10;&#10;// Controller parameters&#10;sample double ctrlpar[240];&#10;sample double chains[120];&#10;sample double chains_params[120];&#10;sample double Cf[144];&#10;sample double redund_weight[196];&#10;&#10;// References&#10;sample double refs[48];&#10;sample double quat_refs[16];&#10;&#10;// Special features&#10;sample double detuning[2];&#10;sample double freeDrive[2];&#10;&#10;// Outputs Integrated to ExtCtrl&#10;sample double ifkDigitalIn[8];" version="2006" width="60" x="-70" y="-20"/>
+  <LabCommObject height="60" input="1" isSocketServer="0" name="i" orca="1" output="0" socketHost="127.0.0.1" socketPort="2000" specification="//// Extctrl ---&gt; JGrafchart&#10;&#10;// Communication and coordinaiton&#10;sample double skillToRun[2];&#9;// RAPID issued&#10;sample double runExtctrl[2];&#10;sample double resetProgram[2];&#10;sample double kinematicsConverged[2];&#10;&#10;// Measurments&#10;sample double y_meas[96];&#10;sample double quats[16];&#10;sample double y_d_dot0[12];&#10;&#10;// Inputs Integrated to ExtCtrl&#10;sample double y_meas_extR[3];&#10;sample double y_meas_extL[3];&#10;" version="2006" width="60" x="-70" y="-110"/>
+ 
+  
+  
+      
+    <GCInitialStep actionBlockVisible="1" actionText="" fileName="" height="70" id="609edbca-3b5b-3bd4-9942-fe3672439140" name="" useIcon="0" width="200" x="450" y="15"/>
+  
+  <GCTransition actionText="1" conditionVisible="1" height="25" id="6464d459-6dea-3084-9008-4012a9ce422b" width="30" x="465" y="105"/>
+
+  <GCStep actionBlockVisible="0" actionText="S LC.proc.command  =  &quot;pickbox&quot;;&#10;S LC.proc.status     =  0;&#10;S lcSend(LC, &quot;proc&quot;);" fileName="" height="70" id="9c6af808-b192-3e21-916f-aa968ab79997" name="" useIcon="0" width="60" x="450" y="150"/>
+ <GCStep actionBlockVisible="0" actionText="S o.startExtCtrl.set(2-1,1);&#10;X o.startExtCtrl.set(2-1,0);" fileName="" height="70" id="3fff5dbe-d992-342a-90ec-4f95ca87428a" name="Turn on ExtCtrl" useIcon="0" width="60" x="450" y="285"/>
+  <GCTransition actionText="i.runExtctrl.get(2-1) &gt; 0.5" conditionVisible="0" height="25" id="09dd9ff8-783a-3ffd-905b-b2c58a4d9bf3" width="30" x="465" y="375"/>
+   <GCLink fromObject="3fff5dbe-d992-342a-90ec-4f95ca87428a" manAdj="0" toObject="09dd9ff8-783a-3ffd-905b-b2c58a4d9bf3">
+    <Stroke x="480" y="355"/>
+    <Stroke x="480" y="375"/>
+  </GCLink>
+  <GCStep actionBlockVisible="1" actionText="S o.ctrlpar.clear(); S o.chains.clear(); S o.chains_params.clear(); S o.detuning.clear();" fileName="" height="42" id="e1223d0f-c854-3f59-a93c-23b1298e5724" name="Idle state" useIcon="0" width="137" x="450" y="465"/>
+ 
+  <MacroStep actionText=";" fileName="" height="70" id="f2c7a4c8-6067-3968-a126-6569f6c13850" name="skill1" useIcon="0" width="60" x="450" y="735">
+    <GCDocument color="-1" height="832" scale="1.0" viewPositionX="0" viewPositionY="0" width="1155" x="0" y="0">
+      <EnterStep actionBlockVisible="1" actionText="//define chains and constant params&#10;S o.chains61 = 11;    S o.chains_params61 = 490.0;&#10;S o.chains62 = 12;    S o.chains_params62 = 6.0;&#10;S o.chains63 = 13;    S o.chains_params63 = 43.0;&#10;S o.chains64 = 15;    S o.chains_params64 = 0.0;&#10;S o.chains65 = 16;    S o.chains_params65 = 0.0;&#10;S o.chains66 = 14;    S o.chains_params66 = 0.0;&#10;S o.chains67 = 1;     S o.chains_params67 = 0;&#10;S o.chains68 = 2;     S o.chains_params68 = 0;&#10;S o.chains69 = 3;     S o.chains_params69 = 0;&#10;S o.chains70 = 44;   S o.chains_params70 = 0;&#10;S o.chains71 = 45;   S o.chains_params71 = 0;&#10;S o.chains72 = 46;   S o.chains_params72 = 0;&#10;S o.chains73 = 15;   S o.chains_params73 = -1.66533453693773E-16;&#10;S o.chains74 = 16;   S o.chains_params74 = -1.66533453693773E-16;&#10;S o.chains75 = 14;   S o.chains_params75 = 2.7369110631344083E-48;&#10;S o.chains76 = 11;   S o.chains_params76 = -0.0;&#10;S o.chains77 = 12;   S o.chains_params77 = -0.0;&#10;S o.chains78 = 13;   S o.chains_params78 = -87.0;&#10;S o.chains79 = -32;  S o.chains_params79 = 0;&#10;S o.chains80 = 0;    S o.chains_params80 = 0;&#10;S o.chains81 = 0;    S o.chains_params81 = 0;&#10;S o.chains82 = 0;    S o.chains_params82 = 0;&#10;S o.chains83 = 0;    S o.chains_params83 = 0;&#10;S o.chains84 = 0;    S o.chains_params84 = 0;&#10;S o.chains85 = 0;    S o.chains_params85 = 0;&#10;S o.chains86 = 0;    S o.chains_params86 = 0;&#10;S o.chains87 = 0;    S o.chains_params87 = 0;&#10;S o.chains88 = 0;    S o.chains_params88 = 0;&#10;S o.chains89 = 0;    S o.chains_params89 = 0;&#10;S o.chains90 = 0;    S o.chains_params90 = 0;&#10;S o.chains91 = 0;    S o.chains_params91 = 0;&#10;S o.chains92 = 0;    S o.chains_params92 = 0;&#10;S o.chains93 = 0;    S o.chains_params93 = 0;&#10;S o.chains94 = 0;    S o.chains_params94 = 0;&#10;S o.chains95 = 0;    S o.chains_params95 = 0;&#10;S o.chains96 = 0;    S o.chains_params96 = 0;&#10;S o.chains97 = 0;    S o.chains_params97 = 0;&#10;S o.chains98 = 0;    S o.chains_params98 = 0;&#10;S o.chains99 = 0;    S o.chains_params99 = 0;&#10;S o.chains100 = 0;    S o.chains_params100 = 0;&#10;S o.chains101 = 0;    S o.chains_params101 = 0;&#10;S o.chains102 = 0;    S o.chains_params102 = 0;&#10;S o.chains103 = 0;    S o.chains_params103 = 0;&#10;S o.chains104 = 0;    S o.chains_params104 = 0;&#10;S o.chains105 = 0;    S o.chains_params105 = 0;&#10;S o.chains106 = 0;    S o.chains_params106 = 0;&#10;S o.chains107 = 0;    S o.chains_params107 = 0;&#10;S o.chains108 = 0;    S o.chains_params108 = 0;&#10;S o.chains109 = 0;    S o.chains_params109 = 0;&#10;S o.chains110 = 0;    S o.chains_params110 = 0;&#10;S o.chains111 = 0;    S o.chains_params111 = 0;&#10;S o.chains112 = 0;    S o.chains_params112 = 0;&#10;S o.chains113 = 0;    S o.chains_params113 = 0;&#10;S o.chains114 = 0;    S o.chains_params114 = 0;&#10;S o.chains115 = 0;    S o.chains_params115 = 0;&#10;S o.chains116 = 0;    S o.chains_params116 = 0;&#10;S o.chains117 = 0;    S o.chains_params117 = 0;&#10;S o.chains118 = 0;    S o.chains_params118 = 0;&#10;S o.chains119 = 0;    S o.chains_params119 = 0;&#10;S o.chains120 = 0;    S o.chains_params120 = 0;&#10;&#10;S o.state1 = 101;" fileName="" height="55" id="EnterState-skill1" name="Set kinematic chains" useIcon="0" width="147" x="244" y="36"/>
+      <ExitStep actionBlockVisible="1" actionText="//signal that skill is finished&#10;S o.state1 = 105;&#10;&#10;S o.chains61 = 0;    S o.chains_params61 = 0;&#10;S o.chains62 = 0;    S o.chains_params62 = 0;&#10;S o.chains63 = 0;    S o.chains_params63 = 0;&#10;S o.chains64 = 0;    S o.chains_params64 = 0;&#10;S o.chains65 = 0;    S o.chains_params65 = 0;&#10;S o.chains66 = 0;    S o.chains_params66 = 0;&#10;S o.chains67 = 0;    S o.chains_params67 = 0;&#10;S o.chains68 = 0;    S o.chains_params68 = 0;&#10;S o.chains69 = 0;    S o.chains_params69 = 0;&#10;S o.chains70 = 0;    S o.chains_params70 = 0;&#10;S o.chains71 = 0;    S o.chains_params71 = 0;&#10;S o.chains72 = 0;    S o.chains_params72 = 0;&#10;S o.chains73 = 0;    S o.chains_params73 = 0;&#10;S o.chains74 = 0;    S o.chains_params74 = 0;&#10;S o.chains75 = 0;    S o.chains_params75 = 0;&#10;S o.chains76 = 0;    S o.chains_params76 = 0;&#10;S o.chains77 = 0;    S o.chains_params77 = 0;&#10;S o.chains78 = 0;    S o.chains_params78 = 0;&#10;S o.chains79 = 0;    S o.chains_params79 = 0;&#10;S o.chains80 = 0;    S o.chains_params80 = 0;&#10;S o.chains81 = 0;    S o.chains_params81 = 0;&#10;S o.chains82 = 0;    S o.chains_params82 = 0;&#10;S o.chains83 = 0;    S o.chains_params83 = 0;&#10;S o.chains84 = 0;    S o.chains_params84 = 0;&#10;S o.chains85 = 0;    S o.chains_params85 = 0;&#10;S o.chains86 = 0;    S o.chains_params86 = 0;&#10;S o.chains87 = 0;    S o.chains_params87 = 0;&#10;S o.chains88 = 0;    S o.chains_params88 = 0;&#10;S o.chains89 = 0;    S o.chains_params89 = 0;&#10;S o.chains90 = 0;    S o.chains_params90 = 0;&#10;S o.chains91 = 0;    S o.chains_params91 = 0;&#10;S o.chains92 = 0;    S o.chains_params92 = 0;&#10;S o.chains93 = 0;    S o.chains_params93 = 0;&#10;S o.chains94 = 0;    S o.chains_params94 = 0;&#10;S o.chains95 = 0;    S o.chains_params95 = 0;&#10;S o.chains96 = 0;    S o.chains_params96 = 0;&#10;S o.chains97 = 0;    S o.chains_params97 = 0;&#10;S o.chains98 = 0;    S o.chains_params98 = 0;&#10;S o.chains99 = 0;    S o.chains_params99 = 0;&#10;S o.chains100 = 0;    S o.chains_params100 = 0;&#10;S o.chains101 = 0;    S o.chains_params101 = 0;&#10;S o.chains102 = 0;    S o.chains_params102 = 0;&#10;S o.chains103 = 0;    S o.chains_params103 = 0;&#10;S o.chains104 = 0;    S o.chains_params104 = 0;&#10;S o.chains105 = 0;    S o.chains_params105 = 0;&#10;S o.chains106 = 0;    S o.chains_params106 = 0;&#10;S o.chains107 = 0;    S o.chains_params107 = 0;&#10;S o.chains108 = 0;    S o.chains_params108 = 0;&#10;S o.chains109 = 0;    S o.chains_params109 = 0;&#10;S o.chains110 = 0;    S o.chains_params110 = 0;&#10;S o.chains111 = 0;    S o.chains_params111 = 0;&#10;S o.chains112 = 0;    S o.chains_params112 = 0;&#10;S o.chains113 = 0;    S o.chains_params113 = 0;&#10;S o.chains114 = 0;    S o.chains_params114 = 0;&#10;S o.chains115 = 0;    S o.chains_params115 = 0;&#10;S o.chains116 = 0;    S o.chains_params116 = 0;&#10;S o.chains117 = 0;    S o.chains_params117 = 0;&#10;S o.chains118 = 0;    S o.chains_params118 = 0;&#10;S o.chains119 = 0;    S o.chains_params119 = 0;&#10;S o.chains120 = 0;    S o.chains_params120 = 0;&#10;" fileName="" height="55" id="ExitState-skill1" name="Skill finished" useIcon="0" width="147" x="244" y="516"/>
+      <GCTransition CGURI="" actionText="i.kinematicsConverged2 &gt; 0.5" conditionVisible="1" height="25" id="kinematicsConvergedTransition" width="30" x="255" y="110"/>
+      <GCStep actionBlockVisible="1" actionText="//set references&#10;S o.refs37 = 0; // zero velocity, TopCenterPoint-tGrip-x&#10;S o.refs38 = 0; // zero velocity, TopCenterPoint-tGrip-y&#10;S o.refs39 = -30.0; // search velocity (mm/s), TopCenterPoint-tGrip-z&#10;S o.refs40 = 0; // zero velocity, TopCenterPoint-tGrip-xRot&#10;S o.refs41 = 0; // zero velocity, TopCenterPoint-tGrip-yRot&#10;S o.refs42 = 0; // zero velocity, TopCenterPoint-tGrip-zRot&#10;&#10;//Set control of all outputs&#10;//          coord              type              active                 K/M                  D          Sampling period             max(u)&#10;S o.ctrlpar121 = 1;  S o.ctrlpar122 = 2;  S o.ctrlpar123 = 1;  S o.ctrlpar124 = 0;  S o.ctrlpar125 = 0;  S o.ctrlpar126 = 0.004;  S o.ctrlpar127 = 10;  //TopCenterPoint-tGrip-x&#10;S o.ctrlpar131 = 2;  S o.ctrlpar132 = 2;  S o.ctrlpar133 = 1;  S o.ctrlpar134 = 0;  S o.ctrlpar135 = 0;  S o.ctrlpar136 = 0.004;  S o.ctrlpar137 = 10;  //TopCenterPoint-tGrip-y&#10;S o.ctrlpar141 = 3;  S o.ctrlpar142 = 2;  S o.ctrlpar143 = 1;  S o.ctrlpar144 = 0;  S o.ctrlpar145 = 0;  S o.ctrlpar146 = 0.004;  S o.ctrlpar147 = 45.0;  //TopCenterPoint-tGrip-z&#10;S o.ctrlpar151 = 4;  S o.ctrlpar152 = 2;  S o.ctrlpar153 = 1;  S o.ctrlpar154 = 0;  S o.ctrlpar155 = 0;  S o.ctrlpar156 = 0.004;  S o.ctrlpar157 = 0.1;  //TopCenterPoint-tGrip-xRot&#10;S o.ctrlpar161 = 5;  S o.ctrlpar162 = 2;  S o.ctrlpar163 = 1;  S o.ctrlpar164 = 0;  S o.ctrlpar165 = 0;  S o.ctrlpar166 = 0.004;  S o.ctrlpar167 = 0.1;  //TopCenterPoint-tGrip-yRot&#10;S o.ctrlpar171 = 6;  S o.ctrlpar172 = 2;  S o.ctrlpar173 = 1;  S o.ctrlpar174 = 0;  S o.ctrlpar175 = 0;  S o.ctrlpar176 = 0.004;  S o.ctrlpar177 = 0.1;  //TopCenterPoint-tGrip-zRot&#10;&#10;// Set outputs, i.e, the Cf-matrix&#10;S o.Cf73=1; S o.Cf74=0; S o.Cf75=0; S o.Cf76=0; S o.Cf77=0; S o.Cf78=0; S o.Cf79=0; S o.Cf80=0; S o.Cf81=0; S o.Cf82=0; S o.Cf83=0; S o.Cf84=0; &#10;S o.Cf85=0; S o.Cf86=1; S o.Cf87=0; S o.Cf88=0; S o.Cf89=0; S o.Cf90=0; S o.Cf91=0; S o.Cf92=0; S o.Cf93=0; S o.Cf94=0; S o.Cf95=0; S o.Cf96=0; &#10;S o.Cf97=0; S o.Cf98=0; S o.Cf99=1; S o.Cf100=0; S o.Cf101=0; S o.Cf102=0; S o.Cf103=0; S o.Cf104=0; S o.Cf105=0; S o.Cf106=0; S o.Cf107=0; S o.Cf108=0; &#10;S o.Cf109=0; S o.Cf110=0; S o.Cf111=0; S o.Cf112=1; S o.Cf113=0; S o.Cf114=0; S o.Cf115=0; S o.Cf116=0; S o.Cf117=0; S o.Cf118=0; S o.Cf119=0; S o.Cf120=0; &#10;S o.Cf121=0; S o.Cf122=0; S o.Cf123=0; S o.Cf124=0; S o.Cf125=1; S o.Cf126=0; S o.Cf127=0; S o.Cf128=0; S o.Cf129=0; S o.Cf130=0; S o.Cf131=0; S o.Cf132=0; &#10;S o.Cf133=0; S o.Cf134=0; S o.Cf135=0; S o.Cf136=0; S o.Cf137=0; S o.Cf138=1; S o.Cf139=0; S o.Cf140=0; S o.Cf141=0; S o.Cf142=0; S o.Cf143=0; S o.Cf144=0; &#10;&#10;// Set redund_weight, i.e, the Mq-matrix&#10;S o.redund_weight106=1; S o.redund_weight107=0; S o.redund_weight108=0; S o.redund_weight109=0; S o.redund_weight110=0; S o.redund_weight111=0; S o.redund_weight112=0; &#10;S o.redund_weight120=0; S o.redund_weight121=1; S o.redund_weight122=0; S o.redund_weight123=0; S o.redund_weight124=0; S o.redund_weight125=0; S o.redund_weight126=0; &#10;S o.redund_weight134=0; S o.redund_weight135=0; S o.redund_weight136=1; S o.redund_weight137=0; S o.redund_weight138=0; S o.redund_weight139=0; S o.redund_weight140=0; &#10;S o.redund_weight148=0; S o.redund_weight149=0; S o.redund_weight150=0; S o.redund_weight151=1; S o.redund_weight152=0; S o.redund_weight153=0; S o.redund_weight154=0; &#10;S o.redund_weight162=0; S o.redund_weight163=0; S o.redund_weight164=0; S o.redund_weight165=0; S o.redund_weight166=1; S o.redund_weight167=0; S o.redund_weight168=0; &#10;S o.redund_weight176=0; S o.redund_weight177=0; S o.redund_weight178=0; S o.redund_weight179=0; S o.redund_weight180=0; S o.redund_weight181=1; S o.redund_weight182=0; &#10;S o.redund_weight190=0; S o.redund_weight191=0; S o.redund_weight192=0; S o.redund_weight193=0; S o.redund_weight194=0; S o.redund_weight195=0; S o.redund_weight196=1; &#10;&#10;S o.state1 = 102;" fileName="" height="55" id="z-search" name="z-search" useIcon="0" width="147" x="248" y="156"/>
+      <GCTransition CGURI="" actionText="i.y_meas51 &gt; 4.0" conditionVisible="1" height="25" id="transition-z-search" width="30" x="255" y="230"/>
+      <GCStep actionBlockVisible="1" actionText="//set references&#10;S o.refs37 = 0; // zero velocity, TopCenterPoint-tGrip-x&#10;S o.refs38 = -41.0; // search velocity (mm/s), TopCenterPoint-tGrip-y&#10;S o.refs39 = 3.0; // force control (N), TopCenterPoint-tGrip-z&#10;S o.refs40 = 0; // zero velocity, TopCenterPoint-tGrip-xRot&#10;S o.refs41 = 0; // zero velocity, TopCenterPoint-tGrip-yRot&#10;S o.refs42 = 0; // zero velocity, TopCenterPoint-tGrip-zRot&#10;&#10;//Set control of all outputs&#10;//          coord              type              active                 K/M                  D          Sampling period             max(u)&#10;S o.ctrlpar121 = 1;  S o.ctrlpar122 = 2;  S o.ctrlpar123 = 1;  S o.ctrlpar124 = 0;  S o.ctrlpar125 = 0;  S o.ctrlpar126 = 0.004;  S o.ctrlpar127 = 10;  //TopCenterPoint-tGrip-x&#10;S o.ctrlpar131 = 2;  S o.ctrlpar132 = 2;  S o.ctrlpar133 = 1;  S o.ctrlpar134 = 0;  S o.ctrlpar135 = 0;  S o.ctrlpar136 = 0.004;  S o.ctrlpar137 = 61.5;  //TopCenterPoint-tGrip-y&#10;S o.ctrlpar141 = 3;  S o.ctrlpar142 = 1;  S o.ctrlpar143 = 1;  S o.ctrlpar144 = 0.01;  S o.ctrlpar145 = 0.2;  S o.ctrlpar146 = 0.004;  S o.ctrlpar147 = 20.0;  //TopCenterPoint-tGrip-z&#10;S o.ctrlpar151 = 4;  S o.ctrlpar152 = 2;  S o.ctrlpar153 = 1;  S o.ctrlpar154 = 0;  S o.ctrlpar155 = 0;  S o.ctrlpar156 = 0.004;  S o.ctrlpar157 = 0.1;  //TopCenterPoint-tGrip-xRot&#10;S o.ctrlpar161 = 5;  S o.ctrlpar162 = 2;  S o.ctrlpar163 = 1;  S o.ctrlpar164 = 0;  S o.ctrlpar165 = 0;  S o.ctrlpar166 = 0.004;  S o.ctrlpar167 = 0.1;  //TopCenterPoint-tGrip-yRot&#10;S o.ctrlpar171 = 6;  S o.ctrlpar172 = 2;  S o.ctrlpar173 = 1;  S o.ctrlpar174 = 0;  S o.ctrlpar175 = 0;  S o.ctrlpar176 = 0.004;  S o.ctrlpar177 = 0.1;  //TopCenterPoint-tGrip-zRot&#10;&#10;// Set outputs, i.e, the Cf-matrix&#10;S o.Cf73=1; S o.Cf74=0; S o.Cf75=0; S o.Cf76=0; S o.Cf77=0; S o.Cf78=0; S o.Cf79=0; S o.Cf80=0; S o.Cf81=0; S o.Cf82=0; S o.Cf83=0; S o.Cf84=0; &#10;S o.Cf85=0; S o.Cf86=1; S o.Cf87=0; S o.Cf88=0; S o.Cf89=0; S o.Cf90=0; S o.Cf91=0; S o.Cf92=0; S o.Cf93=0; S o.Cf94=0; S o.Cf95=0; S o.Cf96=0; &#10;S o.Cf97=0; S o.Cf98=0; S o.Cf99=1; S o.Cf100=0; S o.Cf101=0; S o.Cf102=0; S o.Cf103=0; S o.Cf104=0; S o.Cf105=0; S o.Cf106=0; S o.Cf107=0; S o.Cf108=0; &#10;S o.Cf109=0; S o.Cf110=0; S o.Cf111=0; S o.Cf112=1; S o.Cf113=0; S o.Cf114=0; S o.Cf115=0; S o.Cf116=0; S o.Cf117=0; S o.Cf118=0; S o.Cf119=0; S o.Cf120=0; &#10;S o.Cf121=0; S o.Cf122=0; S o.Cf123=0; S o.Cf124=0; S o.Cf125=1; S o.Cf126=0; S o.Cf127=0; S o.Cf128=0; S o.Cf129=0; S o.Cf130=0; S o.Cf131=0; S o.Cf132=0; &#10;S o.Cf133=0; S o.Cf134=0; S o.Cf135=0; S o.Cf136=0; S o.Cf137=0; S o.Cf138=1; S o.Cf139=0; S o.Cf140=0; S o.Cf141=0; S o.Cf142=0; S o.Cf143=0; S o.Cf144=0; &#10;&#10;// Set redund_weight, i.e, the Mq-matrix&#10;S o.redund_weight106=1; S o.redund_weight107=0; S o.redund_weight108=0; S o.redund_weight109=0; S o.redund_weight110=0; S o.redund_weight111=0; S o.redund_weight112=0; &#10;S o.redund_weight120=0; S o.redund_weight121=1; S o.redund_weight122=0; S o.redund_weight123=0; S o.redund_weight124=0; S o.redund_weight125=0; S o.redund_weight126=0; &#10;S o.redund_weight134=0; S o.redund_weight135=0; S o.redund_weight136=1; S o.redund_weight137=0; S o.redund_weight138=0; S o.redund_weight139=0; S o.redund_weight140=0; &#10;S o.redund_weight148=0; S o.redund_weight149=0; S o.redund_weight150=0; S o.redund_weight151=1; S o.redund_weight152=0; S o.redund_weight153=0; S o.redund_weight154=0; &#10;S o.redund_weight162=0; S o.redund_weight163=0; S o.redund_weight164=0; S o.redund_weight165=0; S o.redund_weight166=1; S o.redund_weight167=0; S o.redund_weight168=0; &#10;S o.redund_weight176=0; S o.redund_weight177=0; S o.redund_weight178=0; S o.redund_weight179=0; S o.redund_weight180=0; S o.redund_weight181=1; S o.redund_weight182=0; &#10;S o.redund_weight190=0; S o.redund_weight191=0; S o.redund_weight192=0; S o.redund_weight193=0; S o.redund_weight194=0; S o.redund_weight195=0; S o.redund_weight196=1; &#10;&#10;S o.state1 = 103;" fileName="" height="55" id="y-search" name="y-search" useIcon="0" width="147" x="248" y="276"/>
+      <GCTransition CGURI="" actionText="i.y_meas50 &gt; 3.0" conditionVisible="1" height="25" id="transition-y-search" width="30" x="255" y="350"/>
+      <GCStep actionBlockVisible="1" actionText="//set references&#10;S o.refs37 = 40.0; // search velocity (mm/s), TopCenterPoint-tGrip-x&#10;S o.refs38 = 3.0; // force control (N), TopCenterPoint-tGrip-y&#10;S o.refs39 = 2.0; // force control (N), TopCenterPoint-tGrip-z&#10;S o.refs40 = 0; // zero velocity, TopCenterPoint-tGrip-xRot&#10;S o.refs41 = 0; // zero velocity, TopCenterPoint-tGrip-yRot&#10;S o.refs42 = 0; // zero velocity, TopCenterPoint-tGrip-zRot&#10;&#10;//Set control of all outputs&#10;//          coord              type              active                 K/M                  D          Sampling period             max(u)&#10;S o.ctrlpar121 = 1;  S o.ctrlpar122 = 2;  S o.ctrlpar123 = 1;  S o.ctrlpar124 = 0;  S o.ctrlpar125 = 0;  S o.ctrlpar126 = 0.004;  S o.ctrlpar127 = 60.0;  //TopCenterPoint-tGrip-x&#10;S o.ctrlpar131 = 2;  S o.ctrlpar132 = 1;  S o.ctrlpar133 = 1;  S o.ctrlpar134 = 0.02;  S o.ctrlpar135 = 0.6;  S o.ctrlpar136 = 0.004;  S o.ctrlpar137 = 20.0;  //TopCenterPoint-tGrip-y&#10;S o.ctrlpar141 = 3;  S o.ctrlpar142 = 1;  S o.ctrlpar143 = 1;  S o.ctrlpar144 = 0.01;  S o.ctrlpar145 = 0.2;  S o.ctrlpar146 = 0.004;  S o.ctrlpar147 = 20.0;  //TopCenterPoint-tGrip-z&#10;S o.ctrlpar151 = 4;  S o.ctrlpar152 = 2;  S o.ctrlpar153 = 1;  S o.ctrlpar154 = 0;  S o.ctrlpar155 = 0;  S o.ctrlpar156 = 0.004;  S o.ctrlpar157 = 0.1;  //TopCenterPoint-tGrip-xRot&#10;S o.ctrlpar161 = 5;  S o.ctrlpar162 = 2;  S o.ctrlpar163 = 1;  S o.ctrlpar164 = 0;  S o.ctrlpar165 = 0;  S o.ctrlpar166 = 0.004;  S o.ctrlpar167 = 0.1;  //TopCenterPoint-tGrip-yRot&#10;S o.ctrlpar171 = 6;  S o.ctrlpar172 = 2;  S o.ctrlpar173 = 1;  S o.ctrlpar174 = 0;  S o.ctrlpar175 = 0;  S o.ctrlpar176 = 0.004;  S o.ctrlpar177 = 0.1;  //TopCenterPoint-tGrip-zRot&#10;&#10;// Set outputs, i.e, the Cf-matrix&#10;S o.Cf73=1; S o.Cf74=0; S o.Cf75=0; S o.Cf76=0; S o.Cf77=0; S o.Cf78=0; S o.Cf79=0; S o.Cf80=0; S o.Cf81=0; S o.Cf82=0; S o.Cf83=0; S o.Cf84=0; &#10;S o.Cf85=0; S o.Cf86=1; S o.Cf87=0; S o.Cf88=0; S o.Cf89=0; S o.Cf90=0; S o.Cf91=0; S o.Cf92=0; S o.Cf93=0; S o.Cf94=0; S o.Cf95=0; S o.Cf96=0; &#10;S o.Cf97=0; S o.Cf98=0; S o.Cf99=1; S o.Cf100=0; S o.Cf101=0; S o.Cf102=0; S o.Cf103=0; S o.Cf104=0; S o.Cf105=0; S o.Cf106=0; S o.Cf107=0; S o.Cf108=0; &#10;S o.Cf109=0; S o.Cf110=0; S o.Cf111=0; S o.Cf112=1; S o.Cf113=0; S o.Cf114=0; S o.Cf115=0; S o.Cf116=0; S o.Cf117=0; S o.Cf118=0; S o.Cf119=0; S o.Cf120=0; &#10;S o.Cf121=0; S o.Cf122=0; S o.Cf123=0; S o.Cf124=0; S o.Cf125=1; S o.Cf126=0; S o.Cf127=0; S o.Cf128=0; S o.Cf129=0; S o.Cf130=0; S o.Cf131=0; S o.Cf132=0; &#10;S o.Cf133=0; S o.Cf134=0; S o.Cf135=0; S o.Cf136=0; S o.Cf137=0; S o.Cf138=1; S o.Cf139=0; S o.Cf140=0; S o.Cf141=0; S o.Cf142=0; S o.Cf143=0; S o.Cf144=0; &#10;&#10;// Set redund_weight, i.e, the Mq-matrix&#10;S o.redund_weight106=1; S o.redund_weight107=0; S o.redund_weight108=0; S o.redund_weight109=0; S o.redund_weight110=0; S o.redund_weight111=0; S o.redund_weight112=0; &#10;S o.redund_weight120=0; S o.redund_weight121=1; S o.redund_weight122=0; S o.redund_weight123=0; S o.redund_weight124=0; S o.redund_weight125=0; S o.redund_weight126=0; &#10;S o.redund_weight134=0; S o.redund_weight135=0; S o.redund_weight136=1; S o.redund_weight137=0; S o.redund_weight138=0; S o.redund_weight139=0; S o.redund_weight140=0; &#10;S o.redund_weight148=0; S o.redund_weight149=0; S o.redund_weight150=0; S o.redund_weight151=1; S o.redund_weight152=0; S o.redund_weight153=0; S o.redund_weight154=0; &#10;S o.redund_weight162=0; S o.redund_weight163=0; S o.redund_weight164=0; S o.redund_weight165=0; S o.redund_weight166=1; S o.redund_weight167=0; S o.redund_weight168=0; &#10;S o.redund_weight176=0; S o.redund_weight177=0; S o.redund_weight178=0; S o.redund_weight179=0; S o.redund_weight180=0; S o.redund_weight181=1; S o.redund_weight182=0; &#10;S o.redund_weight190=0; S o.redund_weight191=0; S o.redund_weight192=0; S o.redund_weight193=0; S o.redund_weight194=0; S o.redund_weight195=0; S o.redund_weight196=1; &#10;&#10;S o.state1 = 104;" fileName="" height="55" id="x-search" name="x-search" useIcon="0" width="147" x="248" y="396"/>
+      <GCTransition CGURI="" actionText="i.y_meas49 &lt; -6.0" conditionVisible="1" height="25" id="transition-x-search" width="30" x="255" y="470"/>
+      <GCLink fromObject="EnterState-skill1" manAdj="0" toObject="kinematicsConvergedTransition">
+        <Stroke x="270" y="92"/>
+        <Stroke x="270" y="92"/>
+        <Stroke x="270" y="92"/>
+        <Stroke x="270" y="92"/>
+        <Stroke x="270" y="92"/>
+        <Stroke x="270" y="109"/>
+      </GCLink>
+      <GCLink fromObject="kinematicsConvergedTransition" manAdj="0" toObject="z-search">
+        <Stroke x="270" y="136"/>
+        <Stroke x="270" y="136"/>
+        <Stroke x="270" y="136"/>
+        <Stroke x="270" y="136"/>
+        <Stroke x="270" y="136"/>
+        <Stroke x="270" y="155"/>
+      </GCLink>
+      <GCLink fromObject="z-search" manAdj="0" toObject="transition-z-search">
+        <Stroke x="270" y="212"/>
+        <Stroke x="270" y="212"/>
+        <Stroke x="270" y="212"/>
+        <Stroke x="270" y="212"/>
+        <Stroke x="270" y="212"/>
+        <Stroke x="270" y="229"/>
+      </GCLink>
+      <GCLink fromObject="transition-z-search" manAdj="0" toObject="y-search">
+        <Stroke x="270" y="256"/>
+        <Stroke x="270" y="256"/>
+        <Stroke x="270" y="256"/>
+        <Stroke x="270" y="256"/>
+        <Stroke x="270" y="256"/>
+        <Stroke x="270" y="275"/>
+      </GCLink>
+      <GCLink fromObject="y-search" manAdj="0" toObject="transition-y-search">
+        <Stroke x="270" y="332"/>
+        <Stroke x="270" y="332"/>
+        <Stroke x="270" y="332"/>
+        <Stroke x="270" y="332"/>
+        <Stroke x="270" y="332"/>
+        <Stroke x="270" y="349"/>
+      </GCLink>
+      <GCLink fromObject="transition-y-search" manAdj="0" toObject="x-search">
+        <Stroke x="270" y="376"/>
+        <Stroke x="270" y="376"/>
+        <Stroke x="270" y="376"/>
+        <Stroke x="270" y="376"/>
+        <Stroke x="270" y="376"/>
+        <Stroke x="270" y="395"/>
+      </GCLink>
+      <GCLink fromObject="x-search" manAdj="0" toObject="transition-x-search">
+        <Stroke x="270" y="452"/>
+        <Stroke x="270" y="452"/>
+        <Stroke x="270" y="452"/>
+        <Stroke x="270" y="452"/>
+        <Stroke x="270" y="452"/>
+        <Stroke x="270" y="469"/>
+      </GCLink>
+      <GCLink fromObject="transition-x-search" manAdj="0" toObject="ExitState-skill1">
+        <Stroke x="270" y="496"/>
+        <Stroke x="270" y="496"/>
+        <Stroke x="270" y="496"/>
+        <Stroke x="270" y="496"/>
+        <Stroke x="270" y="496"/>
+        <Stroke x="270" y="515"/>
+      </GCLink>
+    </GCDocument>
+  </MacroStep>  <GCTransition actionText="1" conditionVisible="1" height="25" id="82c49430-3cc7-49bd-beeb-b1cb0939ed90" width="30" x="465" y="690"/>
+  <GCLink fromObject="e1223d0f-c854-3f59-a93c-23b1298e5724" manAdj="0" toObject="82c49430-3cc7-49bd-beeb-b1cb0939ed90">
+    <Stroke x="480" y="535"/>
+    <Stroke x="480" y="690"/>
+  </GCLink>
+
+  <GCLink fromObject="82c49430-3cc7-49bd-beeb-b1cb0939ed90" manAdj="0" toObject="f2c7a4c8-6067-3968-a126-6569f6c13850">
+   <Stroke x="480" y="715"/>
+    <Stroke x="480" y="735"/>
+  </GCLink>
+
+<GCStep actionBlockVisible="0" actionText="S LC.proc.command  =  &quot;SwitchOffExtCtrl&quot;;&#10;S LC.proc.status     =  0;&#10;S LC.proc.extCntr = 0;&#10;&#10;S lcSend(LC, &quot;proc&quot;);" fileName="" height="70" id="9a323d0f-8b8e-30a1-b820-4eedfa172849" name="Switch off ExtCtrl" useIcon="0" width="60" x="450" y="870"/>
+  <GCTransition actionText="LC.proc.status == 1 &amp; i.runExtctrl.get(2-1) &lt; 0.5" conditionVisible="0" height="25" id="7f360912-73f4-3cd0-88bc-5a3ae8a75db4" width="30" x="465" y="960"/>
+ <GCLink fromObject="9a323d0f-8b8e-30a1-b820-4eedfa172849" manAdj="0" toObject="7f360912-73f4-3cd0-88bc-5a3ae8a75db4">
+    <Stroke x="480" y="940"/>
+    <Stroke x="480" y="960"/>
+  </GCLink>
+
+  <GCStep actionBlockVisible="0" actionText="S LC.proc.command  =  &quot;movetofixt&quot;;&#10;S LC.proc.status     =  0;&#10;S lcSend(LC, &quot;proc&quot;);" fileName="" height="70" id="5c0fc5d1-c77d-3610-b7a4-8706e938ff81" name="" useIcon="0" width="60" x="450" y="1005"/>
+
+  <GCStep actionBlockVisible="0" actionText="S LC.proc.command  =  &quot;pickswitch&quot;;&#10;S LC.proc.status     =  0;&#10;S lcSend(LC, &quot;proc&quot;);" fileName="" height="70" id="14b29309-b547-3d97-8ebf-a0643cda0011" name="" useIcon="0" width="60" x="450" y="1140"/>
+
+  <GCStep actionBlockVisible="0" actionText="S LC.proc.command  =  &quot;retract&quot;;&#10;S LC.proc.status     =  0;&#10;S lcSend(LC, &quot;proc&quot;);" fileName="" height="70" id="bc844210-33ac-3512-98cd-b63127bb4cd4" name="" useIcon="0" width="60" x="450" y="1275"/>
+
+  <GCTransition actionText="LC.proc.status == 1" conditionVisible="0" height="25" id="77f74ea4-aadd-3d74-b90c-81c42f0dffb7" width="30" x="465" y="240"/>
+<GCTransition actionText="1" conditionVisible="1" height="25" id="afc843a5-999b-3f85-b18c-6cec0812837a" width="30" x="465" y="825"/>
+<GCTransition actionText="LC.proc.status == 1" conditionVisible="0" height="25" id="e84c72c2-0e06-3e61-9ac8-102440bbbb77" width="30" x="465" y="1095"/>
+<GCTransition actionText="LC.proc.status == 1" conditionVisible="0" height="25" id="498faa1e-c93a-38f5-a914-8fb6466cea4c" width="30" x="465" y="1230"/>
+<GCTransition actionText="LC.proc.status == 1" conditionVisible="0" height="25" id="9848253b-2cc0-3c75-8276-7bb20571866f" width="30" x="465" y="1365"/>
+
+  <GCLink fromObject="609edbca-3b5b-3bd4-9942-fe3672439140" manAdj="0" toObject="6464d459-6dea-3084-9008-4012a9ce422b">
+ <Stroke x="480" y="85"/>
+    <Stroke x="480" y="105"/>
+  </GCLink>
+<GCLink fromObject="6464d459-6dea-3084-9008-4012a9ce422b" manAdj="0" toObject="9c6af808-b192-3e21-916f-aa968ab79997">
+ <Stroke x="480" y="130"/>
+    <Stroke x="480" y="150"/>
+  </GCLink>
+<GCLink fromObject="9c6af808-b192-3e21-916f-aa968ab79997" manAdj="0" toObject="77f74ea4-aadd-3d74-b90c-81c42f0dffb7">
+ <Stroke x="480" y="220"/>
+    <Stroke x="480" y="240"/>
+  </GCLink>
+<GCLink fromObject="77f74ea4-aadd-3d74-b90c-81c42f0dffb7" manAdj="0" toObject="3fff5dbe-d992-342a-90ec-4f95ca87428a">
+ <Stroke x="480" y="265"/>
+    <Stroke x="480" y="285"/>
+  </GCLink>
+<GCLink fromObject="09dd9ff8-783a-3ffd-905b-b2c58a4d9bf3" manAdj="0" toObject="e1223d0f-c854-3f59-a93c-23b1298e5724">
+ <Stroke x="480" y="805"/>
+    <Stroke x="480" y="825"/>
+  </GCLink>
+<GCLink fromObject="f2c7a4c8-6067-3968-a126-6569f6c13850" manAdj="0" toObject="afc843a5-999b-3f85-b18c-6cec0812837a">
+ <Stroke x="480" y="805"/>
+    <Stroke x="480" y="825"/>
+  </GCLink>
+<GCLink fromObject="afc843a5-999b-3f85-b18c-6cec0812837a" manAdj="0" toObject="9a323d0f-8b8e-30a1-b820-4eedfa172849">
+ <Stroke x="480" y="850"/>
+    <Stroke x="480" y="870"/>
+  </GCLink>
+<GCLink fromObject="7f360912-73f4-3cd0-88bc-5a3ae8a75db4" manAdj="0" toObject="5c0fc5d1-c77d-3610-b7a4-8706e938ff81">
+ <Stroke x="480" y="985"/>
+    <Stroke x="480" y="1005"/>
+  </GCLink>
+<GCLink fromObject="5c0fc5d1-c77d-3610-b7a4-8706e938ff81" manAdj="0" toObject="e84c72c2-0e06-3e61-9ac8-102440bbbb77">
+ <Stroke x="480" y="1075"/>
+    <Stroke x="480" y="1095"/>
+  </GCLink>
+<GCLink fromObject="e84c72c2-0e06-3e61-9ac8-102440bbbb77" manAdj="0" toObject="14b29309-b547-3d97-8ebf-a0643cda0011">
+ <Stroke x="480" y="1120"/>
+    <Stroke x="480" y="1140"/>
+  </GCLink>
+<GCLink fromObject="14b29309-b547-3d97-8ebf-a0643cda0011" manAdj="0" toObject="498faa1e-c93a-38f5-a914-8fb6466cea4c">
+ <Stroke x="480" y="1210"/>
+    <Stroke x="480" y="1230"/>
+  </GCLink>
+<GCLink fromObject="498faa1e-c93a-38f5-a914-8fb6466cea4c" manAdj="0" toObject="bc844210-33ac-3512-98cd-b63127bb4cd4">
+ <Stroke x="480" y="1255"/>
+    <Stroke x="480" y="1275"/>
+  </GCLink>
+<GCLink fromObject="bc844210-33ac-3512-98cd-b63127bb4cd4" manAdj="0" toObject="9848253b-2cc0-3c75-8276-7bb20571866f">
+ <Stroke x="480" y="1345"/>
+    <Stroke x="480" y="1365"/>
+  </GCLink>
+
+
+  
+</GCDocument>

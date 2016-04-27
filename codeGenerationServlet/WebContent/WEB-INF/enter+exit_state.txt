@@ -1,0 +1,73 @@
+Exit state:
+//S o.skillFinished1 = 1;
+
+//S o.state1 = 105;
+
+// Reset outputs
+S o.chains1 = 0;     S o.chains_params1 = 0;
+S o.chains2 = 0;     S o.chains_params2 = 0;
+S o.chains3 = 0;     S o.chains_params3 = 0;
+S o.chains4 = 0;     S o.chains_params4 = 0;
+S o.chains5 = 0;     S o.chains_params5 = 0;
+S o.chains6 = 0;     S o.chains_params6 = 0;
+S o.chains7 = 0;     S o.chains_params7 = 0;
+S o.chains8 = 0;     S o.chains_params8 = 0;
+S o.chains9 = 0;     S o.chains_params9 = 0;
+S o.chains10 = 0;    S o.chains_params10 = 0;
+S o.chains11 = 0;    S o.chains_params11 = 0;
+S o.chains12 = 0;    S o.chains_params12 = 0;
+S o.chains13 = 0;    S o.chains_params13 = 0;
+S o.chains14 = 0;    S o.chains_params14 = 0;
+S o.chains15 = 0;    S o.chains_params15 = 0;
+S o.chains16 = 0;    S o.chains_params16 = 0;
+S o.chains17 = 0;    S o.chains_params17 = 0;
+S o.chains18 = 0;    S o.chains_params18 = 0;
+S o.chains19 = 0;    S o.chains_params19 = 0;
+S o.chains20 = 0;    S o.chains_params20 = 0;
+S o.chains21 = 0;    S o.chains_params21 = 0;
+S o.chains22 = 0;    S o.chains_params22 = 0;
+S o.chains23 = 0;    S o.chains_params23 = 0;
+S o.chains24 = 0;    S o.chains_params24 = 0;
+S o.chains25 = 0;    S o.chains_params25 = 0;
+S o.chains26 = 0;    S o.chains_params26 = 0;
+S o.chains27 = 0;    S o.chains_params27 = 0;
+S o.chains28 = 0;    S o.chains_params28 = 0;
+S o.chains29 = 0;    S o.chains_params29 = 0;
+S o.chains30 = 0;    S o.chains_params30 = 0;
+
+
+
+Entry state:
+//define chains and constant params
+S o.chains1 = 11;    S o.chains_params1 = 0;
+S o.chains2 = 12;    S o.chains_params2 = 0;
+S o.chains3 = 13;    S o.chains_params3 = 0;
+S o.chains4 = 14;    S o.chains_params4 = 0;
+S o.chains5 = 15;    S o.chains_params5 = 0;
+S o.chains6 = 16;    S o.chains_params6 = 0;
+S o.chains7 = 1;     S o.chains_params7 = 0;
+S o.chains8 = 2;     S o.chains_params8 = 0;
+S o.chains9 = 3;     S o.chains_params9 = 0;
+S o.chains10 = 4;    S o.chains_params10 = 0;
+S o.chains11 = 5;    S o.chains_params11 = 0;
+S o.chains12 = 6;    S o.chains_params12 = 0;
+S o.chains13 = 11;   S o.chains_params13 = 0;
+S o.chains14 = 12;   S o.chains_params14 = 0;
+S o.chains15 = 13;   S o.chains_params15 = 0;
+S o.chains16 = 14;   S o.chains_params16 = 0;
+S o.chains17 = 15;   S o.chains_params17 = 0;
+S o.chains18 = 16;   S o.chains_params18 = 0;
+S o.chains19 = -31;  S o.chains_params19 = 0;
+S o.chains20 = 0;    S o.chains_params20 = 0;
+S o.chains21 = 0;    S o.chains_params21 = 0;
+S o.chains22 = 0;    S o.chains_params22 = 0;
+S o.chains23 = 0;    S o.chains_params23 = 0;
+S o.chains24 = 0;    S o.chains_params24 = 0;
+S o.chains25 = 0;    S o.chains_params25 = 0;
+S o.chains26 = 0;    S o.chains_params26 = 0;
+S o.chains27 = 0;    S o.chains_params27 = 0;
+S o.chains28 = 0;    S o.chains_params28 = 0;
+S o.chains29 = 0;    S o.chains_params29 = 0;
+S o.chains30 = 0;    S o.chains_params30 = 0;
+
+//S o.state1 = 101;

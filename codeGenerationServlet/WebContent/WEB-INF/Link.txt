@@ -1,0 +1,4 @@
+<GCLink fromObject="ID1" manAdj="0" toObject="ID2">
+ <Stroke x="X3" y="Y3"/>
+    <Stroke x="X4" y="Y4"/>
+  </GCLink>

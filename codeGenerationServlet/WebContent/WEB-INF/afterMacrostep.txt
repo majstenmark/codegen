@@ -1,0 +1,19 @@
+  <GCTransition CGURI="" actionText="1" conditionVisible="1" height="25" id="82c49430-3cc7-49bd-beeb-b1cb0939ed90" width="30" x="465" y="Y4"/>
+  <GCLink fromObject="INITIALID" manAdj="0" toObject="905c3215-f3f7-4ccf-9b18-20e861c78367">
+    <Stroke x="480" y="YT1"/>
+    <Stroke x="480" y="Y2"/>
+  </GCLink>
+  <GCLink fromObject="905c3215-f3f7-4ccf-9b18-20e861c78367" manAdj="0" toObject="5b8e17f2-f27e-4cad-87cf-e435f4a81d87">
+    <Stroke x="480" y="YT2"/>
+    <Stroke x="480" y="Y3"/>
+  </GCLink>
+  <GCLink fromObject="82c49430-3cc7-49bd-beeb-b1cb0939ed90" manAdj="0" toObject="MACROID">
+    <Stroke x="480" y="YT3"/>
+    <Stroke x="480" y="Y4"/>
+  </GCLink>
+  <GCLink fromObject="5b8e17f2-f27e-4cad-87cf-e435f4a81d87" manAdj="0" toObject="82c49430-3cc7-49bd-beeb-b1cb0939ed90">
+    <Stroke x="480" y="YT4"/>
+    <Stroke x="480" y="Y5"/>
+  </GCLink>
+
+

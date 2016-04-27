@@ -1,0 +1,1 @@
+<GCTransition actionText="LC.proc.status == 1" conditionVisible="0" height="25" id="ID" width="30" x="X1" y="Y1"/>

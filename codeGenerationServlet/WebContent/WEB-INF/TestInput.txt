@@ -1,0 +1,88 @@
+<Input>
+  <Task name="task1" labcomm_ip="" labcomm_port="8888" robot="fridaRight"></Task>
+  <Task name="task2" labcomm_ip="" labcomm_port="8889" robot="fridaLeft">
+    <Primitive function_call="pickbox"></Primitive>
+    <SkillSpecification>
+
+      <Action id="z-search" tool="tGrip">
+        <Direction>
+          <threshold unit="N">3</threshold>
+          <searchVelocity unit="mm/s">-30</searchVelocity>
+          <motionframe>TopCenterPoint</motionframe>
+          <motiondir>z</motiondir>
+          <bounce>2</bounce>
+        </Direction>
+        <Final>
+        <motionframe>TopCenterPoint</motionframe>
+          <motiondir>z</motiondir>
+        	 <threshold unit="N">3</threshold>
+        </Final>
+         <Error>
+        <motionframe>TopCenterPoint</motionframe>
+          <motiondir>z</motiondir> 
+          <type>forcecontrolled</type>
+          <value unit="N">3</value>
+          <handling>"handle1"</handling>
+        </Error>
+      </Action>
+      <Action id="y-search" tool="tGrip">
+        <Direction>  
+          <searchVelocity unit="mm/s">-40</searchVelocity>
+          <motionframe>TopCenterPoint</motionframe>
+          <motiondir>y</motiondir>
+  	<threshold unit=“N”>-6</threshold>
+        </Direction>
+        <Constraint>
+          <controllerId>z-controller</controllerId>
+          <type>forcecontrolled</type>
+          <value unit="N">3</value>
+          <motionframe>TopCenterPoint</motionframe>
+          <motiondir>z</motiondir>
+        </Constraint>
+      </Action>
+      <Action id="x-search" tool="tGrip">
+        <Direction>
+          <threshold unit="N">-6</threshold>
+          <searchVelocity unit="mm/s">40</searchVelocity>
+          <motionframe>TopCenterPoint</motionframe>
+          <motiondir>x</motiondir>
+        </Direction>
+        <Constraint>
+          <controllerId>z-controller</controllerId>
+          <type>forcecontrolled</type>
+          <value unit="N">2</value>
+          <motionframe>TopCenterPoint</motionframe>
+          <motiondir>z</motiondir>
+        </Constraint>
+        <Constraint>
+          <controllerId>y-controller</controllerId>
+          <type>forcecontrolled</type>
+          <value unit="N">3</value>
+          <motionframe>TopCenterPoint</motionframe>
+          <motiondir>y</motiondir>
+        </Constraint>
+      </Action>
+      <Frame id="TopCenterPoint">
+        <origin>[490 ,6 ,43]</origin>
+        <quaternion>[1 ,0 ,0 ,0 ]</quaternion>
+      </Frame>
+      <ToolTransform id="tGrip">
+        <trans>[0 ,0 ,87]</trans>
+        <quaternion>[1 ,-6.93334779979401E-33 ,8.32667268468865E-17 ,8.32667268468865E-17 ]</quaternion>
+      </ToolTransform>
+      <ImpedanceControlParams id="z-controller">
+        <M>0.01</M>
+        <D>0.2</D>
+      </ImpedanceControlParams>
+      <ImpedanceControlParams id="y-controller">
+        <M>0.02</M>
+        <D>0.6</D>
+      </ImpedanceControlParams>
+    </SkillSpecification>
+    <Primitive function_call="movetofixt"></Primitive>
+    <Primitive function_call="pickswitch"></Primitive>
+    <Primitive function_call="retract"></Primitive>
+  	
+  </Task>
+  
+</Input>

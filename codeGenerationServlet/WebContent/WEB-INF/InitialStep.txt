@@ -1,0 +1,2 @@
+ 
+  <GCTransition actionText="1" conditionVisible="1" height="25" id="IDTrans" width="30" x="X2" y="Y2"/>

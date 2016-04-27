@@ -1,0 +1,6 @@
+ <GCStep actionBlockVisible="0" actionText="S o.startExtCtrl.set(ARMNBR-1,1);" fileName="" height="70" id="ID1" name="Turn on ExtCtrl" useIcon="0" width="60" x="X1" y="Y1"/>
+  <GCTransition actionText="i.runExtctrl.get(ARMNBR-1) &gt; 0.5" conditionVisible="0" height="25" id="ID2" width="30" x="X2" y="Y2"/>
+   <GCLink fromObject="ID1" manAdj="0" toObject="ID2">
+    <Stroke x="X3" y="Y3"/>
+    <Stroke x="X4" y="Y4"/>
+  </GCLink>

@@ -1,0 +1,9 @@
+<Input>
+  <Task name="task1" labcomm_ip="" labcomm_port="8888" robot="irb120">
+    <Primitive function_call="move">
+      <Parameter value="RosettaTarget_5"></Parameter>
+      <Parameter value="v100"></Parameter>
+      <Parameter value="fine"></Parameter>
+    </Primitive>
+  </Task>
+</Input>

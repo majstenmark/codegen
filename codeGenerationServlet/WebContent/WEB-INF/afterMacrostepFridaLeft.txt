@@ -1,0 +1,11 @@
+  <GCTransition actionText="1" conditionVisible="1" height="25" id="82c49430-3cc7-49bd-beeb-b1cb0939ed90" width="30" x="465" y="Y4"/>
+  <GCLink fromObject="INITIALID" manAdj="0" toObject="82c49430-3cc7-49bd-beeb-b1cb0939ed90">
+    <Stroke x="480" y="YT1"/>
+    <Stroke x="480" y="Y4"/>
+  </GCLink>
+
+  <GCLink fromObject="82c49430-3cc7-49bd-beeb-b1cb0939ed90" manAdj="0" toObject="MACROID">
+   <Stroke x="480" y="YT4"/>
+    <Stroke x="480" y="Y5"/>
+  </GCLink>
+

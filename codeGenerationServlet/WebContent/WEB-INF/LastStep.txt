@@ -1,0 +1,3 @@
+
+  <GCStep actionBlockVisible="0" actionText="" fileName="" height="70" id="ID" name="" useIcon="0" width="60" x="X1" y="Y1"/>
+  <GCTransition actionText="0" conditionVisible="0" height="25" id="IdTRANS" width="30" x="X1" y="Y1"/>

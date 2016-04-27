@@ -1,0 +1,1623 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GCDocument color="-1" dimTicks="25" dpwsInterface="" dpwsPort="-1" height="600" horizontalScrollBar="1" modifiable="1" name="J1" saveVersion="7" scale="1.0" simulationMode="1" socketHost="" socketIsServer="0" socketPort="-1" socketSendMode="Changed" threadSpeed="40" tokenLuminance="0" verticalScrollBar="1" viewPositionX="134" viewPositionY="661" width="400" x="394" y="50">
+  <MacroStep actionText=";" fileName="" height="70" id="1d1ee8de-e03b-4ffd-902e-c5cfe15ba42b" name="peg-in-hole" resumeMode="Default" useIcon="0" width="60" x="280" y="715">
+    <GCDocument color="-1" height="400" scale="1.0" socketSendMode="Inherit" viewPositionX="0" viewPositionY="0" width="400" x="400" y="600">
+      <EnterStep actionBlockVisible="1" actionText="&#10;S o.state1 = 135.00;&#10;&#10;" fileName="" height="59" id="364e25eb-00e9-492d-b649-bcf421d2e506" name="Initial control ams" useIcon="0" width="128" x="188" y="-244"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs27 = -5; // z-ref, 10 mm/s&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 2; S o.ctrlpar23 = 1; S o.ctrlpar24 = 0; S o.ctrlpar25 = 1; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 60; S o.ctrlpar28 = 3000; //z&#10;&#10;//S o.refs26 = -10; // y-ref, 10 mm/s&#10;//S o.ctrlpar11 = 2; S o.ctrlpar12 = 2; S o.ctrlpar13 = 1; S o.ctrlpar14 = 0; S o.ctrlpar15 = 1; S o.ctrlpar16 = 0.004; S o.ctrlpar17 = 20; S o.ctrlpar18 = 3000; //y&#10;&#10;//S o.refs25 = -10; // x-ref, 10 mm/s&#10;//S o.ctrlpar1 = 1; S o.ctrlpar2 = 2; S o.ctrlpar3 = 1; S o.ctrlpar4 = 0; S o.ctrlpar5 = 1; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 20; S o.ctrlpar8 = 3000; //x&#10;&#10;//S z_thres = i.y_meas39 + 2;&#10;&#10;S o.state1 = 135.02;" fileName="" height="31" id="cfa44627-8255-4787-be65-34c2956eb129" name="Search -z" useIcon="0" width="120" x="192" y="388"/>
+      <GCTransition CGURI="" actionText="i.kinematicsConverged1 &gt; 0.5" conditionVisible="1" height="25" id="161f0081-4c24-4dd4-a9c4-46e03cb3599c" width="42" x="189" y="100"/>
+      <GCTransition CGURI="" actionText="(i.y_meas15-z_thres &lt; -28)" conditionVisible="1" height="25" id="57c8ecc9-3546-4de7-bcf8-8151b0425996" width="30" x="-135" y="450"/>
+      <GCStep actionBlockVisible="1" actionText="&#10;S o.refs27 = i.y_meas15+1; // z-ref = z-pos&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10; S o.ctrlpar28 = 50;//z&#10;&#10;S o.state1 = 135.03;" fileName="" height="31" id="3e9414b3-85f6-405d-bc98-6c3c5e0785c2" name="" useIcon="0" width="120" x="192" y="618"/>
+      <GCStep actionBlockVisible="1" actionText="&#10;S o.refs25 = i.y_meas13+2; // x-ref = x-pos&#10;S o.ctrlpar1 = 1; S o.ctrlpar2 = 4; S o.ctrlpar3 = 1; S o.ctrlpar4 = 5; S o.ctrlpar5 = 1000; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 10; S o.ctrlpar8 = 50; //x&#10;&#10;S o.state1 = 135.06;" fileName="" height="31" id="6781b10e-8516-4fdc-850f-399bc123c054" name="" useIcon="0" width="120" x="192" y="838"/>
+      <GCTransition CGURI="" actionText="(i.y_meas14-y_thres &lt; -28)" conditionVisible="1" height="25" id="634252d8-f80e-4c22-a6b2-e0aeac39b58c" width="30" x="-135" y="1230"/>
+      <GCStep actionBlockVisible="1" actionText="&#10;&#10;S o.refs25 = -6; // x-ref, -10 mm/s&#10;S o.ctrlpar1 = 1; S o.ctrlpar2 = 2; S o.ctrlpar3 = 1; S o.ctrlpar4 = 0; S o.ctrlpar5 = 1; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 50; S o.ctrlpar8 = 3000; //x&#10;&#10;//S y_thres = i.y_meas38+1;&#10;S o.state1 = 135.04;" fileName="" height="31" id="81193b6f-ec8e-4b0a-b7c4-be63cff7ad5b" name="Search -x" useIcon="0" width="120" x="192" y="698"/>
+      <GCTransition CGURI="" actionText="(o.refs27-i.y_meas15) &lt; 0.5" conditionVisible="1" height="25" id="713e21c0-c2cb-4513-b679-eedc6fe6cdb3" width="30" x="195" y="660"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs26 = -5; // y-ref, 10 mm/s&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 2; S o.ctrlpar13 = 1; S o.ctrlpar14 = 0; S o.ctrlpar15 = 1; S o.ctrlpar16 = 0.004; S o.ctrlpar17 = 20; S o.ctrlpar18 = 3000; //y&#10;&#10;S o.state1 = 135.09;" fileName="" height="31" id="18070911-37f2-4f5e-a263-36efd0dd3f9f" name="Search -y" useIcon="0" width="120" x="192" y="1178"/>
+      <GCTransition CGURI="" actionText="(o.refs25-i.y_meas13) &lt; 0.5" conditionVisible="1" height="25" id="3c69ae16-95c0-4cc0-aee2-66e06e64a345" width="30" x="195" y="880"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs26 = i.y_meas14+8; // y-ref = y-pos&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 4; S o.ctrlpar13 = 1; S o.ctrlpar14 = 4;  S o.ctrlpar15 = 1000;  S o.ctrlpar16 = 0.004;  S o.ctrlpar17 = 10; S o.ctrlpar18 = 50; //y&#10;&#10;S o.state1 = 135.10;" fileName="" height="31" id="db559d42-9d43-4e0a-bae4-70877aee8706" name="" useIcon="0" width="120" x="192" y="1288"/>
+      <GCTransition CGURI="" actionText="((o.refs26-i.y_meas14) &lt; 0.5)" conditionVisible="1" height="25" id="ea4ff5da-573c-4edf-9ee0-b412448810e6" width="30" x="195" y="1360"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="3.0" name="z_thres" updated="0" value="3.0" width="75" x="1060" y="170"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="1.0" name="y_thres" updated="0" value="1.0" width="75" x="1060" y="250"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="2.5" name="x_thres" updated="0" value="2.5" width="75" x="1060" y="330"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="0.0" name="thres" updated="0" value="0.0" width="75" x="1060" y="410"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs27 = -5; // z-ref, 10 mm/s&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 2; S o.ctrlpar23 = 1; S o.ctrlpar24 = 0; S o.ctrlpar25 = 1; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 60; S o.ctrlpar28 = 3000; //z&#10;&#10;S o.state1 = 135.07;" fileName="" height="31" id="4411a428-1300-459f-a5c6-a9f6cbb5b30f" name="Search -z" useIcon="0" width="120" x="192" y="918"/>
+      <GCTransition CGURI="" actionText="(i.y_meas15-z_thres &lt; -28)" conditionVisible="1" height="25" id="333fa6b3-83fd-4169-919a-16156d73c2fb" width="30" x="-135" y="980"/>
+      <GCStep actionBlockVisible="1" actionText="&#10;S o.refs27 = i.y_meas15+1; // z-ref = z-pos&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 4; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10;  S o.ctrlpar27 = 50; //z&#10;&#10;&#10;S o.state1 = 135.08;" fileName="" height="31" id="af9513ac-d4d5-4d69-bd2f-1bb32c9afe13" name="" useIcon="0" width="120" x="192" y="1038"/>
+      <GCTransition CGURI="" actionText="((o.refs27-i.y_meas15) &lt; 0.5)" conditionVisible="1" height="25" id="e8b3cf56-218a-4525-9756-aa5e13ad4a12" width="30" x="195" y="1110"/>
+      <GCStep actionBlockVisible="1" actionText="&#10;S thres = max(i.y_meas15-10,z_0-30); // z-ref = z-pos&#10;&#10;S o.refs27 = -5; // z-ref, 10 mm/s&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 2; S o.ctrlpar23 = 1; S o.ctrlpar24 = 0; S o.ctrlpar25 = 1; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 60; S o.ctrlpar28 = 3000; //z&#10;&#10;&#10;S o.state1 = 135.11;" fileName="" height="31" id="9a7587ef-fb8f-4e8f-8f97-bdbb7f933d6b" name="Try inserting" useIcon="0" width="120" x="192" y="1468"/>
+      <GCStep actionBlockVisible="1" actionText="//S o.refs27 = i.y_meas15+15; // z-ref = z-pos&#10;//S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 40; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10; ; S o.ctrlpar28 = 30;//z&#10;&#10;//S z_thres = i.y_meas15+15; // z-ref = z-pos&#10;S z_thres = z_0; // z-ref = z-pos&#10;S o.refs27 = 10; // z-ref, 10 mm/s&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 2; S o.ctrlpar23 = 1; S o.ctrlpar24 = 0; S o.ctrlpar25 = 1; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 60; S o.ctrlpar28 = 3000; //z&#10;&#10;S o.state1 = 135.13;" fileName="" height="31" id="e17549dd-d8e9-4827-9864-577f42284387" name="Move away z" useIcon="0" width="120" x="432" y="1758"/>
+      <GCTransition CGURI="" actionText="(z_thres-i.y_meas15) &lt; 0.5" conditionVisible="1" height="25" id="840945b6-d3ee-4103-9040-3c3f0cb77a10" width="30" x="435" y="1820"/>
+      <GCStep actionBlockVisible="1" actionText="//S o.refs25 = i.y_meas13+15; // x-ref = x-pos&#10;//S o.ctrlpar1 = 1; S o.ctrlpar2 = 4; S o.ctrlpar3 = 1; S o.ctrlpar4 = 40; S o.ctrlpar5 = 1000; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 10; ; S o.ctrlpar8 = 30; //x&#10;&#10;//S x_thres = i.y_meas13+15; // x-ref = x-pos&#10;S x_thres = x_thres+5;&#10;S o.refs25 = 10; // x-ref, 10 mm/s&#10;S o.ctrlpar1 = 1; S o.ctrlpar2 = 2; S o.ctrlpar3 = 1; S o.ctrlpar4 = 0; S o.ctrlpar5 = 1; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 50; S o.ctrlpar8 = 3000; //x&#10;&#10;&#10;S o.state1 = 135.14;" fileName="" height="31" id="a25a5048-3f93-441a-994d-4b03dbdf1179" name="Move away x" useIcon="0" width="120" x="432" y="1968"/>
+      <GCTransition CGURI="" actionText="(x_thres-i.y_meas13) &lt; 0.5" conditionVisible="1" height="25" id="5d619513-fb32-414f-a1ee-be632fa3aeba" width="30" x="435" y="2010"/>
+      <GCTransition CGURI="" actionText="1" conditionVisible="1" height="25" id="dbdab5ef-1a84-42b9-af6f-2d8522d884f1" width="42" x="189" y="180"/>
+      <GCStep actionBlockVisible="1" actionText="// Record current position&#10;S x_0 = i.y_meas13;  // x-ref = x-pos&#10;S y_0 = i.y_meas14;  // y-ref = y-pos&#10;S z_0 = i.y_meas15;  // z-ref = z-pos&#10;&#10;S x_thres = x_0;&#10;S y_thres = y_0;&#10;S z_thres = z_0;&#10;S thres = 0;" fileName="" height="31" id="cc97fe0d-e2ef-4602-a4f5-80766a4ec37d" name="recodrd offsets" useIcon="0" width="120" x="192" y="138"/>
+      <GCStep actionBlockVisible="1" actionText="// Set the desired translation and rotation to the actual one&#10;S o.refs25 = i.y_meas13; // x-ref = x-pos&#10;S o.refs26 = i.y_meas14; // y-ref = y-pos&#10;S o.refs27 = i.y_meas15; // z-ref = z-pos&#10;S o.refs28 = i.y_meas16; // xrot-ref = xrot-pos&#10;S o.refs29 = i.y_meas17; // yrot-ref = yrot-pos&#10;S o.refs30 = i.y_meas18; // zrot-ref = zrot-pos&#10;&#10;&#10;//Set position control of all outputs&#10;//          coord              type              active                  K                   Ti          Sampling period             max(u)         max(ac)&#10;S o.ctrlpar1 = 1;  S o.ctrlpar2 = 4;  S o.ctrlpar3 = 1;  S o.ctrlpar4 = 5;  S o.ctrlpar5 = 1000;  S o.ctrlpar6 = 0.004;  S o.ctrlpar7 = 10;   S o.ctrlpar8 = 600; //x&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 4; S o.ctrlpar13 = 1; S o.ctrlpar14 = 5; S o.ctrlpar15 = 1000; S o.ctrlpar16 = 0.004; S o.ctrlpar17 = 10;  S o.ctrlpar18 = 600; //y&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10;   S o.ctrlpar28 = 600; //z&#10;S o.ctrlpar31 = 4; S o.ctrlpar32 = 4; S o.ctrlpar33 = 1; S o.ctrlpar34 = 1; S o.ctrlpar35 = 1000; S o.ctrlpar36 = 0.004; S o.ctrlpar37 = 0.1; S o.ctrlpar38 = 60; //x-rot 0.8&#10;S o.ctrlpar41 = 5; S o.ctrlpar42 = 4; S o.ctrlpar43 = 1; S o.ctrlpar44 = 1; S o.ctrlpar45 = 1000; S o.ctrlpar46 = 0.004; S o.ctrlpar47 = 0.1; S o.ctrlpar48 = 60; //y-rot 0.8&#10;S o.ctrlpar51 = 6; S o.ctrlpar52 = 4; S o.ctrlpar53 = 1; S o.ctrlpar54 = 1; S o.ctrlpar55 = 1000; S o.ctrlpar56 = 0.004; S o.ctrlpar57 = 0.1; S o.ctrlpar58 = 60; //z-rot&#10;&#10;// Set outputs, i.e, the Cf-matrix&#10;S o.Cf1=1;  S o.Cf2=0;  S o.Cf3=0;  S o.Cf4=0;  S o.Cf5=0;  S o.Cf6=0;  S o.Cf7=0;  S o.Cf8=0;  S o.Cf9=0;  S o.Cf10=0; S o.Cf11=0; S o.Cf12=0;&#10;S o.Cf13=0; S o.Cf14=1; S o.Cf15=0; S o.Cf16=0; S o.Cf17=0; S o.Cf18=0; S o.Cf19=0; S o.Cf20=0; S o.Cf21=0; S o.Cf22=0; S o.Cf23=0; S o.Cf24=0;&#10;S o.Cf25=0; S o.Cf26=0; S o.Cf27=1; S o.Cf28=0; S o.Cf29=0; S o.Cf30=0; S o.Cf31=0; S o.Cf32=0; S o.Cf33=0; S o.Cf34=0; S o.Cf35=0; S o.Cf36=0;&#10;S o.Cf37=0; S o.Cf38=0; S o.Cf39=0; S o.Cf40=1; S o.Cf41=0; S o.Cf42=0; S o.Cf43=0; S o.Cf44=0; S o.Cf45=0; S o.Cf46=0; S o.Cf47=0; S o.Cf48=0;&#10;S o.Cf49=0; S o.Cf50=0; S o.Cf51=0; S o.Cf52=0; S o.Cf53=1; S o.Cf54=0; S o.Cf55=0; S o.Cf56=0; S o.Cf57=0; S o.Cf58=0; S o.Cf59=0; S o.Cf60=0;&#10;S o.Cf61=0; S o.Cf62=0; S o.Cf63=0; S o.Cf64=0; S o.Cf65=0; S o.Cf66=1; S o.Cf67=0; S o.Cf68=0; S o.Cf69=0; S o.Cf70=0; S o.Cf71=0; S o.Cf72=0;&#10;&#10;// Set redund_weight, i.e, the Mq-matrix&#10;S o.redund_weight1=1;  S o.redund_weight2=0;  S o.redund_weight3=0;  S o.redund_weight4=0;  S o.redund_weight5=0;  S o.redund_weight6=0;  S o.redund_weight7=0;&#10;S o.redund_weight15=0;  S o.redund_weight16=1;  S o.redund_weight17=0;  S o.redund_weight18=0;  S o.redund_weight19=0;  S o.redund_weight20=0;  S o.redund_weight21=0;&#10;S o.redund_weight29=0;  S o.redund_weight30=0;  S o.redund_weight31=1;  S o.redund_weight32=0;  S o.redund_weight33=0;  S o.redund_weight34=0;  S o.redund_weight35=0;&#10;S o.redund_weight43=0;  S o.redund_weight44=0;  S o.redund_weight45=0;  S o.redund_weight46=1;  S o.redund_weight47=0;  S o.redund_weight48=0;  S o.redund_weight49=0;&#10;S o.redund_weight57=0;  S o.redund_weight58=0;  S o.redund_weight59=0;  S o.redund_weight60=0;  S o.redund_weight61=1;  S o.redund_weight62=0;  S o.redund_weight63=0;&#10;S o.redund_weight71=0;  S o.redund_weight72=0;  S o.redund_weight73=0;  S o.redund_weight74=0;  S o.redund_weight75=0;  S o.redund_weight76=1;  S o.redund_weight77=0;&#10;S o.redund_weight85=0;  S o.redund_weight86=0;  S o.redund_weight87=0;  S o.redund_weight88=0;  S o.redund_weight89=0;  S o.redund_weight90=0;  S o.redund_weight91=1;" fileName="" height="31" id="4a6001bf-db29-43fa-930d-a90e0427c427" name="" useIcon="0" width="120" x="192" y="268"/>
+      <GCTransition CGURI="" actionText="(Switch &gt; 0.5)" conditionVisible="1" height="25" id="ef6db0d1-ebe7-40dc-b712-f63c5169e48f" width="42" x="189" y="330"/>
+      <GCStep actionBlockVisible="1" actionText="// Set the desired pos to the actual one&#10;S o.ctrlpar1 = 1; S o.ctrlpar2 = 4; S o.ctrlpar3 = 1; S o.ctrlpar4 = 5; S o.ctrlpar5 = 1000; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 10; S o.ctrlpar8 = 50; //x&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 4; S o.ctrlpar13 = 1; S o.ctrlpar14 = 5; S o.ctrlpar15 = 1000; S o.ctrlpar16 = 0.004; S o.ctrlpar17 = 10; S o.ctrlpar18 = 50; //y&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10; S o.ctrlpar28 = 50; //z&#10;&#10;//S o.refs25 = i.y_meas13; // x-ref = x-pos&#10;//S o.refs26 = i.y_meas14; // y-ref = y-pos&#10;//S o.refs27 = i.y_meas15; // z-ref = z-pos&#10;&#10;S o.refs25 = x_thres; // x-ref = x-pos&#10;S o.refs26 = y_thres; // y-ref = y-pos&#10;S o.refs27 = z_thres; // z-ref = z-pos&#10;" fileName="" height="31" id="6bd2df2f-b79b-423a-b338-852bd11a7891" name="" useIcon="0" width="120" x="732" y="38"/>
+      <GCTransition CGURI="" actionText="(abs(o.refs26-i.y_meas14) &lt; 0.5)" conditionVisible="1" height="25" id="ecef9900-4da5-4f4a-863b-bab8ba8301fd" width="42" x="729" y="90"/>
+      <ExitStep actionBlockVisible="1" actionText="S o.skillFinished1 = 1;&#10;&#10;S o.state1 = 135.9;&#10;&#10;// Reset outputs&#10;S o.chains1 = 0;     S o.chains_params1 = 0;&#10;S o.chains2 = 0;     S o.chains_params2 = 0;&#10;S o.chains3 = 0;     S o.chains_params3 = 0;&#10;S o.chains4 = 0;     S o.chains_params4 = 0;&#10;S o.chains5 = 0;     S o.chains_params5 = 0;&#10;S o.chains6 = 0;     S o.chains_params6 = 0;&#10;S o.chains7 = 0;     S o.chains_params7 = 0;&#10;S o.chains8 = 0;     S o.chains_params8 = 0;&#10;S o.chains9 = 0;     S o.chains_params9 = 0;&#10;S o.chains10 = 0;    S o.chains_params10 = 0;&#10;S o.chains11 = 0;    S o.chains_params11 = 0;&#10;S o.chains12 = 0;    S o.chains_params12 = 0;&#10;S o.chains13 = 0;    S o.chains_params13 = 0;&#10;S o.chains14 = 0;    S o.chains_params14 = 0;&#10;S o.chains15 = 0;    S o.chains_params15 = 0;&#10;S o.chains16 = 0;    S o.chains_params16 = 0;&#10;S o.chains17 = 0;    S o.chains_params17 = 0;&#10;S o.chains18 = 0;    S o.chains_params18 = 0;&#10;S o.chains19 = 0;    S o.chains_params19 = 0;&#10;S o.chains20 = 0;    S o.chains_params20 = 0;&#10;S o.chains21 = 0;    S o.chains_params21 = 0;&#10;S o.chains22 = 0;    S o.chains_params22 = 0;&#10;S o.chains23 = 0;    S o.chains_params23 = 0;&#10;S o.chains24 = 0;    S o.chains_params24 = 0;&#10;S o.chains25 = 0;    S o.chains_params25 = 0;&#10;S o.chains26 = 0;    S o.chains_params26 = 0;&#10;S o.chains27 = 0;    S o.chains_params27 = 0;&#10;S o.chains28 = 0;    S o.chains_params28 = 0;&#10;S o.chains29 = 0;    S o.chains_params29 = 0;&#10;S o.chains30 = 0;    S o.chains_params30 = 0;&#10;&#10;S o.detuning1 = 0;" fileName="" height="69" id="05f052e7-1f5d-4aa3-94a1-598efe89ea2b" name="" useIcon="0" width="123" x="39" y="2066"/>
+      <GCTransition CGURI="" actionText="(abs(thres-i.y_meas15) &lt; 0.5)" conditionVisible="1" height="25" id="3b6821aa-83e6-4f9c-a6c4-4e38a72c9997" width="30" x="45" y="1580"/>
+      <GCStep actionBlockVisible="1" actionText="&#10;S z_thres = i.y_meas15+20; // z-ref = z-pos&#10;S o.refs27 = 15; // z-ref, 15 mm/s&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 2; S o.ctrlpar23 = 1; S o.ctrlpar24 = 0; S o.ctrlpar25 = 1; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 60; S o.ctrlpar28 = 3000; //z&#10;&#10;&#10;S o.state1 = 135.13;" fileName="" height="31" id="8f995a0a-f68d-4632-8acf-58b33efcdd87" name="Move away z" useIcon="0" width="120" x="42" y="1858"/>
+      <GCTransition CGURI="" actionText="abs(z_thres-i.y_meas15) &lt; 0.5" conditionVisible="1" height="25" id="4a4491f7-7acd-4614-bb3f-d169797baf94" width="30" x="45" y="1920"/>
+      <GCStep actionBlockVisible="1" actionText="S o.ifkDigitalIn8 = 0;&#10;S o.state1 = 135.12;" fileName="" height="31" id="dc952038-e6df-4e7b-938c-ff478792bbbf" name="Release" useIcon="0" width="120" x="42" y="1758"/>
+      <GCTransition CGURI="" actionText="i.ifkAnalogOut5 &lt; 1" conditionVisible="1" height="25" id="9e3a933f-8700-4dbb-838e-1973bc06ba39" width="30" x="45" y="1810"/>
+      <GCTransition CGURI="" actionText="(i.y_meas13-x_thres &lt; -28)" conditionVisible="1" height="25" id="26d0c296-3ec9-49c7-b7e3-c94557d8c30e" width="30" x="-145" y="760"/>
+      <GCTransition CGURI="" actionText="i.ifkAnalogOut8 &gt; 1.5" conditionVisible="1" height="25" id="7e2c3d91-fa6a-467c-80e5-f8cd1de95b76" width="30" x="195" y="450"/>
+      <GCTransition CGURI="" actionText="(max(abs(i.ifkAnalogOut6-2.5),abs(i.ifkAnalogOut7-2.5)) &gt; 0.3)" conditionVisible="1" height="25" id="1bdb5cd9-d669-48ac-af29-c1fb6e0ef127" width="30" x="195" y="760"/>
+      <GCTransition CGURI="" actionText="i.ifkAnalogOut8 &gt; 1.5" conditionVisible="1" height="25" id="2a146e6a-b87d-4991-8918-959a789d2575" width="30" x="195" y="980"/>
+      <GCTransition CGURI="" actionText="i.ifkAnalogOut8 &gt; 2" conditionVisible="1" height="25" id="48bf92ba-a2d5-45b6-8b38-cd1a6af19176" width="30" x="435" y="1700"/>
+      <GCTransition CGURI="" actionText="(abs(o.refs27 -i.y_meas15) &lt; 0.5)" conditionVisible="1" height="25" id="efad79df-7c10-43af-9f52-184567f6945b" width="30" x="435" y="1920"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs27 = i.y_meas15; // z-ref&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10; S o.ctrlpar28 = 50; //z&#10;&#10;S o.state1 = 135.14;" fileName="" height="31" id="e880bef1-2cc2-425a-bac9-2536f7c3c4c1" name="stop z" useIcon="0" width="120" x="432" y="1868"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs25 = i.y_meas13; // x-ref&#10;S o.ctrlpar1 = 1; S o.ctrlpar2 = 4; S o.ctrlpar3 = 1; S o.ctrlpar4 = 5; S o.ctrlpar5 = 1000; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 10; S o.ctrlpar8 = 50; //x&#10;&#10;S o.state1 = 135.14;" fileName="" height="31" id="76348937-078f-4960-b1c5-fe75cdd9fa74" name="stop x" useIcon="0" width="120" x="432" y="2058"/>
+      <GCTransition CGURI="" actionText="(abs(o.refs25 -i.y_meas13) &lt; 0.5)" conditionVisible="1" height="25" id="e25b1ad7-0939-4b35-b600-75b5beba8ab7" width="30" x="435" y="2110"/>
+      <GCTransition CGURI="" actionText="abs(o.refs27 -i.y_meas15) &lt; 0.5" conditionVisible="1" height="25" id="b9badaf2-3647-4db5-83b5-6b170118f222" width="30" x="45" y="2020"/>
+      <GCTransition CGURI="" actionText="(abs(o.refs27-i.y_meas15) &lt; 0.5)" conditionVisible="1" height="25" id="9e2651d6-7a68-4e86-b749-cadae8613f19" width="30" x="45" y="1690"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs27 = i.y_meas15; // z-ref&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10; S o.ctrlpar28 = 50; //z&#10;&#10;S o.state1 = 135.14;" fileName="" height="31" id="295e18fb-2940-48b6-8176-41f14d9b1a26" name="stop z" useIcon="0" width="120" x="42" y="1628"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs27 = i.y_meas15; // z-ref&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10; S o.ctrlpar28 = 50; //z&#10;&#10;S o.state1 = 135.14;" fileName="" height="31" id="5ec43432-e2e3-48fe-bc8e-b1b612fce9e1" name="stop z" useIcon="0" width="120" x="42" y="1968"/>
+      <GCTransition CGURI="" actionText="(max(abs(i.ifkAnalogOut6-2.5),abs(i.ifkAnalogOut7-2.5)) &gt; 0.3)" conditionVisible="1" height="25" id="7e7f31fd-c959-4768-a896-add687a0a1d6" width="30" x="195" y="1230"/>
+      <GCTransition CGURI="" actionText="1" conditionVisible="1" height="25" id="7602d93a-809f-4933-8800-bd1448e4b98b" width="42" x="189" y="-120"/>
+      <GCStep actionBlockVisible="1" actionText="//define chains and constant params&#10;S o.chains1 = 11;    S o.chains_params1 = 0;&#10;S o.chains2 = 12;    S o.chains_params2 = 0;&#10;S o.chains3 = 13;    S o.chains_params3 = 0;&#10;S o.chains4 = 1;     S o.chains_params4 = 0;&#10;S o.chains5 = 2;     S o.chains_params5 = 0;&#10;S o.chains6 = 3;     S o.chains_params6 = 0;&#10;S o.chains7 = 4;     S o.chains_params7 = 0;&#10;S o.chains8 = 5;     S o.chains_params8 = 0;&#10;S o.chains9 = 6;     S o.chains_params9 = 0;&#10;S o.chains10 = 15;   S o.chains_params10 = 3.141592654;&#10;S o.chains11 = 11;   S o.chains_params11 = 0;&#10;S o.chains12 = 12;   S o.chains_params12 = 0;&#10;S o.chains13 = 13;   S o.chains_params13 = -1*190;&#10;S o.chains14 = 16;   S o.chains_params14 = -1*0;&#10;S o.chains15 = -31;  S o.chains_params15 = 0;&#10;S o.chains16 = 0;    S o.chains_params16 = 0;&#10;S o.chains17 = 0;    S o.chains_params17 = 0;&#10;S o.chains18 = 0;    S o.chains_params18 = 0;&#10;S o.chains19 = 0;    S o.chains_params19 = 0;&#10;S o.chains20 = 0;    S o.chains_params20 = 0;&#10;S o.chains21 = 0;    S o.chains_params21 = 0;&#10;S o.chains22 = 0;    S o.chains_params22 = 0;&#10;S o.chains23 = 0;    S o.chains_params23 = 0;&#10;S o.chains24 = 0;    S o.chains_params24 = 0;&#10;S o.chains25 = 0;    S o.chains_params25 = 0;&#10;S o.chains26 = 0;    S o.chains_params26 = 0;&#10;S o.chains27 = 0;    S o.chains_params27 = 0;&#10;S o.chains28 = 0;    S o.chains_params28 = 0;&#10;S o.chains29 = 0;    S o.chains_params29 = 0;&#10;S o.chains30 = 0;    S o.chains_params30 = 0;&#10;&#10;S o.detuning1 = 0;&#10;" fileName="" height="31" id="fa9488f8-adc9-43be-81c6-9e8a3ac9563c" name="" useIcon="0" width="120" x="192" y="-52"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="1.0" name="Switch" updated="0" value="1.0" width="75" x="715" y="-260"/>
+      <GCStep actionBlockVisible="1" actionText="// Set the desired pos to the actual one&#10;S o.ctrlpar1 = 1; S o.ctrlpar2 = 4; S o.ctrlpar3 = 1; S o.ctrlpar4 = 5; S o.ctrlpar5 = 1000; S o.ctrlpar6 = 0.004; S o.ctrlpar7 = 10; S o.ctrlpar8 = 50; //x&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 4; S o.ctrlpar13 = 1; S o.ctrlpar14 = 5; S o.ctrlpar15 = 1000; S o.ctrlpar16 = 0.004; S o.ctrlpar17 = 10; S o.ctrlpar18 = 50; //y&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 1; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10; S o.ctrlpar28 = 50; //z&#10;&#10;S o.refs25 = i.y_meas13;; // x-ref = x-pos&#10;S o.refs26 = i.y_meas14;; // y-ref = y-pos&#10;S o.refs27 = i.y_meas15;; // z-ref = z-pos&#10;&#10;// Disable controllers&#10;//          coord              type              active                  K                   Ti          Sampling period             max(u)         max(ac)&#10;S o.ctrlpar1 = 1;  S o.ctrlpar2 = 4;  S o.ctrlpar3 = 0;  S o.ctrlpar4 = 5;  S o.ctrlpar5 = 1000;  S o.ctrlpar6 = 0.004;  S o.ctrlpar7 = 10;   S o.ctrlpar8 = 600; //x&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 4; S o.ctrlpar13 = 0; S o.ctrlpar14 = 5; S o.ctrlpar15 = 1000; S o.ctrlpar16 = 0.004; S o.ctrlpar17 = 10;  S o.ctrlpar18 = 600; //y&#10;S o.ctrlpar21 = 3; S o.ctrlpar22 = 4; S o.ctrlpar23 = 0; S o.ctrlpar24 = 5; S o.ctrlpar25 = 1000; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 10;   S o.ctrlpar28 = 600; //z&#10;S o.ctrlpar31 = 4; S o.ctrlpar32 = 4; S o.ctrlpar33 = 0; S o.ctrlpar34 = 1; S o.ctrlpar35 = 1000; S o.ctrlpar36 = 0.004; S o.ctrlpar37 = 0.1; S o.ctrlpar38 = 60; //x-rot 0.8&#10;S o.ctrlpar41 = 5; S o.ctrlpar42 = 4; S o.ctrlpar43 = 0; S o.ctrlpar44 = 1; S o.ctrlpar45 = 1000; S o.ctrlpar46 = 0.004; S o.ctrlpar47 = 0.1; S o.ctrlpar48 = 60; //y-rot 0.8&#10;S o.ctrlpar51 = 6; S o.ctrlpar52 = 4; S o.ctrlpar53 = 0; S o.ctrlpar54 = 1; S o.ctrlpar55 = 1000; S o.ctrlpar56 = 0.004; S o.ctrlpar57 = 0.1; S o.ctrlpar58 = 60; //z-rot&#10;" fileName="" height="31" id="92a8d193-ab69-4ea2-87e3-27e44626dd41" name="" useIcon="0" width="120" x="732" y="128"/>
+      <GCTransition CGURI="" actionText="1" conditionVisible="1" height="25" id="e1ff10b5-a0b8-4445-9a23-6a26b0825874" width="42" x="729" y="170"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="0.0" name="x_0" updated="0" value="0.0" width="75" x="1170" y="330"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="0.0" name="y_0" updated="0" value="0.0" width="75" x="1170" y="250"/>
+      <RealVariable constant="0" exp="" height="45" initialValue="0.0" name="z_0" updated="0" value="0.0" width="75" x="1170" y="170"/>
+      <GCTransition CGURI="" actionText="i.y_meas38 &lt; -2.0" conditionVisible="1" height="25" id="c137a79a-364a-47ad-b308-a6ca7840832e" width="30" x="75" y="1320"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs26 = 0; // y-ref&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 1; S o.ctrlpar13 = 1; S o.ctrlpar14 = 0.2;  S o.ctrlpar15 = 1;  S o.ctrlpar16 = 0.004;  S o.ctrlpar17 = 10; S o.ctrlpar18 = 600; //y&#10;&#10;S o.state1 = 135.11;" fileName="" height="31" id="ef2c9d6c-a6b6-4c90-8b77-d8c41c1c2d72" name="" useIcon="0" width="120" x="72" y="1348"/>
+      <GCTransition CGURI="" actionText="abs(i.y_meas38) &lt; 0.5" conditionVisible="1" height="25" id="cc3392bf-3355-4e8a-b2c1-08c7c2ae8256" width="30" x="75" y="1390"/>
+      <GCTransition CGURI="" actionText="((o.refs26-i.y_meas14) &lt; 0.5)" conditionVisible="1" height="25" id="3d9c95b1-a7ef-4072-a92a-aef2c21e8978" width="30" x="-55" y="1440"/>
+      <GCStep actionBlockVisible="1" actionText="S o.refs26 = i.y_meas14-4; // y-ref = y-pos&#10;S o.ctrlpar11 = 2; S o.ctrlpar12 = 4; S o.ctrlpar13 = 1; S o.ctrlpar14 = 4;  S o.ctrlpar15 = 1000;  S o.ctrlpar16 = 0.004;  S o.ctrlpar17 = 10; S o.ctrlpar18 = 50; //y&#10;&#10;S o.state1 = 135.10;" fileName="" height="31" id="51f767a5-8edc-4b8c-b991-b4f7ee9a5f3f" name="" useIcon="0" width="120" x="-58" y="1388"/>
+      <WorkspaceObject enabled="1" fileName="" height="60" horizontalScrollBar="1" name="o" ownerClass="" scanCycle="1" useIcon="0" verticalScrollBar="1" width="60" x="-60" y="-110">
+        <GCDocument color="-1" height="600" scale="1.0" socketSendMode="Inherit" viewPositionX="0" viewPositionY="15356" width="573" x="129" y="-16">
+          <AnalogOut channel="149" height="60" name="Cf1" value="" width="80" x="20" y="20"/>
+          <AnalogOut channel="150" height="60" name="Cf2" value="" width="80" x="130" y="20"/>
+          <AnalogOut channel="151" height="60" name="Cf3" value="" width="80" x="240" y="20"/>
+          <AnalogOut channel="152" height="60" name="Cf4" value="" width="80" x="350" y="20"/>
+          <AnalogOut channel="153" height="60" name="Cf5" value="" width="80" x="460" y="20"/>
+          <AnalogOut channel="154" height="60" name="Cf6" value="" width="80" x="570" y="20"/>
+          <AnalogOut channel="155" height="60" name="Cf7" value="" width="80" x="20" y="120"/>
+          <AnalogOut channel="156" height="60" name="Cf8" value="" width="80" x="130" y="120"/>
+          <AnalogOut channel="157" height="60" name="Cf9" value="" width="80" x="240" y="120"/>
+          <AnalogOut channel="158" height="60" name="Cf10" value="" width="80" x="350" y="120"/>
+          <AnalogOut channel="159" height="60" name="Cf11" value="" width="80" x="460" y="120"/>
+          <AnalogOut channel="160" height="60" name="Cf12" value="" width="80" x="570" y="120"/>
+          <AnalogOut channel="161" height="60" name="Cf13" value="" width="80" x="20" y="220"/>
+          <AnalogOut channel="162" height="60" name="Cf14" value="" width="80" x="130" y="220"/>
+          <AnalogOut channel="163" height="60" name="Cf15" value="" width="80" x="240" y="220"/>
+          <AnalogOut channel="164" height="60" name="Cf16" value="" width="80" x="350" y="220"/>
+          <AnalogOut channel="165" height="60" name="Cf17" value="" width="80" x="460" y="220"/>
+          <AnalogOut channel="166" height="60" name="Cf18" value="" width="80" x="570" y="220"/>
+          <AnalogOut channel="167" height="60" name="Cf19" value="" width="80" x="20" y="320"/>
+          <AnalogOut channel="168" height="60" name="Cf20" value="" width="80" x="130" y="320"/>
+          <AnalogOut channel="169" height="60" name="Cf21" value="" width="80" x="240" y="320"/>
+          <AnalogOut channel="170" height="60" name="Cf22" value="" width="80" x="350" y="320"/>
+          <AnalogOut channel="171" height="60" name="Cf23" value="" width="80" x="460" y="320"/>
+          <AnalogOut channel="172" height="60" name="Cf24" value="" width="80" x="570" y="320"/>
+          <AnalogOut channel="173" height="60" name="Cf25" value="" width="80" x="20" y="420"/>
+          <AnalogOut channel="174" height="60" name="Cf26" value="" width="80" x="130" y="420"/>
+          <AnalogOut channel="175" height="60" name="Cf27" value="" width="80" x="240" y="420"/>
+          <AnalogOut channel="176" height="60" name="Cf28" value="" width="80" x="350" y="420"/>
+          <AnalogOut channel="177" height="60" name="Cf29" value="" width="80" x="460" y="420"/>
+          <AnalogOut channel="178" height="60" name="Cf30" value="" width="80" x="570" y="420"/>
+          <AnalogOut channel="179" height="60" name="Cf31" value="" width="80" x="20" y="520"/>
+          <AnalogOut channel="180" height="60" name="Cf32" value="" width="80" x="130" y="520"/>
+          <AnalogOut channel="181" height="60" name="Cf33" value="" width="80" x="240" y="520"/>
+          <AnalogOut channel="182" height="60" name="Cf34" value="" width="80" x="350" y="520"/>
+          <AnalogOut channel="183" height="60" name="Cf35" value="" width="80" x="460" y="520"/>
+          <AnalogOut channel="184" height="60" name="Cf36" value="" width="80" x="570" y="520"/>
+          <AnalogOut channel="185" height="60" name="Cf37" value="" width="80" x="20" y="620"/>
+          <AnalogOut channel="186" height="60" name="Cf38" value="" width="80" x="130" y="620"/>
+          <AnalogOut channel="187" height="60" name="Cf39" value="" width="80" x="240" y="620"/>
+          <AnalogOut channel="188" height="60" name="Cf40" value="" width="80" x="350" y="620"/>
+          <AnalogOut channel="189" height="60" name="Cf41" value="" width="80" x="460" y="620"/>
+          <AnalogOut channel="190" height="60" name="Cf42" value="" width="80" x="570" y="620"/>
+          <AnalogOut channel="191" height="60" name="Cf43" value="" width="80" x="20" y="720"/>
+          <AnalogOut channel="192" height="60" name="Cf44" value="" width="80" x="130" y="720"/>
+          <AnalogOut channel="193" height="60" name="Cf45" value="" width="80" x="240" y="720"/>
+          <AnalogOut channel="194" height="60" name="Cf46" value="" width="80" x="350" y="720"/>
+          <AnalogOut channel="195" height="60" name="Cf47" value="" width="80" x="460" y="720"/>
+          <AnalogOut channel="196" height="60" name="Cf48" value="" width="80" x="570" y="720"/>
+          <AnalogOut channel="197" height="60" name="Cf49" value="" width="80" x="20" y="820"/>
+          <AnalogOut channel="198" height="60" name="Cf50" value="" width="80" x="130" y="820"/>
+          <AnalogOut channel="199" height="60" name="Cf51" value="" width="80" x="240" y="820"/>
+          <AnalogOut channel="200" height="60" name="Cf52" value="" width="80" x="350" y="820"/>
+          <AnalogOut channel="201" height="60" name="Cf53" value="" width="80" x="460" y="820"/>
+          <AnalogOut channel="202" height="60" name="Cf54" value="" width="80" x="570" y="820"/>
+          <AnalogOut channel="203" height="60" name="Cf55" value="" width="80" x="20" y="920"/>
+          <AnalogOut channel="204" height="60" name="Cf56" value="" width="80" x="130" y="920"/>
+          <AnalogOut channel="205" height="60" name="Cf57" value="" width="80" x="240" y="920"/>
+          <AnalogOut channel="206" height="60" name="Cf58" value="" width="80" x="350" y="920"/>
+          <AnalogOut channel="207" height="60" name="Cf59" value="" width="80" x="460" y="920"/>
+          <AnalogOut channel="208" height="60" name="Cf60" value="" width="80" x="570" y="920"/>
+          <AnalogOut channel="209" height="60" name="Cf61" value="" width="80" x="20" y="1020"/>
+          <AnalogOut channel="210" height="60" name="Cf62" value="" width="80" x="130" y="1020"/>
+          <AnalogOut channel="211" height="60" name="Cf63" value="" width="80" x="240" y="1020"/>
+          <AnalogOut channel="212" height="60" name="Cf64" value="" width="80" x="350" y="1020"/>
+          <AnalogOut channel="213" height="60" name="Cf65" value="" width="80" x="460" y="1020"/>
+          <AnalogOut channel="214" height="60" name="Cf66" value="" width="80" x="570" y="1020"/>
+          <AnalogOut channel="215" height="60" name="Cf67" value="" width="80" x="20" y="1120"/>
+          <AnalogOut channel="216" height="60" name="Cf68" value="" width="80" x="130" y="1120"/>
+          <AnalogOut channel="217" height="60" name="Cf69" value="" width="80" x="240" y="1120"/>
+          <AnalogOut channel="218" height="60" name="Cf70" value="" width="80" x="350" y="1120"/>
+          <AnalogOut channel="219" height="60" name="Cf71" value="" width="80" x="460" y="1120"/>
+          <AnalogOut channel="220" height="60" name="Cf72" value="" width="80" x="570" y="1120"/>
+          <AnalogOut channel="221" height="60" name="Cf73" value="" width="80" x="20" y="1220"/>
+          <AnalogOut channel="222" height="60" name="Cf74" value="" width="80" x="130" y="1220"/>
+          <AnalogOut channel="223" height="60" name="Cf75" value="" width="80" x="240" y="1220"/>
+          <AnalogOut channel="224" height="60" name="Cf76" value="" width="80" x="350" y="1220"/>
+          <AnalogOut channel="225" height="60" name="Cf77" value="" width="80" x="460" y="1220"/>
+          <AnalogOut channel="226" height="60" name="Cf78" value="" width="80" x="570" y="1220"/>
+          <AnalogOut channel="227" height="60" name="Cf79" value="" width="80" x="20" y="1320"/>
+          <AnalogOut channel="228" height="60" name="Cf80" value="" width="80" x="130" y="1320"/>
+          <AnalogOut channel="229" height="60" name="Cf81" value="" width="80" x="240" y="1320"/>
+          <AnalogOut channel="230" height="60" name="Cf82" value="" width="80" x="350" y="1320"/>
+          <AnalogOut channel="231" height="60" name="Cf83" value="" width="80" x="460" y="1320"/>
+          <AnalogOut channel="232" height="60" name="Cf84" value="" width="80" x="570" y="1320"/>
+          <AnalogOut channel="233" height="60" name="Cf85" value="" width="80" x="20" y="1420"/>
+          <AnalogOut channel="234" height="60" name="Cf86" value="" width="80" x="130" y="1420"/>
+          <AnalogOut channel="235" height="60" name="Cf87" value="" width="80" x="240" y="1420"/>
+          <AnalogOut channel="236" height="60" name="Cf88" value="" width="80" x="350" y="1420"/>
+          <AnalogOut channel="237" height="60" name="Cf89" value="" width="80" x="460" y="1420"/>
+          <AnalogOut channel="238" height="60" name="Cf90" value="" width="80" x="570" y="1420"/>
+          <AnalogOut channel="239" height="60" name="Cf91" value="" width="80" x="20" y="1520"/>
+          <AnalogOut channel="240" height="60" name="Cf92" value="" width="80" x="130" y="1520"/>
+          <AnalogOut channel="241" height="60" name="Cf93" value="" width="80" x="240" y="1520"/>
+          <AnalogOut channel="242" height="60" name="Cf94" value="" width="80" x="350" y="1520"/>
+          <AnalogOut channel="243" height="60" name="Cf95" value="" width="80" x="460" y="1520"/>
+          <AnalogOut channel="244" height="60" name="Cf96" value="" width="80" x="570" y="1520"/>
+          <AnalogOut channel="245" height="60" name="Cf97" value="" width="80" x="20" y="1620"/>
+          <AnalogOut channel="246" height="60" name="Cf98" value="" width="80" x="130" y="1620"/>
+          <AnalogOut channel="247" height="60" name="Cf99" value="" width="80" x="240" y="1620"/>
+          <AnalogOut channel="248" height="60" name="Cf100" value="" width="80" x="350" y="1620"/>
+          <AnalogOut channel="249" height="60" name="Cf101" value="" width="80" x="460" y="1620"/>
+          <AnalogOut channel="250" height="60" name="Cf102" value="" width="80" x="570" y="1620"/>
+          <AnalogOut channel="251" height="60" name="Cf103" value="" width="80" x="20" y="1720"/>
+          <AnalogOut channel="252" height="60" name="Cf104" value="" width="80" x="130" y="1720"/>
+          <AnalogOut channel="253" height="60" name="Cf105" value="" width="80" x="240" y="1720"/>
+          <AnalogOut channel="254" height="60" name="Cf106" value="" width="80" x="350" y="1720"/>
+          <AnalogOut channel="255" height="60" name="Cf107" value="" width="80" x="460" y="1720"/>
+          <AnalogOut channel="256" height="60" name="Cf108" value="" width="80" x="570" y="1720"/>
+          <AnalogOut channel="257" height="60" name="Cf109" value="" width="80" x="20" y="1820"/>
+          <AnalogOut channel="258" height="60" name="Cf110" value="" width="80" x="130" y="1820"/>
+          <AnalogOut channel="259" height="60" name="Cf111" value="" width="80" x="240" y="1820"/>
+          <AnalogOut channel="260" height="60" name="Cf112" value="" width="80" x="350" y="1820"/>
+          <AnalogOut channel="261" height="60" name="Cf113" value="" width="80" x="460" y="1820"/>
+          <AnalogOut channel="262" height="60" name="Cf114" value="" width="80" x="570" y="1820"/>
+          <AnalogOut channel="263" height="60" name="Cf115" value="" width="80" x="20" y="1920"/>
+          <AnalogOut channel="264" height="60" name="Cf116" value="" width="80" x="130" y="1920"/>
+          <AnalogOut channel="265" height="60" name="Cf117" value="" width="80" x="240" y="1920"/>
+          <AnalogOut channel="266" height="60" name="Cf118" value="" width="80" x="350" y="1920"/>
+          <AnalogOut channel="267" height="60" name="Cf119" value="" width="80" x="460" y="1920"/>
+          <AnalogOut channel="268" height="60" name="Cf120" value="" width="80" x="570" y="1920"/>
+          <AnalogOut channel="269" height="60" name="Cf121" value="" width="80" x="20" y="2020"/>
+          <AnalogOut channel="270" height="60" name="Cf122" value="" width="80" x="130" y="2020"/>
+          <AnalogOut channel="271" height="60" name="Cf123" value="" width="80" x="240" y="2020"/>
+          <AnalogOut channel="272" height="60" name="Cf124" value="" width="80" x="350" y="2020"/>
+          <AnalogOut channel="273" height="60" name="Cf125" value="" width="80" x="460" y="2020"/>
+          <AnalogOut channel="274" height="60" name="Cf126" value="" width="80" x="570" y="2020"/>
+          <AnalogOut channel="275" height="60" name="Cf127" value="" width="80" x="20" y="2120"/>
+          <AnalogOut channel="276" height="60" name="Cf128" value="" width="80" x="130" y="2120"/>
+          <AnalogOut channel="277" height="60" name="Cf129" value="" width="80" x="240" y="2120"/>
+          <AnalogOut channel="278" height="60" name="Cf130" value="" width="80" x="350" y="2120"/>
+          <AnalogOut channel="279" height="60" name="Cf131" value="" width="80" x="460" y="2120"/>
+          <AnalogOut channel="280" height="60" name="Cf132" value="" width="80" x="570" y="2120"/>
+          <AnalogOut channel="281" height="60" name="Cf133" value="" width="80" x="20" y="2220"/>
+          <AnalogOut channel="282" height="60" name="Cf134" value="" width="80" x="130" y="2220"/>
+          <AnalogOut channel="283" height="60" name="Cf135" value="" width="80" x="240" y="2220"/>
+          <AnalogOut channel="284" height="60" name="Cf136" value="" width="80" x="350" y="2220"/>
+          <AnalogOut channel="285" height="60" name="Cf137" value="" width="80" x="460" y="2220"/>
+          <AnalogOut channel="286" height="60" name="Cf138" value="" width="80" x="570" y="2220"/>
+          <AnalogOut channel="287" height="60" name="Cf139" value="" width="80" x="20" y="2320"/>
+          <AnalogOut channel="288" height="60" name="Cf140" value="" width="80" x="130" y="2320"/>
+          <AnalogOut channel="289" height="60" name="Cf141" value="" width="80" x="240" y="2320"/>
+          <AnalogOut channel="290" height="60" name="Cf142" value="" width="80" x="350" y="2320"/>
+          <AnalogOut channel="291" height="60" name="Cf143" value="" width="80" x="460" y="2320"/>
+          <AnalogOut channel="292" height="60" name="Cf144" value="" width="80" x="570" y="2320"/>
+          <AnalogOut channel="293" height="60" name="refs1" value="" width="80" x="20" y="2520"/>
+          <AnalogOut channel="294" height="60" name="refs2" value="" width="80" x="130" y="2520"/>
+          <AnalogOut channel="295" height="60" name="refs3" value="" width="80" x="240" y="2520"/>
+          <AnalogOut channel="296" height="60" name="refs4" value="" width="80" x="350" y="2520"/>
+          <AnalogOut channel="297" height="60" name="refs5" value="" width="80" x="460" y="2520"/>
+          <AnalogOut channel="298" height="60" name="refs6" value="" width="80" x="570" y="2520"/>
+          <AnalogOut channel="299" height="60" name="refs7" value="" width="80" x="20" y="2620"/>
+          <AnalogOut channel="300" height="60" name="refs8" value="" width="80" x="130" y="2620"/>
+          <AnalogOut channel="301" height="60" name="refs9" value="" width="80" x="240" y="2620"/>
+          <AnalogOut channel="302" height="60" name="refs10" value="" width="80" x="350" y="2620"/>
+          <AnalogOut channel="303" height="60" name="refs11" value="" width="80" x="460" y="2620"/>
+          <AnalogOut channel="304" height="60" name="refs12" value="" width="80" x="570" y="2620"/>
+          <AnalogOut channel="305" height="60" name="refs13" value="" width="80" x="20" y="2720"/>
+          <AnalogOut channel="306" height="60" name="refs14" value="" width="80" x="130" y="2720"/>
+          <AnalogOut channel="307" height="60" name="refs15" value="" width="80" x="240" y="2720"/>
+          <AnalogOut channel="308" height="60" name="refs16" value="" width="80" x="350" y="2720"/>
+          <AnalogOut channel="309" height="60" name="refs17" value="" width="80" x="460" y="2720"/>
+          <AnalogOut channel="310" height="60" name="refs18" value="" width="80" x="570" y="2720"/>
+          <AnalogOut channel="311" height="60" name="refs19" value="" width="80" x="20" y="2820"/>
+          <AnalogOut channel="312" height="60" name="refs20" value="" width="80" x="130" y="2820"/>
+          <AnalogOut channel="313" height="60" name="refs21" value="" width="80" x="240" y="2820"/>
+          <AnalogOut channel="314" height="60" name="refs22" value="" width="80" x="350" y="2820"/>
+          <AnalogOut channel="315" height="60" name="refs23" value="" width="80" x="460" y="2820"/>
+          <AnalogOut channel="316" height="60" name="refs24" value="" width="80" x="570" y="2820"/>
+          <AnalogOut channel="317" height="60" name="refs25" value="" width="80" x="20" y="2920"/>
+          <AnalogOut channel="318" height="60" name="refs26" value="" width="80" x="130" y="2920"/>
+          <AnalogOut channel="319" height="60" name="refs27" value="" width="80" x="240" y="2920"/>
+          <AnalogOut channel="320" height="60" name="refs28" value="" width="80" x="350" y="2920"/>
+          <AnalogOut channel="321" height="60" name="refs29" value="" width="80" x="460" y="2920"/>
+          <AnalogOut channel="322" height="60" name="refs30" value="" width="80" x="570" y="2920"/>
+          <AnalogOut channel="323" height="60" name="refs31" value="" width="80" x="20" y="3020"/>
+          <AnalogOut channel="324" height="60" name="refs32" value="" width="80" x="130" y="3020"/>
+          <AnalogOut channel="325" height="60" name="refs33" value="" width="80" x="240" y="3020"/>
+          <AnalogOut channel="326" height="60" name="refs34" value="" width="80" x="350" y="3020"/>
+          <AnalogOut channel="327" height="60" name="refs35" value="" width="80" x="460" y="3020"/>
+          <AnalogOut channel="328" height="60" name="refs36" value="" width="80" x="570" y="3020"/>
+          <AnalogOut channel="329" height="60" name="refs37" value="" width="80" x="20" y="3120"/>
+          <AnalogOut channel="330" height="60" name="refs38" value="" width="80" x="130" y="3120"/>
+          <AnalogOut channel="331" height="60" name="refs39" value="" width="80" x="240" y="3120"/>
+          <AnalogOut channel="332" height="60" name="refs40" value="" width="80" x="350" y="3120"/>
+          <AnalogOut channel="333" height="60" name="refs41" value="" width="80" x="460" y="3120"/>
+          <AnalogOut channel="334" height="60" name="refs42" value="" width="80" x="570" y="3120"/>
+          <AnalogOut channel="335" height="60" name="refs43" value="" width="80" x="20" y="3220"/>
+          <AnalogOut channel="336" height="60" name="refs44" value="" width="80" x="130" y="3220"/>
+          <AnalogOut channel="337" height="60" name="refs45" value="" width="80" x="240" y="3220"/>
+          <AnalogOut channel="338" height="60" name="refs46" value="" width="80" x="350" y="3220"/>
+          <AnalogOut channel="339" height="60" name="refs47" value="" width="80" x="460" y="3220"/>
+          <AnalogOut channel="340" height="60" name="refs48" value="" width="80" x="570" y="3220"/>
+          <AnalogOut channel="341" height="60" name="quat_refs1" value="" width="80" x="20" y="3420"/>
+          <AnalogOut channel="342" height="60" name="quat_refs2" value="" width="80" x="130" y="3420"/>
+          <AnalogOut channel="343" height="60" name="quat_refs3" value="" width="80" x="240" y="3420"/>
+          <AnalogOut channel="344" height="60" name="quat_refs4" value="" width="80" x="350" y="3420"/>
+          <AnalogOut channel="345" height="60" name="quat_refs5" value="" width="80" x="460" y="3420"/>
+          <AnalogOut channel="346" height="60" name="quat_refs6" value="" width="80" x="570" y="3420"/>
+          <AnalogOut channel="347" height="60" name="quat_refs7" value="" width="80" x="20" y="3520"/>
+          <AnalogOut channel="348" height="60" name="quat_refs8" value="" width="80" x="130" y="3520"/>
+          <AnalogOut channel="349" height="60" name="quat_refs9" value="" width="80" x="240" y="3520"/>
+          <AnalogOut channel="350" height="60" name="quat_refs10" value="" width="80" x="350" y="3520"/>
+          <AnalogOut channel="351" height="60" name="quat_refs11" value="" width="80" x="460" y="3520"/>
+          <AnalogOut channel="352" height="60" name="quat_refs12" value="" width="80" x="570" y="3520"/>
+          <AnalogOut channel="353" height="60" name="quat_refs13" value="" width="80" x="20" y="3620"/>
+          <AnalogOut channel="354" height="60" name="quat_refs14" value="" width="80" x="130" y="3620"/>
+          <AnalogOut channel="355" height="60" name="quat_refs15" value="0.0" width="80" x="240" y="3620"/>
+          <AnalogOut channel="356" height="60" name="quat_refs16" value="0.0" width="80" x="350" y="3620"/>
+          <AnalogOut channel="357" height="60" name="ctrlpar1" value="0.0" width="80" x="20" y="3720"/>
+          <AnalogOut channel="358" height="60" name="ctrlpar2" value="0.0" width="80" x="130" y="3720"/>
+          <AnalogOut channel="359" height="60" name="ctrlpar3" value="0.0" width="80" x="240" y="3720"/>
+          <AnalogOut channel="360" height="60" name="ctrlpar4" value="0.0" width="80" x="350" y="3720"/>
+          <AnalogOut channel="361" height="60" name="ctrlpar5" value="0.0" width="80" x="460" y="3720"/>
+          <AnalogOut channel="362" height="60" name="ctrlpar6" value="0.0" width="80" x="570" y="3720"/>
+          <AnalogOut channel="363" height="60" name="ctrlpar7" value="0.0" width="80" x="20" y="3820"/>
+          <AnalogOut channel="364" height="60" name="ctrlpar8" value="0.0" width="80" x="130" y="3820"/>
+          <AnalogOut channel="365" height="60" name="ctrlpar9" value="0.0" width="80" x="240" y="3820"/>
+          <AnalogOut channel="366" height="60" name="ctrlpar10" value="0.0" width="80" x="350" y="3820"/>
+          <AnalogOut channel="367" height="60" name="ctrlpar11" value="0.0" width="80" x="460" y="3820"/>
+          <AnalogOut channel="368" height="60" name="ctrlpar12" value="0.0" width="80" x="570" y="3820"/>
+          <AnalogOut channel="369" height="60" name="ctrlpar13" value="0.0" width="80" x="20" y="3920"/>
+          <AnalogOut channel="370" height="60" name="ctrlpar14" value="0.0" width="80" x="130" y="3920"/>
+          <AnalogOut channel="371" height="60" name="ctrlpar15" value="0.0" width="80" x="240" y="3920"/>
+          <AnalogOut channel="372" height="60" name="ctrlpar16" value="0.0" width="80" x="350" y="3920"/>
+          <AnalogOut channel="373" height="60" name="ctrlpar17" value="0.0" width="80" x="460" y="3920"/>
+          <AnalogOut channel="374" height="60" name="ctrlpar18" value="0.0" width="80" x="570" y="3920"/>
+          <AnalogOut channel="375" height="60" name="ctrlpar19" value="0.0" width="80" x="20" y="4020"/>
+          <AnalogOut channel="376" height="60" name="ctrlpar20" value="0.0" width="80" x="130" y="4020"/>
+          <AnalogOut channel="377" height="60" name="ctrlpar21" value="0.0" width="80" x="240" y="4020"/>
+          <AnalogOut channel="378" height="60" name="ctrlpar22" value="0.0" width="80" x="350" y="4020"/>
+          <AnalogOut channel="379" height="60" name="ctrlpar23" value="0.0" width="80" x="460" y="4020"/>
+          <AnalogOut channel="380" height="60" name="ctrlpar24" value="0.0" width="80" x="570" y="4020"/>
+          <AnalogOut channel="381" height="60" name="ctrlpar25" value="0.0" width="80" x="20" y="4120"/>
+          <AnalogOut channel="382" height="60" name="ctrlpar26" value="0.0" width="80" x="130" y="4120"/>
+          <AnalogOut channel="383" height="60" name="ctrlpar27" value="0.0" width="80" x="240" y="4120"/>
+          <AnalogOut channel="384" height="60" name="ctrlpar28" value="0.0" width="80" x="350" y="4120"/>
+          <AnalogOut channel="385" height="60" name="ctrlpar29" value="0.0" width="80" x="460" y="4120"/>
+          <AnalogOut channel="386" height="60" name="ctrlpar30" value="0.0" width="80" x="570" y="4120"/>
+          <AnalogOut channel="387" height="60" name="ctrlpar31" value="0.0" width="80" x="20" y="4220"/>
+          <AnalogOut channel="388" height="60" name="ctrlpar32" value="0.0" width="80" x="130" y="4220"/>
+          <AnalogOut channel="389" height="60" name="ctrlpar33" value="0.0" width="80" x="240" y="4220"/>
+          <AnalogOut channel="390" height="60" name="ctrlpar34" value="0.0" width="80" x="350" y="4220"/>
+          <AnalogOut channel="391" height="60" name="ctrlpar35" value="0.0" width="80" x="460" y="4220"/>
+          <AnalogOut channel="392" height="60" name="ctrlpar36" value="0.0" width="80" x="570" y="4220"/>
+          <AnalogOut channel="393" height="60" name="ctrlpar37" value="0.0" width="80" x="20" y="4320"/>
+          <AnalogOut channel="394" height="60" name="ctrlpar38" value="0.0" width="80" x="130" y="4320"/>
+          <AnalogOut channel="395" height="60" name="ctrlpar39" value="0.0" width="80" x="240" y="4320"/>
+          <AnalogOut channel="396" height="60" name="ctrlpar40" value="0.0" width="80" x="350" y="4320"/>
+          <AnalogOut channel="397" height="60" name="ctrlpar41" value="0.0" width="80" x="460" y="4320"/>
+          <AnalogOut channel="398" height="60" name="ctrlpar42" value="0.0" width="80" x="570" y="4320"/>
+          <AnalogOut channel="399" height="60" name="ctrlpar43" value="0.0" width="80" x="20" y="4420"/>
+          <AnalogOut channel="400" height="60" name="ctrlpar44" value="0.0" width="80" x="130" y="4420"/>
+          <AnalogOut channel="401" height="60" name="ctrlpar45" value="0.0" width="80" x="240" y="4420"/>
+          <AnalogOut channel="402" height="60" name="ctrlpar46" value="0.0" width="80" x="350" y="4420"/>
+          <AnalogOut channel="403" height="60" name="ctrlpar47" value="0.0" width="80" x="460" y="4420"/>
+          <AnalogOut channel="404" height="60" name="ctrlpar48" value="0.0" width="80" x="570" y="4420"/>
+          <AnalogOut channel="405" height="60" name="ctrlpar49" value="0.0" width="80" x="20" y="4520"/>
+          <AnalogOut channel="406" height="60" name="ctrlpar50" value="0.0" width="80" x="130" y="4520"/>
+          <AnalogOut channel="407" height="60" name="ctrlpar51" value="0.0" width="80" x="240" y="4520"/>
+          <AnalogOut channel="408" height="60" name="ctrlpar52" value="0.0" width="80" x="350" y="4520"/>
+          <AnalogOut channel="409" height="60" name="ctrlpar53" value="0.0" width="80" x="460" y="4520"/>
+          <AnalogOut channel="410" height="60" name="ctrlpar54" value="0.0" width="80" x="570" y="4520"/>
+          <AnalogOut channel="411" height="60" name="ctrlpar55" value="0.0" width="80" x="20" y="4620"/>
+          <AnalogOut channel="412" height="60" name="ctrlpar56" value="0.0" width="80" x="130" y="4620"/>
+          <AnalogOut channel="413" height="60" name="ctrlpar57" value="0.0" width="80" x="240" y="4620"/>
+          <AnalogOut channel="414" height="60" name="ctrlpar58" value="0.0" width="80" x="350" y="4620"/>
+          <AnalogOut channel="415" height="60" name="ctrlpar59" value="0.0" width="80" x="460" y="4620"/>
+          <AnalogOut channel="416" height="60" name="ctrlpar60" value="0.0" width="80" x="570" y="4620"/>
+          <AnalogOut channel="417" height="60" name="ctrlpar61" value="0.0" width="80" x="20" y="4720"/>
+          <AnalogOut channel="418" height="60" name="ctrlpar62" value="0.0" width="80" x="130" y="4720"/>
+          <AnalogOut channel="419" height="60" name="ctrlpar63" value="0.0" width="80" x="240" y="4720"/>
+          <AnalogOut channel="420" height="60" name="ctrlpar64" value="0.0" width="80" x="350" y="4720"/>
+          <AnalogOut channel="421" height="60" name="ctrlpar65" value="0.0" width="80" x="460" y="4720"/>
+          <AnalogOut channel="422" height="60" name="ctrlpar66" value="0.0" width="80" x="570" y="4720"/>
+          <AnalogOut channel="423" height="60" name="ctrlpar67" value="0.0" width="80" x="20" y="4820"/>
+          <AnalogOut channel="424" height="60" name="ctrlpar68" value="0.0" width="80" x="130" y="4820"/>
+          <AnalogOut channel="425" height="60" name="ctrlpar69" value="0.0" width="80" x="240" y="4820"/>
+          <AnalogOut channel="426" height="60" name="ctrlpar70" value="0.0" width="80" x="350" y="4820"/>
+          <AnalogOut channel="427" height="60" name="ctrlpar71" value="0.0" width="80" x="460" y="4820"/>
+          <AnalogOut channel="428" height="60" name="ctrlpar72" value="0.0" width="80" x="570" y="4820"/>
+          <AnalogOut channel="429" height="60" name="ctrlpar73" value="0.0" width="80" x="20" y="4920"/>
+          <AnalogOut channel="430" height="60" name="ctrlpar74" value="0.0" width="80" x="130" y="4920"/>
+          <AnalogOut channel="431" height="60" name="ctrlpar75" value="0.0" width="80" x="240" y="4920"/>
+          <AnalogOut channel="432" height="60" name="ctrlpar76" value="0.0" width="80" x="350" y="4920"/>
+          <AnalogOut channel="433" height="60" name="ctrlpar77" value="0.0" width="80" x="460" y="4920"/>
+          <AnalogOut channel="434" height="60" name="ctrlpar78" value="0.0" width="80" x="570" y="4920"/>
+          <AnalogOut channel="435" height="60" name="ctrlpar79" value="0.0" width="80" x="20" y="5020"/>
+          <AnalogOut channel="436" height="60" name="ctrlpar80" value="0.0" width="80" x="130" y="5020"/>
+          <AnalogOut channel="437" height="60" name="ctrlpar81" value="0.0" width="80" x="240" y="5020"/>
+          <AnalogOut channel="438" height="60" name="ctrlpar82" value="0.0" width="80" x="350" y="5020"/>
+          <AnalogOut channel="439" height="60" name="ctrlpar83" value="0.0" width="80" x="460" y="5020"/>
+          <AnalogOut channel="440" height="60" name="ctrlpar84" value="0.0" width="80" x="570" y="5020"/>
+          <AnalogOut channel="441" height="60" name="ctrlpar85" value="0.0" width="80" x="20" y="5120"/>
+          <AnalogOut channel="442" height="60" name="ctrlpar86" value="0.0" width="80" x="130" y="5120"/>
+          <AnalogOut channel="443" height="60" name="ctrlpar87" value="0.0" width="80" x="240" y="5120"/>
+          <AnalogOut channel="444" height="60" name="ctrlpar88" value="0.0" width="80" x="350" y="5120"/>
+          <AnalogOut channel="445" height="60" name="ctrlpar89" value="0.0" width="80" x="460" y="5120"/>
+          <AnalogOut channel="446" height="60" name="ctrlpar90" value="0.0" width="80" x="570" y="5120"/>
+          <AnalogOut channel="447" height="60" name="ctrlpar91" value="0.0" width="80" x="20" y="5220"/>
+          <AnalogOut channel="448" height="60" name="ctrlpar92" value="0.0" width="80" x="130" y="5220"/>
+          <AnalogOut channel="449" height="60" name="ctrlpar93" value="0.0" width="80" x="240" y="5220"/>
+          <AnalogOut channel="450" height="60" name="ctrlpar94" value="0.0" width="80" x="350" y="5220"/>
+          <AnalogOut channel="451" height="60" name="ctrlpar95" value="0.0" width="80" x="460" y="5220"/>
+          <AnalogOut channel="452" height="60" name="ctrlpar96" value="0.0" width="80" x="570" y="5220"/>
+          <AnalogOut channel="453" height="60" name="ctrlpar97" value="0.0" width="80" x="20" y="5320"/>
+          <AnalogOut channel="454" height="60" name="ctrlpar98" value="0.0" width="80" x="130" y="5320"/>
+          <AnalogOut channel="455" height="60" name="ctrlpar99" value="0.0" width="80" x="240" y="5320"/>
+          <AnalogOut channel="456" height="60" name="ctrlpar100" value="0.0" width="80" x="350" y="5320"/>
+          <AnalogOut channel="457" height="60" name="ctrlpar101" value="0.0" width="80" x="460" y="5320"/>
+          <AnalogOut channel="458" height="60" name="ctrlpar102" value="0.0" width="80" x="570" y="5320"/>
+          <AnalogOut channel="459" height="60" name="ctrlpar103" value="0.0" width="80" x="20" y="5420"/>
+          <AnalogOut channel="460" height="60" name="ctrlpar104" value="0.0" width="80" x="130" y="5420"/>
+          <AnalogOut channel="461" height="60" name="ctrlpar105" value="0.0" width="80" x="240" y="5420"/>
+          <AnalogOut channel="462" height="60" name="ctrlpar106" value="0.0" width="80" x="350" y="5420"/>
+          <AnalogOut channel="463" height="60" name="ctrlpar107" value="0.0" width="80" x="460" y="5420"/>
+          <AnalogOut channel="464" height="60" name="ctrlpar108" value="0.0" width="80" x="570" y="5420"/>
+          <AnalogOut channel="465" height="60" name="ctrlpar109" value="0.0" width="80" x="20" y="5520"/>
+          <AnalogOut channel="466" height="60" name="ctrlpar110" value="0.0" width="80" x="130" y="5520"/>
+          <AnalogOut channel="467" height="60" name="ctrlpar111" value="0.0" width="80" x="240" y="5520"/>
+          <AnalogOut channel="468" height="60" name="ctrlpar112" value="0.0" width="80" x="350" y="5520"/>
+          <AnalogOut channel="469" height="60" name="ctrlpar113" value="0.0" width="80" x="460" y="5520"/>
+          <AnalogOut channel="470" height="60" name="ctrlpar114" value="0.0" width="80" x="570" y="5520"/>
+          <AnalogOut channel="471" height="60" name="ctrlpar115" value="0.0" width="80" x="20" y="5620"/>
+          <AnalogOut channel="472" height="60" name="ctrlpar116" value="0.0" width="80" x="130" y="5620"/>
+          <AnalogOut channel="473" height="60" name="ctrlpar117" value="0.0" width="80" x="240" y="5620"/>
+          <AnalogOut channel="474" height="60" name="ctrlpar118" value="0.0" width="80" x="350" y="5620"/>
+          <AnalogOut channel="475" height="60" name="ctrlpar119" value="0.0" width="80" x="460" y="5620"/>
+          <AnalogOut channel="476" height="60" name="ctrlpar120" value="0.0" width="80" x="570" y="5620"/>
+          <AnalogOut channel="477" height="60" name="ctrlpar121" value="0.0" width="80" x="20" y="5720"/>
+          <AnalogOut channel="478" height="60" name="ctrlpar122" value="0.0" width="80" x="130" y="5720"/>
+          <AnalogOut channel="479" height="60" name="ctrlpar123" value="0.0" width="80" x="240" y="5720"/>
+          <AnalogOut channel="480" height="60" name="ctrlpar124" value="0.0" width="80" x="350" y="5720"/>
+          <AnalogOut channel="481" height="60" name="ctrlpar125" value="0.0" width="80" x="460" y="5720"/>
+          <AnalogOut channel="482" height="60" name="ctrlpar126" value="0.0" width="80" x="570" y="5720"/>
+          <AnalogOut channel="483" height="60" name="ctrlpar127" value="0.0" width="80" x="20" y="5820"/>
+          <AnalogOut channel="484" height="60" name="ctrlpar128" value="0.0" width="80" x="130" y="5820"/>
+          <AnalogOut channel="485" height="60" name="ctrlpar129" value="0.0" width="80" x="240" y="5820"/>
+          <AnalogOut channel="486" height="60" name="ctrlpar130" value="0.0" width="80" x="350" y="5820"/>
+          <AnalogOut channel="487" height="60" name="ctrlpar131" value="0.0" width="80" x="460" y="5820"/>
+          <AnalogOut channel="488" height="60" name="ctrlpar132" value="0.0" width="80" x="570" y="5820"/>
+          <AnalogOut channel="489" height="60" name="ctrlpar133" value="0.0" width="80" x="20" y="5920"/>
+          <AnalogOut channel="490" height="60" name="ctrlpar134" value="0.0" width="80" x="130" y="5920"/>
+          <AnalogOut channel="491" height="60" name="ctrlpar135" value="0.0" width="80" x="240" y="5920"/>
+          <AnalogOut channel="492" height="60" name="ctrlpar136" value="0.0" width="80" x="350" y="5920"/>
+          <AnalogOut channel="493" height="60" name="ctrlpar137" value="0.0" width="80" x="460" y="5920"/>
+          <AnalogOut channel="494" height="60" name="ctrlpar138" value="0.0" width="80" x="570" y="5920"/>
+          <AnalogOut channel="495" height="60" name="ctrlpar139" value="0.0" width="80" x="20" y="6020"/>
+          <AnalogOut channel="496" height="60" name="ctrlpar140" value="0.0" width="80" x="130" y="6020"/>
+          <AnalogOut channel="497" height="60" name="ctrlpar141" value="0.0" width="80" x="240" y="6020"/>
+          <AnalogOut channel="498" height="60" name="ctrlpar142" value="0.0" width="80" x="350" y="6020"/>
+          <AnalogOut channel="499" height="60" name="ctrlpar143" value="0.0" width="80" x="460" y="6020"/>
+          <AnalogOut channel="500" height="60" name="ctrlpar144" value="0.0" width="80" x="570" y="6020"/>
+          <AnalogOut channel="501" height="60" name="ctrlpar145" value="0.0" width="80" x="20" y="6120"/>
+          <AnalogOut channel="502" height="60" name="ctrlpar146" value="0.0" width="80" x="130" y="6120"/>
+          <AnalogOut channel="503" height="60" name="ctrlpar147" value="0.0" width="80" x="240" y="6120"/>
+          <AnalogOut channel="504" height="60" name="ctrlpar148" value="0.0" width="80" x="350" y="6120"/>
+          <AnalogOut channel="505" height="60" name="ctrlpar149" value="0.0" width="80" x="460" y="6120"/>
+          <AnalogOut channel="506" height="60" name="ctrlpar150" value="0.0" width="80" x="570" y="6120"/>
+          <AnalogOut channel="507" height="60" name="ctrlpar151" value="0.0" width="80" x="20" y="6220"/>
+          <AnalogOut channel="508" height="60" name="ctrlpar152" value="0.0" width="80" x="130" y="6220"/>
+          <AnalogOut channel="509" height="60" name="ctrlpar153" value="0.0" width="80" x="240" y="6220"/>
+          <AnalogOut channel="510" height="60" name="ctrlpar154" value="0.0" width="80" x="350" y="6220"/>
+          <AnalogOut channel="511" height="60" name="ctrlpar155" value="0.0" width="80" x="460" y="6220"/>
+          <AnalogOut channel="512" height="60" name="ctrlpar156" value="0.0" width="80" x="570" y="6220"/>
+          <AnalogOut channel="513" height="60" name="ctrlpar157" value="0.0" width="80" x="20" y="6320"/>
+          <AnalogOut channel="514" height="60" name="ctrlpar158" value="0.0" width="80" x="130" y="6320"/>
+          <AnalogOut channel="515" height="60" name="ctrlpar159" value="0.0" width="80" x="240" y="6320"/>
+          <AnalogOut channel="516" height="60" name="ctrlpar160" value="0.0" width="80" x="350" y="6320"/>
+          <AnalogOut channel="517" height="60" name="ctrlpar161" value="0.0" width="80" x="460" y="6320"/>
+          <AnalogOut channel="518" height="60" name="ctrlpar162" value="0.0" width="80" x="570" y="6320"/>
+          <AnalogOut channel="519" height="60" name="ctrlpar163" value="0.0" width="80" x="20" y="6420"/>
+          <AnalogOut channel="520" height="60" name="ctrlpar164" value="0.0" width="80" x="130" y="6420"/>
+          <AnalogOut channel="521" height="60" name="ctrlpar165" value="0.0" width="80" x="240" y="6420"/>
+          <AnalogOut channel="522" height="60" name="ctrlpar166" value="0.0" width="80" x="350" y="6420"/>
+          <AnalogOut channel="523" height="60" name="ctrlpar167" value="0.0" width="80" x="460" y="6420"/>
+          <AnalogOut channel="524" height="60" name="ctrlpar168" value="0.0" width="80" x="570" y="6420"/>
+          <AnalogOut channel="525" height="60" name="ctrlpar169" value="0.0" width="80" x="20" y="6520"/>
+          <AnalogOut channel="526" height="60" name="ctrlpar170" value="0.0" width="80" x="130" y="6520"/>
+          <AnalogOut channel="527" height="60" name="ctrlpar171" value="0.0" width="80" x="240" y="6520"/>
+          <AnalogOut channel="528" height="60" name="ctrlpar172" value="0.0" width="80" x="350" y="6520"/>
+          <AnalogOut channel="529" height="60" name="ctrlpar173" value="0.0" width="80" x="460" y="6520"/>
+          <AnalogOut channel="530" height="60" name="ctrlpar174" value="0.0" width="80" x="570" y="6520"/>
+          <AnalogOut channel="531" height="60" name="ctrlpar175" value="0.0" width="80" x="20" y="6620"/>
+          <AnalogOut channel="532" height="60" name="ctrlpar176" value="0.0" width="80" x="130" y="6620"/>
+          <AnalogOut channel="533" height="60" name="ctrlpar177" value="0.0" width="80" x="240" y="6620"/>
+          <AnalogOut channel="534" height="60" name="ctrlpar178" value="0.0" width="80" x="350" y="6620"/>
+          <AnalogOut channel="535" height="60" name="ctrlpar179" value="0.0" width="80" x="460" y="6620"/>
+          <AnalogOut channel="536" height="60" name="ctrlpar180" value="0.0" width="80" x="570" y="6620"/>
+          <AnalogOut channel="537" height="60" name="ctrlpar181" value="0.0" width="80" x="20" y="6720"/>
+          <AnalogOut channel="538" height="60" name="ctrlpar182" value="0.0" width="80" x="130" y="6720"/>
+          <AnalogOut channel="539" height="60" name="ctrlpar183" value="0.0" width="80" x="240" y="6720"/>
+          <AnalogOut channel="540" height="60" name="ctrlpar184" value="0.0" width="80" x="350" y="6720"/>
+          <AnalogOut channel="541" height="60" name="ctrlpar185" value="0.0" width="80" x="460" y="6720"/>
+          <AnalogOut channel="542" height="60" name="ctrlpar186" value="0.0" width="80" x="570" y="6720"/>
+          <AnalogOut channel="543" height="60" name="ctrlpar187" value="0.0" width="80" x="20" y="6820"/>
+          <AnalogOut channel="544" height="60" name="ctrlpar188" value="0.0" width="80" x="130" y="6820"/>
+          <AnalogOut channel="545" height="60" name="ctrlpar189" value="0.0" width="80" x="240" y="6820"/>
+          <AnalogOut channel="546" height="60" name="ctrlpar190" value="0.0" width="80" x="350" y="6820"/>
+          <AnalogOut channel="547" height="60" name="ctrlpar191" value="0.0" width="80" x="460" y="6820"/>
+          <AnalogOut channel="548" height="60" name="ctrlpar192" value="0.0" width="80" x="570" y="6820"/>
+          <AnalogOut channel="549" height="60" name="ctrlpar193" value="0.0" width="80" x="20" y="6920"/>
+          <AnalogOut channel="550" height="60" name="ctrlpar194" value="0.0" width="80" x="130" y="6920"/>
+          <AnalogOut channel="551" height="60" name="ctrlpar195" value="0.0" width="80" x="240" y="6920"/>
+          <AnalogOut channel="552" height="60" name="ctrlpar196" value="0.0" width="80" x="350" y="6920"/>
+          <AnalogOut channel="553" height="60" name="ctrlpar197" value="0.0" width="80" x="460" y="6920"/>
+          <AnalogOut channel="554" height="60" name="ctrlpar198" value="0.0" width="80" x="570" y="6920"/>
+          <AnalogOut channel="555" height="60" name="ctrlpar199" value="0.0" width="80" x="20" y="7020"/>
+          <AnalogOut channel="556" height="60" name="ctrlpar200" value="0.0" width="80" x="130" y="7020"/>
+          <AnalogOut channel="557" height="60" name="ctrlpar201" value="0.0" width="80" x="240" y="7020"/>
+          <AnalogOut channel="558" height="60" name="ctrlpar202" value="0.0" width="80" x="350" y="7020"/>
+          <AnalogOut channel="559" height="60" name="ctrlpar203" value="0.0" width="80" x="460" y="7020"/>
+          <AnalogOut channel="560" height="60" name="ctrlpar204" value="0.0" width="80" x="570" y="7020"/>
+          <AnalogOut channel="561" height="60" name="ctrlpar205" value="0.0" width="80" x="20" y="7120"/>
+          <AnalogOut channel="562" height="60" name="ctrlpar206" value="0.0" width="80" x="130" y="7120"/>
+          <AnalogOut channel="563" height="60" name="ctrlpar207" value="0.0" width="80" x="240" y="7120"/>
+          <AnalogOut channel="564" height="60" name="ctrlpar208" value="0.0" width="80" x="350" y="7120"/>
+          <AnalogOut channel="565" height="60" name="ctrlpar209" value="0.0" width="80" x="460" y="7120"/>
+          <AnalogOut channel="566" height="60" name="ctrlpar210" value="0.0" width="80" x="570" y="7120"/>
+          <AnalogOut channel="567" height="60" name="ctrlpar211" value="0.0" width="80" x="20" y="7220"/>
+          <AnalogOut channel="568" height="60" name="ctrlpar212" value="0.0" width="80" x="130" y="7220"/>
+          <AnalogOut channel="569" height="60" name="ctrlpar213" value="0.0" width="80" x="240" y="7220"/>
+          <AnalogOut channel="570" height="60" name="ctrlpar214" value="0.0" width="80" x="350" y="7220"/>
+          <AnalogOut channel="571" height="60" name="ctrlpar215" value="0.0" width="80" x="460" y="7220"/>
+          <AnalogOut channel="572" height="60" name="ctrlpar216" value="0.0" width="80" x="570" y="7220"/>
+          <AnalogOut channel="573" height="60" name="ctrlpar217" value="0.0" width="80" x="20" y="7320"/>
+          <AnalogOut channel="574" height="60" name="ctrlpar218" value="0.0" width="80" x="130" y="7320"/>
+          <AnalogOut channel="575" height="60" name="ctrlpar219" value="0.0" width="80" x="240" y="7320"/>
+          <AnalogOut channel="576" height="60" name="ctrlpar220" value="0.0" width="80" x="350" y="7320"/>
+          <AnalogOut channel="577" height="60" name="ctrlpar221" value="0.0" width="80" x="460" y="7320"/>
+          <AnalogOut channel="578" height="60" name="ctrlpar222" value="0.0" width="80" x="570" y="7320"/>
+          <AnalogOut channel="579" height="60" name="ctrlpar223" value="0.0" width="80" x="20" y="7420"/>
+          <AnalogOut channel="580" height="60" name="ctrlpar224" value="0.0" width="80" x="130" y="7420"/>
+          <AnalogOut channel="581" height="60" name="ctrlpar225" value="0.0" width="80" x="240" y="7420"/>
+          <AnalogOut channel="582" height="60" name="ctrlpar226" value="0.0" width="80" x="350" y="7420"/>
+          <AnalogOut channel="583" height="60" name="ctrlpar227" value="0.0" width="80" x="460" y="7420"/>
+          <AnalogOut channel="584" height="60" name="ctrlpar228" value="0.0" width="80" x="570" y="7420"/>
+          <AnalogOut channel="585" height="60" name="ctrlpar229" value="0.0" width="80" x="20" y="7520"/>
+          <AnalogOut channel="586" height="60" name="ctrlpar230" value="0.0" width="80" x="130" y="7520"/>
+          <AnalogOut channel="587" height="60" name="ctrlpar231" value="0.0" width="80" x="240" y="7520"/>
+          <AnalogOut channel="588" height="60" name="ctrlpar232" value="0.0" width="80" x="350" y="7520"/>
+          <AnalogOut channel="589" height="60" name="ctrlpar233" value="0.0" width="80" x="460" y="7520"/>
+          <AnalogOut channel="590" height="60" name="ctrlpar234" value="0.0" width="80" x="570" y="7520"/>
+          <AnalogOut channel="591" height="60" name="ctrlpar235" value="0.0" width="80" x="20" y="7620"/>
+          <AnalogOut channel="592" height="60" name="ctrlpar236" value="0.0" width="80" x="130" y="7620"/>
+          <AnalogOut channel="593" height="60" name="ctrlpar237" value="0.0" width="80" x="240" y="7620"/>
+          <AnalogOut channel="594" height="60" name="ctrlpar238" value="0.0" width="80" x="350" y="7620"/>
+          <AnalogOut channel="595" height="60" name="ctrlpar239" value="0.0" width="80" x="460" y="7620"/>
+          <AnalogOut channel="596" height="60" name="ctrlpar240" value="0.0" width="80" x="570" y="7620"/>
+          <AnalogOut channel="597" height="60" name="chains1" value="0.0" width="80" x="20" y="7820"/>
+          <AnalogOut channel="598" height="60" name="chains2" value="0.0" width="80" x="130" y="7820"/>
+          <AnalogOut channel="599" height="60" name="chains3" value="0.0" width="80" x="240" y="7820"/>
+          <AnalogOut channel="600" height="60" name="chains4" value="0.0" width="80" x="350" y="7820"/>
+          <AnalogOut channel="601" height="60" name="chains5" value="0.0" width="80" x="460" y="7820"/>
+          <AnalogOut channel="602" height="60" name="chains6" value="0.0" width="80" x="570" y="7820"/>
+          <AnalogOut channel="603" height="60" name="chains7" value="0.0" width="80" x="20" y="7920"/>
+          <AnalogOut channel="604" height="60" name="chains8" value="0.0" width="80" x="130" y="7920"/>
+          <AnalogOut channel="605" height="60" name="chains9" value="0.0" width="80" x="240" y="7920"/>
+          <AnalogOut channel="606" height="60" name="chains10" value="0.0" width="80" x="350" y="7920"/>
+          <AnalogOut channel="607" height="60" name="chains11" value="0.0" width="80" x="460" y="7920"/>
+          <AnalogOut channel="608" height="60" name="chains12" value="0.0" width="80" x="570" y="7920"/>
+          <AnalogOut channel="609" height="60" name="chains13" value="0.0" width="80" x="20" y="8020"/>
+          <AnalogOut channel="610" height="60" name="chains14" value="0.0" width="80" x="130" y="8020"/>
+          <AnalogOut channel="611" height="60" name="chains15" value="0.0" width="80" x="240" y="8020"/>
+          <AnalogOut channel="612" height="60" name="chains16" value="0.0" width="80" x="350" y="8020"/>
+          <AnalogOut channel="613" height="60" name="chains17" value="0.0" width="80" x="460" y="8020"/>
+          <AnalogOut channel="614" height="60" name="chains18" value="0.0" width="80" x="570" y="8020"/>
+          <AnalogOut channel="615" height="60" name="chains19" value="0.0" width="80" x="20" y="8120"/>
+          <AnalogOut channel="616" height="60" name="chains20" value="0.0" width="80" x="130" y="8120"/>
+          <AnalogOut channel="617" height="60" name="chains21" value="0.0" width="80" x="240" y="8120"/>
+          <AnalogOut channel="618" height="60" name="chains22" value="0.0" width="80" x="350" y="8120"/>
+          <AnalogOut channel="619" height="60" name="chains23" value="0.0" width="80" x="460" y="8120"/>
+          <AnalogOut channel="620" height="60" name="chains24" value="0.0" width="80" x="570" y="8120"/>
+          <AnalogOut channel="621" height="60" name="chains25" value="0.0" width="80" x="20" y="8220"/>
+          <AnalogOut channel="622" height="60" name="chains26" value="0.0" width="80" x="130" y="8220"/>
+          <AnalogOut channel="623" height="60" name="chains27" value="0.0" width="80" x="240" y="8220"/>
+          <AnalogOut channel="624" height="60" name="chains28" value="0.0" width="80" x="350" y="8220"/>
+          <AnalogOut channel="625" height="60" name="chains29" value="0.0" width="80" x="460" y="8220"/>
+          <AnalogOut channel="626" height="60" name="chains30" value="0.0" width="80" x="570" y="8220"/>
+          <AnalogOut channel="627" height="60" name="chains31" value="0.0" width="80" x="20" y="8320"/>
+          <AnalogOut channel="628" height="60" name="chains32" value="0.0" width="80" x="130" y="8320"/>
+          <AnalogOut channel="629" height="60" name="chains33" value="0.0" width="80" x="240" y="8320"/>
+          <AnalogOut channel="630" height="60" name="chains34" value="0.0" width="80" x="350" y="8320"/>
+          <AnalogOut channel="631" height="60" name="chains35" value="0.0" width="80" x="460" y="8320"/>
+          <AnalogOut channel="632" height="60" name="chains36" value="0.0" width="80" x="570" y="8320"/>
+          <AnalogOut channel="633" height="60" name="chains37" value="0.0" width="80" x="20" y="8420"/>
+          <AnalogOut channel="634" height="60" name="chains38" value="0.0" width="80" x="130" y="8420"/>
+          <AnalogOut channel="635" height="60" name="chains39" value="0.0" width="80" x="240" y="8420"/>
+          <AnalogOut channel="636" height="60" name="chains40" value="0.0" width="80" x="350" y="8420"/>
+          <AnalogOut channel="637" height="60" name="chains41" value="0.0" width="80" x="460" y="8420"/>
+          <AnalogOut channel="638" height="60" name="chains42" value="0.0" width="80" x="570" y="8420"/>
+          <AnalogOut channel="639" height="60" name="chains43" value="0.0" width="80" x="20" y="8520"/>
+          <AnalogOut channel="640" height="60" name="chains44" value="0.0" width="80" x="130" y="8520"/>
+          <AnalogOut channel="641" height="60" name="chains45" value="0.0" width="80" x="240" y="8520"/>
+          <AnalogOut channel="642" height="60" name="chains46" value="0.0" width="80" x="350" y="8520"/>
+          <AnalogOut channel="643" height="60" name="chains47" value="0.0" width="80" x="460" y="8520"/>
+          <AnalogOut channel="644" height="60" name="chains48" value="0.0" width="80" x="570" y="8520"/>
+          <AnalogOut channel="645" height="60" name="chains49" value="0.0" width="80" x="20" y="8620"/>
+          <AnalogOut channel="646" height="60" name="chains50" value="0.0" width="80" x="130" y="8620"/>
+          <AnalogOut channel="647" height="60" name="chains51" value="0.0" width="80" x="240" y="8620"/>
+          <AnalogOut channel="648" height="60" name="chains52" value="0.0" width="80" x="350" y="8620"/>
+          <AnalogOut channel="649" height="60" name="chains53" value="0.0" width="80" x="460" y="8620"/>
+          <AnalogOut channel="650" height="60" name="chains54" value="0.0" width="80" x="570" y="8620"/>
+          <AnalogOut channel="651" height="60" name="chains55" value="0.0" width="80" x="20" y="8720"/>
+          <AnalogOut channel="652" height="60" name="chains56" value="0.0" width="80" x="130" y="8720"/>
+          <AnalogOut channel="653" height="60" name="chains57" value="0.0" width="80" x="240" y="8720"/>
+          <AnalogOut channel="654" height="60" name="chains58" value="0.0" width="80" x="350" y="8720"/>
+          <AnalogOut channel="655" height="60" name="chains59" value="0.0" width="80" x="460" y="8720"/>
+          <AnalogOut channel="656" height="60" name="chains60" value="0.0" width="80" x="570" y="8720"/>
+          <AnalogOut channel="657" height="60" name="chains61" value="0.0" width="80" x="20" y="8820"/>
+          <AnalogOut channel="658" height="60" name="chains62" value="0.0" width="80" x="130" y="8820"/>
+          <AnalogOut channel="659" height="60" name="chains63" value="0.0" width="80" x="240" y="8820"/>
+          <AnalogOut channel="660" height="60" name="chains64" value="0.0" width="80" x="350" y="8820"/>
+          <AnalogOut channel="661" height="60" name="chains65" value="0.0" width="80" x="460" y="8820"/>
+          <AnalogOut channel="662" height="60" name="chains66" value="0.0" width="80" x="570" y="8820"/>
+          <AnalogOut channel="663" height="60" name="chains67" value="0.0" width="80" x="20" y="8920"/>
+          <AnalogOut channel="664" height="60" name="chains68" value="0.0" width="80" x="130" y="8920"/>
+          <AnalogOut channel="665" height="60" name="chains69" value="0.0" width="80" x="240" y="8920"/>
+          <AnalogOut channel="666" height="60" name="chains70" value="0.0" width="80" x="350" y="8920"/>
+          <AnalogOut channel="667" height="60" name="chains71" value="0.0" width="80" x="460" y="8920"/>
+          <AnalogOut channel="668" height="60" name="chains72" value="0.0" width="80" x="570" y="8920"/>
+          <AnalogOut channel="669" height="60" name="chains73" value="0.0" width="80" x="20" y="9020"/>
+          <AnalogOut channel="670" height="60" name="chains74" value="0.0" width="80" x="130" y="9020"/>
+          <AnalogOut channel="671" height="60" name="chains75" value="0.0" width="80" x="240" y="9020"/>
+          <AnalogOut channel="672" height="60" name="chains76" value="0.0" width="80" x="350" y="9020"/>
+          <AnalogOut channel="673" height="60" name="chains77" value="0.0" width="80" x="460" y="9020"/>
+          <AnalogOut channel="674" height="60" name="chains78" value="0.0" width="80" x="570" y="9020"/>
+          <AnalogOut channel="675" height="60" name="chains79" value="0.0" width="80" x="20" y="9120"/>
+          <AnalogOut channel="676" height="60" name="chains80" value="0.0" width="80" x="130" y="9120"/>
+          <AnalogOut channel="677" height="60" name="chains81" value="0.0" width="80" x="240" y="9120"/>
+          <AnalogOut channel="678" height="60" name="chains82" value="0.0" width="80" x="350" y="9120"/>
+          <AnalogOut channel="679" height="60" name="chains83" value="0.0" width="80" x="460" y="9120"/>
+          <AnalogOut channel="680" height="60" name="chains84" value="0.0" width="80" x="570" y="9120"/>
+          <AnalogOut channel="681" height="60" name="chains85" value="0.0" width="80" x="20" y="9220"/>
+          <AnalogOut channel="682" height="60" name="chains86" value="0.0" width="80" x="130" y="9220"/>
+          <AnalogOut channel="683" height="60" name="chains87" value="0.0" width="80" x="240" y="9220"/>
+          <AnalogOut channel="684" height="60" name="chains88" value="0.0" width="80" x="350" y="9220"/>
+          <AnalogOut channel="685" height="60" name="chains89" value="0.0" width="80" x="460" y="9220"/>
+          <AnalogOut channel="686" height="60" name="chains90" value="0.0" width="80" x="570" y="9220"/>
+          <AnalogOut channel="687" height="60" name="chains91" value="0.0" width="80" x="20" y="9320"/>
+          <AnalogOut channel="688" height="60" name="chains92" value="0.0" width="80" x="130" y="9320"/>
+          <AnalogOut channel="689" height="60" name="chains93" value="0.0" width="80" x="240" y="9320"/>
+          <AnalogOut channel="690" height="60" name="chains94" value="0.0" width="80" x="350" y="9320"/>
+          <AnalogOut channel="691" height="60" name="chains95" value="0.0" width="80" x="460" y="9320"/>
+          <AnalogOut channel="692" height="60" name="chains96" value="0.0" width="80" x="570" y="9320"/>
+          <AnalogOut channel="693" height="60" name="chains97" value="0.0" width="80" x="20" y="9420"/>
+          <AnalogOut channel="694" height="60" name="chains98" value="0.0" width="80" x="130" y="9420"/>
+          <AnalogOut channel="695" height="60" name="chains99" value="0.0" width="80" x="240" y="9420"/>
+          <AnalogOut channel="696" height="60" name="chains100" value="0.0" width="80" x="350" y="9420"/>
+          <AnalogOut channel="697" height="60" name="chains101" value="0.0" width="80" x="460" y="9420"/>
+          <AnalogOut channel="698" height="60" name="chains102" value="0.0" width="80" x="570" y="9420"/>
+          <AnalogOut channel="699" height="60" name="chains103" value="0.0" width="80" x="20" y="9520"/>
+          <AnalogOut channel="700" height="60" name="chains104" value="0.0" width="80" x="130" y="9520"/>
+          <AnalogOut channel="701" height="60" name="chains105" value="0.0" width="80" x="240" y="9520"/>
+          <AnalogOut channel="702" height="60" name="chains106" value="0.0" width="80" x="350" y="9520"/>
+          <AnalogOut channel="703" height="60" name="chains107" value="0.0" width="80" x="460" y="9520"/>
+          <AnalogOut channel="704" height="60" name="chains108" value="0.0" width="80" x="570" y="9520"/>
+          <AnalogOut channel="705" height="60" name="chains109" value="0.0" width="80" x="20" y="9620"/>
+          <AnalogOut channel="706" height="60" name="chains110" value="0.0" width="80" x="130" y="9620"/>
+          <AnalogOut channel="707" height="60" name="chains111" value="0.0" width="80" x="240" y="9620"/>
+          <AnalogOut channel="708" height="60" name="chains112" value="0.0" width="80" x="350" y="9620"/>
+          <AnalogOut channel="709" height="60" name="chains113" value="0.0" width="80" x="460" y="9620"/>
+          <AnalogOut channel="710" height="60" name="chains114" value="0.0" width="80" x="570" y="9620"/>
+          <AnalogOut channel="711" height="60" name="chains115" value="0.0" width="80" x="20" y="9720"/>
+          <AnalogOut channel="712" height="60" name="chains116" value="0.0" width="80" x="130" y="9720"/>
+          <AnalogOut channel="713" height="60" name="chains117" value="0.0" width="80" x="240" y="9720"/>
+          <AnalogOut channel="714" height="60" name="chains118" value="0.0" width="80" x="350" y="9720"/>
+          <AnalogOut channel="715" height="60" name="chains119" value="0.0" width="80" x="460" y="9720"/>
+          <AnalogOut channel="716" height="60" name="chains120" value="0.0" width="80" x="570" y="9720"/>
+          <AnalogOut channel="717" height="60" name="chains_params1" value="0.0" width="80" x="20" y="9920"/>
+          <AnalogOut channel="718" height="60" name="chains_params2" value="0.0" width="80" x="130" y="9920"/>
+          <AnalogOut channel="719" height="60" name="chains_params3" value="0.0" width="80" x="240" y="9920"/>
+          <AnalogOut channel="720" height="60" name="chains_params4" value="0.0" width="80" x="350" y="9920"/>
+          <AnalogOut channel="721" height="60" name="chains_params5" value="0.0" width="80" x="460" y="9920"/>
+          <AnalogOut channel="722" height="60" name="chains_params6" value="0.0" width="80" x="570" y="9920"/>
+          <AnalogOut channel="723" height="60" name="chains_params7" value="0.0" width="80" x="20" y="10020"/>
+          <AnalogOut channel="724" height="60" name="chains_params8" value="0.0" width="80" x="130" y="10020"/>
+          <AnalogOut channel="725" height="60" name="chains_params9" value="0.0" width="80" x="240" y="10020"/>
+          <AnalogOut channel="726" height="60" name="chains_params10" value="0.0" width="80" x="350" y="10020"/>
+          <AnalogOut channel="727" height="60" name="chains_params11" value="0.0" width="80" x="460" y="10020"/>
+          <AnalogOut channel="728" height="60" name="chains_params12" value="0.0" width="80" x="570" y="10020"/>
+          <AnalogOut channel="729" height="60" name="chains_params13" value="0.0" width="80" x="20" y="10120"/>
+          <AnalogOut channel="730" height="60" name="chains_params14" value="0.0" width="80" x="130" y="10120"/>
+          <AnalogOut channel="731" height="60" name="chains_params15" value="0.0" width="80" x="240" y="10120"/>
+          <AnalogOut channel="732" height="60" name="chains_params16" value="0.0" width="80" x="350" y="10120"/>
+          <AnalogOut channel="733" height="60" name="chains_params17" value="0.0" width="80" x="460" y="10120"/>
+          <AnalogOut channel="734" height="60" name="chains_params18" value="0.0" width="80" x="570" y="10120"/>
+          <AnalogOut channel="735" height="60" name="chains_params19" value="0.0" width="80" x="20" y="10220"/>
+          <AnalogOut channel="736" height="60" name="chains_params20" value="0.0" width="80" x="130" y="10220"/>
+          <AnalogOut channel="737" height="60" name="chains_params21" value="0.0" width="80" x="240" y="10220"/>
+          <AnalogOut channel="738" height="60" name="chains_params22" value="0.0" width="80" x="350" y="10220"/>
+          <AnalogOut channel="739" height="60" name="chains_params23" value="0.0" width="80" x="460" y="10220"/>
+          <AnalogOut channel="740" height="60" name="chains_params24" value="0.0" width="80" x="570" y="10220"/>
+          <AnalogOut channel="741" height="60" name="chains_params25" value="0.0" width="80" x="20" y="10320"/>
+          <AnalogOut channel="742" height="60" name="chains_params26" value="0.0" width="80" x="130" y="10320"/>
+          <AnalogOut channel="743" height="60" name="chains_params27" value="0.0" width="80" x="240" y="10320"/>
+          <AnalogOut channel="744" height="60" name="chains_params28" value="0.0" width="80" x="350" y="10320"/>
+          <AnalogOut channel="745" height="60" name="chains_params29" value="0.0" width="80" x="460" y="10320"/>
+          <AnalogOut channel="746" height="60" name="chains_params30" value="0.0" width="80" x="570" y="10320"/>
+          <AnalogOut channel="747" height="60" name="chains_params31" value="0.0" width="80" x="20" y="10420"/>
+          <AnalogOut channel="748" height="60" name="chains_params32" value="0.0" width="80" x="130" y="10420"/>
+          <AnalogOut channel="749" height="60" name="chains_params33" value="0.0" width="80" x="240" y="10420"/>
+          <AnalogOut channel="750" height="60" name="chains_params34" value="0.0" width="80" x="350" y="10420"/>
+          <AnalogOut channel="751" height="60" name="chains_params35" value="0.0" width="80" x="460" y="10420"/>
+          <AnalogOut channel="752" height="60" name="chains_params36" value="0.0" width="80" x="570" y="10420"/>
+          <AnalogOut channel="753" height="60" name="chains_params37" value="0.0" width="80" x="20" y="10520"/>
+          <AnalogOut channel="754" height="60" name="chains_params38" value="0.0" width="80" x="130" y="10520"/>
+          <AnalogOut channel="755" height="60" name="chains_params39" value="0.0" width="80" x="240" y="10520"/>
+          <AnalogOut channel="756" height="60" name="chains_params40" value="0.0" width="80" x="350" y="10520"/>
+          <AnalogOut channel="757" height="60" name="chains_params41" value="0.0" width="80" x="460" y="10520"/>
+          <AnalogOut channel="758" height="60" name="chains_params42" value="0.0" width="80" x="570" y="10520"/>
+          <AnalogOut channel="759" height="60" name="chains_params43" value="0.0" width="80" x="20" y="10620"/>
+          <AnalogOut channel="760" height="60" name="chains_params44" value="0.0" width="80" x="130" y="10620"/>
+          <AnalogOut channel="761" height="60" name="chains_params45" value="0.0" width="80" x="240" y="10620"/>
+          <AnalogOut channel="762" height="60" name="chains_params46" value="0.0" width="80" x="350" y="10620"/>
+          <AnalogOut channel="763" height="60" name="chains_params47" value="0.0" width="80" x="460" y="10620"/>
+          <AnalogOut channel="764" height="60" name="chains_params48" value="0.0" width="80" x="570" y="10620"/>
+          <AnalogOut channel="765" height="60" name="chains_params49" value="0.0" width="80" x="20" y="10720"/>
+          <AnalogOut channel="766" height="60" name="chains_params50" value="0.0" width="80" x="130" y="10720"/>
+          <AnalogOut channel="767" height="60" name="chains_params51" value="0.0" width="80" x="240" y="10720"/>
+          <AnalogOut channel="768" height="60" name="chains_params52" value="0.0" width="80" x="350" y="10720"/>
+          <AnalogOut channel="769" height="60" name="chains_params53" value="0.0" width="80" x="460" y="10720"/>
+          <AnalogOut channel="770" height="60" name="chains_params54" value="0.0" width="80" x="570" y="10720"/>
+          <AnalogOut channel="771" height="60" name="chains_params55" value="0.0" width="80" x="20" y="10820"/>
+          <AnalogOut channel="772" height="60" name="chains_params56" value="0.0" width="80" x="130" y="10820"/>
+          <AnalogOut channel="773" height="60" name="chains_params57" value="0.0" width="80" x="240" y="10820"/>
+          <AnalogOut channel="774" height="60" name="chains_params58" value="0.0" width="80" x="350" y="10820"/>
+          <AnalogOut channel="775" height="60" name="chains_params59" value="0.0" width="80" x="460" y="10820"/>
+          <AnalogOut channel="776" height="60" name="chains_params60" value="0.0" width="80" x="570" y="10820"/>
+          <AnalogOut channel="777" height="60" name="chains_params61" value="0.0" width="80" x="20" y="10920"/>
+          <AnalogOut channel="778" height="60" name="chains_params62" value="0.0" width="80" x="130" y="10920"/>
+          <AnalogOut channel="779" height="60" name="chains_params63" value="0.0" width="80" x="240" y="10920"/>
+          <AnalogOut channel="780" height="60" name="chains_params64" value="0.0" width="80" x="350" y="10920"/>
+          <AnalogOut channel="781" height="60" name="chains_params65" value="0.0" width="80" x="460" y="10920"/>
+          <AnalogOut channel="782" height="60" name="chains_params66" value="0.0" width="80" x="570" y="10920"/>
+          <AnalogOut channel="783" height="60" name="chains_params67" value="0.0" width="80" x="20" y="11020"/>
+          <AnalogOut channel="784" height="60" name="chains_params68" value="0.0" width="80" x="130" y="11020"/>
+          <AnalogOut channel="785" height="60" name="chains_params69" value="0.0" width="80" x="240" y="11020"/>
+          <AnalogOut channel="786" height="60" name="chains_params70" value="0.0" width="80" x="350" y="11020"/>
+          <AnalogOut channel="787" height="60" name="chains_params71" value="0.0" width="80" x="460" y="11020"/>
+          <AnalogOut channel="788" height="60" name="chains_params72" value="0.0" width="80" x="570" y="11020"/>
+          <AnalogOut channel="789" height="60" name="chains_params73" value="0.0" width="80" x="20" y="11120"/>
+          <AnalogOut channel="790" height="60" name="chains_params74" value="0.0" width="80" x="130" y="11120"/>
+          <AnalogOut channel="791" height="60" name="chains_params75" value="0.0" width="80" x="240" y="11120"/>
+          <AnalogOut channel="792" height="60" name="chains_params76" value="0.0" width="80" x="350" y="11120"/>
+          <AnalogOut channel="793" height="60" name="chains_params77" value="0.0" width="80" x="460" y="11120"/>
+          <AnalogOut channel="794" height="60" name="chains_params78" value="0.0" width="80" x="570" y="11120"/>
+          <AnalogOut channel="795" height="60" name="chains_params79" value="0.0" width="80" x="20" y="11220"/>
+          <AnalogOut channel="796" height="60" name="chains_params80" value="0.0" width="80" x="130" y="11220"/>
+          <AnalogOut channel="797" height="60" name="chains_params81" value="0.0" width="80" x="240" y="11220"/>
+          <AnalogOut channel="798" height="60" name="chains_params82" value="0.0" width="80" x="350" y="11220"/>
+          <AnalogOut channel="799" height="60" name="chains_params83" value="0.0" width="80" x="460" y="11220"/>
+          <AnalogOut channel="800" height="60" name="chains_params84" value="0.0" width="80" x="570" y="11220"/>
+          <AnalogOut channel="801" height="60" name="chains_params85" value="0.0" width="80" x="20" y="11320"/>
+          <AnalogOut channel="802" height="60" name="chains_params86" value="0.0" width="80" x="130" y="11320"/>
+          <AnalogOut channel="803" height="60" name="chains_params87" value="0.0" width="80" x="240" y="11320"/>
+          <AnalogOut channel="804" height="60" name="chains_params88" value="0.0" width="80" x="350" y="11320"/>
+          <AnalogOut channel="805" height="60" name="chains_params89" value="0.0" width="80" x="460" y="11320"/>
+          <AnalogOut channel="806" height="60" name="chains_params90" value="0.0" width="80" x="570" y="11320"/>
+          <AnalogOut channel="807" height="60" name="chains_params91" value="0.0" width="80" x="20" y="11420"/>
+          <AnalogOut channel="808" height="60" name="chains_params92" value="0.0" width="80" x="130" y="11420"/>
+          <AnalogOut channel="809" height="60" name="chains_params93" value="0.0" width="80" x="240" y="11420"/>
+          <AnalogOut channel="810" height="60" name="chains_params94" value="0.0" width="80" x="350" y="11420"/>
+          <AnalogOut channel="811" height="60" name="chains_params95" value="0.0" width="80" x="460" y="11420"/>
+          <AnalogOut channel="812" height="60" name="chains_params96" value="0.0" width="80" x="570" y="11420"/>
+          <AnalogOut channel="813" height="60" name="chains_params97" value="0.0" width="80" x="20" y="11520"/>
+          <AnalogOut channel="814" height="60" name="chains_params98" value="0.0" width="80" x="130" y="11520"/>
+          <AnalogOut channel="815" height="60" name="chains_params99" value="0.0" width="80" x="240" y="11520"/>
+          <AnalogOut channel="816" height="60" name="chains_params100" value="0.0" width="80" x="350" y="11520"/>
+          <AnalogOut channel="817" height="60" name="chains_params101" value="0.0" width="80" x="460" y="11520"/>
+          <AnalogOut channel="818" height="60" name="chains_params102" value="0.0" width="80" x="570" y="11520"/>
+          <AnalogOut channel="819" height="60" name="chains_params103" value="0.0" width="80" x="20" y="11620"/>
+          <AnalogOut channel="820" height="60" name="chains_params104" value="0.0" width="80" x="130" y="11620"/>
+          <AnalogOut channel="821" height="60" name="chains_params105" value="0.0" width="80" x="240" y="11620"/>
+          <AnalogOut channel="822" height="60" name="chains_params106" value="0.0" width="80" x="350" y="11620"/>
+          <AnalogOut channel="823" height="60" name="chains_params107" value="0.0" width="80" x="460" y="11620"/>
+          <AnalogOut channel="824" height="60" name="chains_params108" value="0.0" width="80" x="570" y="11620"/>
+          <AnalogOut channel="825" height="60" name="chains_params109" value="0.0" width="80" x="20" y="11720"/>
+          <AnalogOut channel="826" height="60" name="chains_params110" value="0.0" width="80" x="130" y="11720"/>
+          <AnalogOut channel="827" height="60" name="chains_params111" value="0.0" width="80" x="240" y="11720"/>
+          <AnalogOut channel="828" height="60" name="chains_params112" value="0.0" width="80" x="350" y="11720"/>
+          <AnalogOut channel="829" height="60" name="chains_params113" value="0.0" width="80" x="460" y="11720"/>
+          <AnalogOut channel="830" height="60" name="chains_params114" value="0.0" width="80" x="570" y="11720"/>
+          <AnalogOut channel="831" height="60" name="chains_params115" value="0.0" width="80" x="20" y="11820"/>
+          <AnalogOut channel="832" height="60" name="chains_params116" value="0.0" width="80" x="130" y="11820"/>
+          <AnalogOut channel="833" height="60" name="chains_params117" value="0.0" width="80" x="240" y="11820"/>
+          <AnalogOut channel="834" height="60" name="chains_params118" value="0.0" width="80" x="350" y="11820"/>
+          <AnalogOut channel="835" height="60" name="chains_params119" value="0.0" width="80" x="460" y="11820"/>
+          <AnalogOut channel="836" height="60" name="chains_params120" value="0.0" width="80" x="570" y="11820"/>
+          <AnalogOut channel="837" height="60" name="redund_weight1" value="" width="80" x="20" y="12020"/>
+          <AnalogOut channel="838" height="60" name="redund_weight2" value="" width="80" x="130" y="12020"/>
+          <AnalogOut channel="839" height="60" name="redund_weight3" value="" width="80" x="240" y="12020"/>
+          <AnalogOut channel="840" height="60" name="redund_weight4" value="" width="80" x="350" y="12020"/>
+          <AnalogOut channel="841" height="60" name="redund_weight5" value="" width="80" x="460" y="12020"/>
+          <AnalogOut channel="842" height="60" name="redund_weight6" value="" width="80" x="570" y="12020"/>
+          <AnalogOut channel="843" height="60" name="redund_weight7" value="" width="80" x="20" y="12120"/>
+          <AnalogOut channel="844" height="60" name="redund_weight8" value="" width="80" x="130" y="12120"/>
+          <AnalogOut channel="845" height="60" name="redund_weight9" value="" width="80" x="240" y="12120"/>
+          <AnalogOut channel="846" height="60" name="redund_weight10" value="" width="80" x="350" y="12120"/>
+          <AnalogOut channel="847" height="60" name="redund_weight11" value="" width="80" x="460" y="12120"/>
+          <AnalogOut channel="848" height="60" name="redund_weight12" value="" width="80" x="570" y="12120"/>
+          <AnalogOut channel="849" height="60" name="redund_weight13" value="" width="80" x="20" y="12220"/>
+          <AnalogOut channel="850" height="60" name="redund_weight14" value="" width="80" x="130" y="12220"/>
+          <AnalogOut channel="851" height="60" name="redund_weight15" value="" width="80" x="240" y="12220"/>
+          <AnalogOut channel="852" height="60" name="redund_weight16" value="" width="80" x="350" y="12220"/>
+          <AnalogOut channel="853" height="60" name="redund_weight17" value="" width="80" x="460" y="12220"/>
+          <AnalogOut channel="854" height="60" name="redund_weight18" value="" width="80" x="570" y="12220"/>
+          <AnalogOut channel="855" height="60" name="redund_weight19" value="" width="80" x="20" y="12320"/>
+          <AnalogOut channel="856" height="60" name="redund_weight20" value="" width="80" x="130" y="12320"/>
+          <AnalogOut channel="857" height="60" name="redund_weight21" value="" width="80" x="240" y="12320"/>
+          <AnalogOut channel="858" height="60" name="redund_weight22" value="" width="80" x="350" y="12320"/>
+          <AnalogOut channel="859" height="60" name="redund_weight23" value="" width="80" x="460" y="12320"/>
+          <AnalogOut channel="860" height="60" name="redund_weight24" value="" width="80" x="570" y="12320"/>
+          <AnalogOut channel="861" height="60" name="redund_weight25" value="" width="80" x="20" y="12420"/>
+          <AnalogOut channel="862" height="60" name="redund_weight26" value="" width="80" x="130" y="12420"/>
+          <AnalogOut channel="863" height="60" name="redund_weight27" value="" width="80" x="240" y="12420"/>
+          <AnalogOut channel="864" height="60" name="redund_weight28" value="" width="80" x="350" y="12420"/>
+          <AnalogOut channel="865" height="60" name="redund_weight29" value="" width="80" x="460" y="12420"/>
+          <AnalogOut channel="866" height="60" name="redund_weight30" value="" width="80" x="570" y="12420"/>
+          <AnalogOut channel="867" height="60" name="redund_weight31" value="" width="80" x="20" y="12520"/>
+          <AnalogOut channel="868" height="60" name="redund_weight32" value="" width="80" x="130" y="12520"/>
+          <AnalogOut channel="869" height="60" name="redund_weight33" value="" width="80" x="240" y="12520"/>
+          <AnalogOut channel="870" height="60" name="redund_weight34" value="" width="80" x="350" y="12520"/>
+          <AnalogOut channel="871" height="60" name="redund_weight35" value="" width="80" x="460" y="12520"/>
+          <AnalogOut channel="872" height="60" name="redund_weight36" value="" width="80" x="570" y="12520"/>
+          <AnalogOut channel="873" height="60" name="redund_weight37" value="" width="80" x="20" y="12620"/>
+          <AnalogOut channel="874" height="60" name="redund_weight38" value="" width="80" x="130" y="12620"/>
+          <AnalogOut channel="875" height="60" name="redund_weight39" value="" width="80" x="240" y="12620"/>
+          <AnalogOut channel="876" height="60" name="redund_weight40" value="" width="80" x="350" y="12620"/>
+          <AnalogOut channel="877" height="60" name="redund_weight41" value="" width="80" x="460" y="12620"/>
+          <AnalogOut channel="878" height="60" name="redund_weight42" value="" width="80" x="570" y="12620"/>
+          <AnalogOut channel="879" height="60" name="redund_weight43" value="" width="80" x="20" y="12720"/>
+          <AnalogOut channel="880" height="60" name="redund_weight44" value="" width="80" x="130" y="12720"/>
+          <AnalogOut channel="881" height="60" name="redund_weight45" value="" width="80" x="240" y="12720"/>
+          <AnalogOut channel="882" height="60" name="redund_weight46" value="" width="80" x="350" y="12720"/>
+          <AnalogOut channel="883" height="60" name="redund_weight47" value="" width="80" x="460" y="12720"/>
+          <AnalogOut channel="884" height="60" name="redund_weight48" value="" width="80" x="570" y="12720"/>
+          <AnalogOut channel="885" height="60" name="redund_weight49" value="" width="80" x="20" y="12820"/>
+          <AnalogOut channel="886" height="60" name="redund_weight50" value="" width="80" x="130" y="12820"/>
+          <AnalogOut channel="887" height="60" name="redund_weight51" value="" width="80" x="240" y="12820"/>
+          <AnalogOut channel="888" height="60" name="redund_weight52" value="" width="80" x="350" y="12820"/>
+          <AnalogOut channel="889" height="60" name="redund_weight53" value="" width="80" x="460" y="12820"/>
+          <AnalogOut channel="890" height="60" name="redund_weight54" value="" width="80" x="570" y="12820"/>
+          <AnalogOut channel="891" height="60" name="redund_weight55" value="" width="80" x="20" y="12920"/>
+          <AnalogOut channel="892" height="60" name="redund_weight56" value="" width="80" x="130" y="12920"/>
+          <AnalogOut channel="893" height="60" name="redund_weight57" value="" width="80" x="240" y="12920"/>
+          <AnalogOut channel="894" height="60" name="redund_weight58" value="" width="80" x="350" y="12920"/>
+          <AnalogOut channel="895" height="60" name="redund_weight59" value="" width="80" x="460" y="12920"/>
+          <AnalogOut channel="896" height="60" name="redund_weight60" value="" width="80" x="570" y="12920"/>
+          <AnalogOut channel="897" height="60" name="redund_weight61" value="" width="80" x="20" y="13020"/>
+          <AnalogOut channel="898" height="60" name="redund_weight62" value="" width="80" x="130" y="13020"/>
+          <AnalogOut channel="899" height="60" name="redund_weight63" value="" width="80" x="240" y="13020"/>
+          <AnalogOut channel="900" height="60" name="redund_weight64" value="" width="80" x="350" y="13020"/>
+          <AnalogOut channel="901" height="60" name="redund_weight65" value="" width="80" x="460" y="13020"/>
+          <AnalogOut channel="902" height="60" name="redund_weight66" value="" width="80" x="570" y="13020"/>
+          <AnalogOut channel="903" height="60" name="redund_weight67" value="" width="80" x="20" y="13120"/>
+          <AnalogOut channel="904" height="60" name="redund_weight68" value="" width="80" x="130" y="13120"/>
+          <AnalogOut channel="905" height="60" name="redund_weight69" value="" width="80" x="240" y="13120"/>
+          <AnalogOut channel="906" height="60" name="redund_weight70" value="" width="80" x="350" y="13120"/>
+          <AnalogOut channel="907" height="60" name="redund_weight71" value="" width="80" x="460" y="13120"/>
+          <AnalogOut channel="908" height="60" name="redund_weight72" value="" width="80" x="570" y="13120"/>
+          <AnalogOut channel="909" height="60" name="redund_weight73" value="" width="80" x="20" y="13220"/>
+          <AnalogOut channel="910" height="60" name="redund_weight74" value="" width="80" x="130" y="13220"/>
+          <AnalogOut channel="911" height="60" name="redund_weight75" value="" width="80" x="240" y="13220"/>
+          <AnalogOut channel="912" height="60" name="redund_weight76" value="" width="80" x="350" y="13220"/>
+          <AnalogOut channel="913" height="60" name="redund_weight77" value="" width="80" x="460" y="13220"/>
+          <AnalogOut channel="914" height="60" name="redund_weight78" value="" width="80" x="570" y="13220"/>
+          <AnalogOut channel="915" height="60" name="redund_weight79" value="" width="80" x="20" y="13320"/>
+          <AnalogOut channel="916" height="60" name="redund_weight80" value="" width="80" x="130" y="13320"/>
+          <AnalogOut channel="917" height="60" name="redund_weight81" value="" width="80" x="240" y="13320"/>
+          <AnalogOut channel="918" height="60" name="redund_weight82" value="" width="80" x="350" y="13320"/>
+          <AnalogOut channel="919" height="60" name="redund_weight83" value="" width="80" x="460" y="13320"/>
+          <AnalogOut channel="920" height="60" name="redund_weight84" value="" width="80" x="570" y="13320"/>
+          <AnalogOut channel="921" height="60" name="redund_weight85" value="" width="80" x="20" y="13420"/>
+          <AnalogOut channel="922" height="60" name="redund_weight86" value="" width="80" x="130" y="13420"/>
+          <AnalogOut channel="923" height="60" name="redund_weight87" value="" width="80" x="240" y="13420"/>
+          <AnalogOut channel="924" height="60" name="redund_weight88" value="" width="80" x="350" y="13420"/>
+          <AnalogOut channel="925" height="60" name="redund_weight89" value="" width="80" x="460" y="13420"/>
+          <AnalogOut channel="926" height="60" name="redund_weight90" value="" width="80" x="570" y="13420"/>
+          <AnalogOut channel="927" height="60" name="redund_weight91" value="" width="80" x="20" y="13520"/>
+          <AnalogOut channel="928" height="60" name="redund_weight92" value="" width="80" x="130" y="13520"/>
+          <AnalogOut channel="929" height="60" name="redund_weight93" value="" width="80" x="240" y="13520"/>
+          <AnalogOut channel="930" height="60" name="redund_weight94" value="" width="80" x="350" y="13520"/>
+          <AnalogOut channel="931" height="60" name="redund_weight95" value="" width="80" x="460" y="13520"/>
+          <AnalogOut channel="932" height="60" name="redund_weight96" value="" width="80" x="570" y="13520"/>
+          <AnalogOut channel="933" height="60" name="redund_weight97" value="" width="80" x="20" y="13620"/>
+          <AnalogOut channel="934" height="60" name="redund_weight98" value="" width="80" x="130" y="13620"/>
+          <AnalogOut channel="935" height="60" name="redund_weight99" value="" width="80" x="240" y="13620"/>
+          <AnalogOut channel="936" height="60" name="redund_weight100" value="" width="80" x="350" y="13620"/>
+          <AnalogOut channel="937" height="60" name="redund_weight101" value="" width="80" x="460" y="13620"/>
+          <AnalogOut channel="938" height="60" name="redund_weight102" value="" width="80" x="570" y="13620"/>
+          <AnalogOut channel="939" height="60" name="redund_weight103" value="" width="80" x="20" y="13720"/>
+          <AnalogOut channel="940" height="60" name="redund_weight104" value="" width="80" x="130" y="13720"/>
+          <AnalogOut channel="941" height="60" name="redund_weight105" value="" width="80" x="240" y="13720"/>
+          <AnalogOut channel="942" height="60" name="redund_weight106" value="" width="80" x="350" y="13720"/>
+          <AnalogOut channel="943" height="60" name="redund_weight107" value="" width="80" x="460" y="13720"/>
+          <AnalogOut channel="944" height="60" name="redund_weight108" value="" width="80" x="570" y="13720"/>
+          <AnalogOut channel="945" height="60" name="redund_weight109" value="" width="80" x="20" y="13820"/>
+          <AnalogOut channel="946" height="60" name="redund_weight110" value="" width="80" x="130" y="13820"/>
+          <AnalogOut channel="947" height="60" name="redund_weight111" value="" width="80" x="240" y="13820"/>
+          <AnalogOut channel="948" height="60" name="redund_weight112" value="" width="80" x="350" y="13820"/>
+          <AnalogOut channel="949" height="60" name="redund_weight113" value="" width="80" x="460" y="13820"/>
+          <AnalogOut channel="950" height="60" name="redund_weight114" value="" width="80" x="570" y="13820"/>
+          <AnalogOut channel="951" height="60" name="redund_weight115" value="" width="80" x="20" y="13920"/>
+          <AnalogOut channel="952" height="60" name="redund_weight116" value="" width="80" x="130" y="13920"/>
+          <AnalogOut channel="953" height="60" name="redund_weight117" value="" width="80" x="240" y="13920"/>
+          <AnalogOut channel="954" height="60" name="redund_weight118" value="" width="80" x="350" y="13920"/>
+          <AnalogOut channel="955" height="60" name="redund_weight119" value="" width="80" x="460" y="13920"/>
+          <AnalogOut channel="956" height="60" name="redund_weight120" value="" width="80" x="570" y="13920"/>
+          <AnalogOut channel="957" height="60" name="redund_weight121" value="" width="80" x="20" y="14020"/>
+          <AnalogOut channel="958" height="60" name="redund_weight122" value="" width="80" x="130" y="14020"/>
+          <AnalogOut channel="959" height="60" name="redund_weight123" value="" width="80" x="240" y="14020"/>
+          <AnalogOut channel="960" height="60" name="redund_weight124" value="" width="80" x="350" y="14020"/>
+          <AnalogOut channel="961" height="60" name="redund_weight125" value="" width="80" x="460" y="14020"/>
+          <AnalogOut channel="962" height="60" name="redund_weight126" value="" width="80" x="570" y="14020"/>
+          <AnalogOut channel="963" height="60" name="redund_weight127" value="" width="80" x="20" y="14120"/>
+          <AnalogOut channel="964" height="60" name="redund_weight128" value="" width="80" x="130" y="14120"/>
+          <AnalogOut channel="965" height="60" name="redund_weight129" value="" width="80" x="240" y="14120"/>
+          <AnalogOut channel="966" height="60" name="redund_weight130" value="" width="80" x="350" y="14120"/>
+          <AnalogOut channel="967" height="60" name="redund_weight131" value="" width="80" x="460" y="14120"/>
+          <AnalogOut channel="968" height="60" name="redund_weight132" value="" width="80" x="570" y="14120"/>
+          <AnalogOut channel="969" height="60" name="redund_weight133" value="" width="80" x="20" y="14220"/>
+          <AnalogOut channel="970" height="60" name="redund_weight134" value="" width="80" x="130" y="14220"/>
+          <AnalogOut channel="971" height="60" name="redund_weight135" value="" width="80" x="240" y="14220"/>
+          <AnalogOut channel="972" height="60" name="redund_weight136" value="" width="80" x="350" y="14220"/>
+          <AnalogOut channel="973" height="60" name="redund_weight137" value="" width="80" x="460" y="14220"/>
+          <AnalogOut channel="974" height="60" name="redund_weight138" value="" width="80" x="570" y="14220"/>
+          <AnalogOut channel="975" height="60" name="redund_weight139" value="" width="80" x="20" y="14320"/>
+          <AnalogOut channel="976" height="60" name="redund_weight140" value="" width="80" x="130" y="14320"/>
+          <AnalogOut channel="977" height="60" name="redund_weight141" value="" width="80" x="240" y="14320"/>
+          <AnalogOut channel="978" height="60" name="redund_weight142" value="" width="80" x="350" y="14320"/>
+          <AnalogOut channel="979" height="60" name="redund_weight143" value="" width="80" x="460" y="14320"/>
+          <AnalogOut channel="980" height="60" name="redund_weight144" value="" width="80" x="570" y="14320"/>
+          <AnalogOut channel="981" height="60" name="redund_weight145" value="" width="80" x="20" y="14420"/>
+          <AnalogOut channel="982" height="60" name="redund_weight146" value="" width="80" x="130" y="14420"/>
+          <AnalogOut channel="983" height="60" name="redund_weight147" value="" width="80" x="240" y="14420"/>
+          <AnalogOut channel="984" height="60" name="redund_weight148" value="" width="80" x="350" y="14420"/>
+          <AnalogOut channel="985" height="60" name="redund_weight149" value="" width="80" x="460" y="14420"/>
+          <AnalogOut channel="986" height="60" name="redund_weight150" value="" width="80" x="570" y="14420"/>
+          <AnalogOut channel="987" height="60" name="redund_weight151" value="" width="80" x="20" y="14520"/>
+          <AnalogOut channel="988" height="60" name="redund_weight152" value="" width="80" x="130" y="14520"/>
+          <AnalogOut channel="989" height="60" name="redund_weight153" value="" width="80" x="240" y="14520"/>
+          <AnalogOut channel="990" height="60" name="redund_weight154" value="" width="80" x="350" y="14520"/>
+          <AnalogOut channel="991" height="60" name="redund_weight155" value="" width="80" x="460" y="14520"/>
+          <AnalogOut channel="992" height="60" name="redund_weight156" value="" width="80" x="570" y="14520"/>
+          <AnalogOut channel="993" height="60" name="redund_weight157" value="" width="80" x="20" y="14620"/>
+          <AnalogOut channel="994" height="60" name="redund_weight158" value="" width="80" x="130" y="14620"/>
+          <AnalogOut channel="995" height="60" name="redund_weight159" value="" width="80" x="240" y="14620"/>
+          <AnalogOut channel="996" height="60" name="redund_weight160" value="" width="80" x="350" y="14620"/>
+          <AnalogOut channel="997" height="60" name="redund_weight161" value="" width="80" x="460" y="14620"/>
+          <AnalogOut channel="998" height="60" name="redund_weight162" value="" width="80" x="570" y="14620"/>
+          <AnalogOut channel="999" height="60" name="redund_weight163" value="" width="80" x="20" y="14720"/>
+          <AnalogOut channel="1000" height="60" name="redund_weight164" value="" width="80" x="130" y="14720"/>
+          <AnalogOut channel="1001" height="60" name="redund_weight165" value="" width="80" x="240" y="14720"/>
+          <AnalogOut channel="1002" height="60" name="redund_weight166" value="" width="80" x="350" y="14720"/>
+          <AnalogOut channel="1003" height="60" name="redund_weight167" value="" width="80" x="460" y="14720"/>
+          <AnalogOut channel="1004" height="60" name="redund_weight168" value="" width="80" x="570" y="14720"/>
+          <AnalogOut channel="1005" height="60" name="redund_weight169" value="" width="80" x="20" y="14820"/>
+          <AnalogOut channel="1006" height="60" name="redund_weight170" value="" width="80" x="130" y="14820"/>
+          <AnalogOut channel="1007" height="60" name="redund_weight171" value="" width="80" x="240" y="14820"/>
+          <AnalogOut channel="1008" height="60" name="redund_weight172" value="" width="80" x="350" y="14820"/>
+          <AnalogOut channel="1009" height="60" name="redund_weight173" value="" width="80" x="460" y="14820"/>
+          <AnalogOut channel="1010" height="60" name="redund_weight174" value="" width="80" x="570" y="14820"/>
+          <AnalogOut channel="1011" height="60" name="redund_weight175" value="" width="80" x="20" y="14920"/>
+          <AnalogOut channel="1012" height="60" name="redund_weight176" value="" width="80" x="130" y="14920"/>
+          <AnalogOut channel="1013" height="60" name="redund_weight177" value="" width="80" x="240" y="14920"/>
+          <AnalogOut channel="1014" height="60" name="redund_weight178" value="" width="80" x="350" y="14920"/>
+          <AnalogOut channel="1015" height="60" name="redund_weight179" value="" width="80" x="460" y="14920"/>
+          <AnalogOut channel="1016" height="60" name="redund_weight180" value="" width="80" x="570" y="14920"/>
+          <AnalogOut channel="1017" height="60" name="redund_weight181" value="" width="80" x="20" y="15020"/>
+          <AnalogOut channel="1018" height="60" name="redund_weight182" value="" width="80" x="130" y="15020"/>
+          <AnalogOut channel="1019" height="60" name="redund_weight183" value="" width="80" x="240" y="15020"/>
+          <AnalogOut channel="1020" height="60" name="redund_weight184" value="" width="80" x="350" y="15020"/>
+          <AnalogOut channel="1021" height="60" name="redund_weight185" value="" width="80" x="460" y="15020"/>
+          <AnalogOut channel="1022" height="60" name="redund_weight186" value="" width="80" x="570" y="15020"/>
+          <AnalogOut channel="1023" height="60" name="redund_weight187" value="" width="80" x="20" y="15120"/>
+          <AnalogOut channel="1024" height="60" name="redund_weight188" value="" width="80" x="130" y="15120"/>
+          <AnalogOut channel="1025" height="60" name="redund_weight189" value="" width="80" x="240" y="15120"/>
+          <AnalogOut channel="1026" height="60" name="redund_weight190" value="" width="80" x="350" y="15120"/>
+          <AnalogOut channel="1027" height="60" name="redund_weight191" value="" width="80" x="460" y="15120"/>
+          <AnalogOut channel="1028" height="60" name="redund_weight192" value="" width="80" x="570" y="15120"/>
+          <AnalogOut channel="1029" height="60" name="redund_weight193" value="" width="80" x="20" y="15220"/>
+          <AnalogOut channel="1030" height="60" name="redund_weight194" value="" width="80" x="130" y="15220"/>
+          <AnalogOut channel="1031" height="60" name="redund_weight195" value="" width="80" x="240" y="15220"/>
+          <AnalogOut channel="1032" height="60" name="redund_weight196" value="" width="80" x="350" y="15220"/>
+          <AnalogOut channel="1033" height="60" name="skillFinished1" value="0.0" width="80" x="20" y="15320"/>
+          <AnalogOut channel="1034" height="60" name="skillFinished2" value="0.0" width="80" x="130" y="15320"/>
+          <AnalogOut channel="1035" height="60" name="state1" value="111.0" width="80" x="20" y="15420"/>
+          <AnalogOut channel="1036" height="60" name="detuning1" value="0.0" width="80" x="20" y="15520"/>
+          <AnalogOut channel="1037" height="60" name="detuning2" value="0.0" width="80" x="130" y="15520"/>
+          <AnalogOut channel="1038" height="60" name="freeDrive1" value="0.0" width="80" x="20" y="15620"/>
+          <AnalogOut channel="1039" height="60" name="freeDrive2" value="" width="80" x="130" y="15620"/>
+          <AnalogOut channel="1040" height="60" name="ifkDigitalIn1" value="0.0" width="80" x="20" y="15720"/>
+          <AnalogOut channel="1041" height="60" name="ifkDigitalIn2" value="0.0" width="80" x="130" y="15720"/>
+          <AnalogOut channel="1042" height="60" name="ifkDigitalIn3" value="0.0" width="80" x="240" y="15720"/>
+          <AnalogOut channel="1043" height="60" name="ifkDigitalIn4" value="0.0" width="80" x="350" y="15720"/>
+          <AnalogOut channel="1044" height="60" name="ifkDigitalIn5" value="0.0" width="80" x="460" y="15720"/>
+          <AnalogOut channel="1045" height="60" name="ifkDigitalIn6" value="0.0" width="80" x="570" y="15720"/>
+          <AnalogOut channel="1046" height="60" name="ifkDigitalIn7" value="0.0" width="80" x="20" y="15820"/>
+          <AnalogOut channel="1047" height="60" name="ifkDigitalIn8" value="0.0" width="80" x="130" y="15820"/>
+        </GCDocument>
+      </WorkspaceObject>
+      <WorkspaceObject enabled="1" fileName="" height="60" horizontalScrollBar="1" name="i" ownerClass="" scanCycle="1" useIcon="0" verticalScrollBar="1" width="60" x="-60" y="-200">
+        <GCDocument color="-1" height="672" scale="1.0" socketSendMode="Inherit" viewPositionX="-11" viewPositionY="2400" width="649" x="683" y="200">
+          <AnalogIn channel="1" cyclic="1" height="60" name="y_meas1" value="0.0" width="80" x="20" y="20"/>
+          <AnalogIn channel="2" cyclic="1" height="60" name="y_meas2" value="0.0" width="80" x="130" y="20"/>
+          <AnalogIn channel="3" cyclic="1" height="60" name="y_meas3" value="0.0" width="80" x="240" y="20"/>
+          <AnalogIn channel="4" cyclic="1" height="60" name="y_meas4" value="0.0" width="80" x="350" y="20"/>
+          <AnalogIn channel="5" cyclic="1" height="60" name="y_meas5" value="0.0" width="80" x="460" y="20"/>
+          <AnalogIn channel="6" cyclic="1" height="60" name="y_meas6" value="0.0" width="80" x="570" y="20"/>
+          <AnalogIn channel="7" cyclic="1" height="60" name="y_meas7" value="0.0" width="80" x="20" y="120"/>
+          <AnalogIn channel="8" cyclic="1" height="60" name="y_meas8" value="0.0" width="80" x="130" y="120"/>
+          <AnalogIn channel="9" cyclic="1" height="60" name="y_meas9" value="0.0" width="80" x="240" y="120"/>
+          <AnalogIn channel="10" cyclic="1" height="60" name="y_meas10" value="0.0" width="80" x="350" y="120"/>
+          <AnalogIn channel="11" cyclic="1" height="60" name="y_meas11" value="0.0" width="80" x="460" y="120"/>
+          <AnalogIn channel="12" cyclic="1" height="60" name="y_meas12" value="0.0" width="80" x="570" y="120"/>
+          <AnalogIn channel="13" cyclic="1" height="60" name="y_meas13" value="0.0" width="80" x="20" y="220"/>
+          <AnalogIn channel="14" cyclic="1" height="60" name="y_meas14" value="0.0" width="80" x="130" y="220"/>
+          <AnalogIn channel="15" cyclic="1" height="60" name="y_meas15" value="0.0" width="80" x="240" y="220"/>
+          <AnalogIn channel="16" cyclic="1" height="60" name="y_meas16" value="0.0" width="80" x="350" y="220"/>
+          <AnalogIn channel="17" cyclic="1" height="60" name="y_meas17" value="0.0" width="80" x="460" y="220"/>
+          <AnalogIn channel="18" cyclic="1" height="60" name="y_meas18" value="0.0" width="80" x="570" y="220"/>
+          <AnalogIn channel="19" cyclic="1" height="60" name="y_meas19" value="0.0" width="80" x="20" y="320"/>
+          <AnalogIn channel="20" cyclic="1" height="60" name="y_meas20" value="0.0" width="80" x="130" y="320"/>
+          <AnalogIn channel="21" cyclic="1" height="60" name="y_meas21" value="0.0" width="80" x="240" y="320"/>
+          <AnalogIn channel="22" cyclic="1" height="60" name="y_meas22" value="0.0" width="80" x="350" y="320"/>
+          <AnalogIn channel="23" cyclic="1" height="60" name="y_meas23" value="0.0" width="80" x="460" y="320"/>
+          <AnalogIn channel="24" cyclic="1" height="60" name="y_meas24" value="0.0" width="80" x="570" y="320"/>
+          <AnalogIn channel="25" cyclic="1" height="60" name="y_meas25" value="-0.0" width="80" x="20" y="420"/>
+          <AnalogIn channel="26" cyclic="1" height="60" name="y_meas26" value="-0.0" width="80" x="130" y="420"/>
+          <AnalogIn channel="27" cyclic="1" height="60" name="y_meas27" value="-0.0" width="80" x="240" y="420"/>
+          <AnalogIn channel="28" cyclic="1" height="60" name="y_meas28" value="-0.0" width="80" x="350" y="420"/>
+          <AnalogIn channel="29" cyclic="1" height="60" name="y_meas29" value="-0.0" width="80" x="460" y="420"/>
+          <AnalogIn channel="30" cyclic="1" height="60" name="y_meas30" value="-0.0" width="80" x="570" y="420"/>
+          <AnalogIn channel="31" cyclic="1" height="60" name="y_meas31" value="-0.0" width="80" x="20" y="520"/>
+          <AnalogIn channel="32" cyclic="1" height="60" name="y_meas32" value="-0.0" width="80" x="130" y="520"/>
+          <AnalogIn channel="33" cyclic="1" height="60" name="y_meas33" value="-0.0" width="80" x="240" y="520"/>
+          <AnalogIn channel="34" cyclic="1" height="60" name="y_meas34" value="-0.0" width="80" x="350" y="520"/>
+          <AnalogIn channel="35" cyclic="1" height="60" name="y_meas35" value="-0.0" width="80" x="460" y="520"/>
+          <AnalogIn channel="36" cyclic="1" height="60" name="y_meas36" value="-0.0" width="80" x="570" y="520"/>
+          <AnalogIn channel="37" cyclic="1" height="60" name="y_meas37" value="0.0" width="80" x="20" y="620"/>
+          <AnalogIn channel="38" cyclic="1" height="60" name="y_meas38" value="0.0" width="80" x="130" y="620"/>
+          <AnalogIn channel="39" cyclic="1" height="60" name="y_meas39" value="0.0" width="80" x="240" y="620"/>
+          <AnalogIn channel="40" cyclic="1" height="60" name="y_meas40" value="0.0" width="80" x="350" y="620"/>
+          <AnalogIn channel="41" cyclic="1" height="60" name="y_meas41" value="0.0" width="80" x="460" y="620"/>
+          <AnalogIn channel="42" cyclic="1" height="60" name="y_meas42" value="0.0" width="80" x="570" y="620"/>
+          <AnalogIn channel="43" cyclic="1" height="60" name="y_meas43" value="0.0" width="80" x="20" y="720"/>
+          <AnalogIn channel="44" cyclic="1" height="60" name="y_meas44" value="0.0" width="80" x="130" y="720"/>
+          <AnalogIn channel="45" cyclic="1" height="60" name="y_meas45" value="0.0" width="80" x="240" y="720"/>
+          <AnalogIn channel="46" cyclic="1" height="60" name="y_meas46" value="0.0" width="80" x="350" y="720"/>
+          <AnalogIn channel="47" cyclic="1" height="60" name="y_meas47" value="0.0" width="80" x="460" y="720"/>
+          <AnalogIn channel="48" cyclic="1" height="60" name="y_meas48" value="0.0" width="80" x="570" y="720"/>
+          <AnalogIn channel="49" cyclic="1" height="60" name="y_meas49" value="0.0" width="80" x="20" y="820"/>
+          <AnalogIn channel="50" cyclic="1" height="60" name="y_meas50" value="0.0" width="80" x="130" y="820"/>
+          <AnalogIn channel="51" cyclic="1" height="60" name="y_meas51" value="0.0" width="80" x="240" y="820"/>
+          <AnalogIn channel="52" cyclic="1" height="60" name="y_meas52" value="0.0" width="80" x="350" y="820"/>
+          <AnalogIn channel="53" cyclic="1" height="60" name="y_meas53" value="0.0" width="80" x="460" y="820"/>
+          <AnalogIn channel="54" cyclic="1" height="60" name="y_meas54" value="0.0" width="80" x="570" y="820"/>
+          <AnalogIn channel="55" cyclic="1" height="60" name="y_meas55" value="0.0" width="80" x="20" y="920"/>
+          <AnalogIn channel="56" cyclic="1" height="60" name="y_meas56" value="0.0" width="80" x="130" y="920"/>
+          <AnalogIn channel="57" cyclic="1" height="60" name="y_meas57" value="0.0" width="80" x="240" y="920"/>
+          <AnalogIn channel="58" cyclic="1" height="60" name="y_meas58" value="0.0" width="80" x="350" y="920"/>
+          <AnalogIn channel="59" cyclic="1" height="60" name="y_meas59" value="0.0" width="80" x="460" y="920"/>
+          <AnalogIn channel="60" cyclic="1" height="60" name="y_meas60" value="0.0" width="80" x="570" y="920"/>
+          <AnalogIn channel="61" cyclic="1" height="60" name="y_meas61" value="0.0" width="80" x="20" y="1020"/>
+          <AnalogIn channel="62" cyclic="1" height="60" name="y_meas62" value="0.0" width="80" x="130" y="1020"/>
+          <AnalogIn channel="63" cyclic="1" height="60" name="y_meas63" value="0.0" width="80" x="240" y="1020"/>
+          <AnalogIn channel="64" cyclic="1" height="60" name="y_meas64" value="0.0" width="80" x="350" y="1020"/>
+          <AnalogIn channel="65" cyclic="1" height="60" name="y_meas65" value="0.0" width="80" x="460" y="1020"/>
+          <AnalogIn channel="66" cyclic="1" height="60" name="y_meas66" value="0.0" width="80" x="570" y="1020"/>
+          <AnalogIn channel="67" cyclic="1" height="60" name="y_meas67" value="0.0" width="80" x="20" y="1120"/>
+          <AnalogIn channel="68" cyclic="1" height="60" name="y_meas68" value="0.0" width="80" x="130" y="1120"/>
+          <AnalogIn channel="69" cyclic="1" height="60" name="y_meas69" value="0.0" width="80" x="240" y="1120"/>
+          <AnalogIn channel="70" cyclic="1" height="60" name="y_meas70" value="0.0" width="80" x="350" y="1120"/>
+          <AnalogIn channel="71" cyclic="1" height="60" name="y_meas71" value="0.0" width="80" x="460" y="1120"/>
+          <AnalogIn channel="72" cyclic="1" height="60" name="y_meas72" value="0.0" width="80" x="570" y="1120"/>
+          <AnalogIn channel="73" cyclic="1" height="60" name="y_meas73" value="0.0" width="80" x="20" y="1220"/>
+          <AnalogIn channel="74" cyclic="1" height="60" name="y_meas74" value="0.0" width="80" x="130" y="1220"/>
+          <AnalogIn channel="75" cyclic="1" height="60" name="y_meas75" value="0.0" width="80" x="240" y="1220"/>
+          <AnalogIn channel="76" cyclic="1" height="60" name="y_meas76" value="0.0" width="80" x="350" y="1220"/>
+          <AnalogIn channel="77" cyclic="1" height="60" name="y_meas77" value="0.0" width="80" x="460" y="1220"/>
+          <AnalogIn channel="78" cyclic="1" height="60" name="y_meas78" value="0.0" width="80" x="570" y="1220"/>
+          <AnalogIn channel="79" cyclic="1" height="60" name="y_meas79" value="0.0" width="80" x="20" y="1320"/>
+          <AnalogIn channel="80" cyclic="1" height="60" name="y_meas80" value="0.0" width="80" x="130" y="1320"/>
+          <AnalogIn channel="81" cyclic="1" height="60" name="y_meas81" value="0.0" width="80" x="240" y="1320"/>
+          <AnalogIn channel="82" cyclic="1" height="60" name="y_meas82" value="0.0" width="80" x="350" y="1320"/>
+          <AnalogIn channel="83" cyclic="1" height="60" name="y_meas83" value="0.0" width="80" x="460" y="1320"/>
+          <AnalogIn channel="84" cyclic="1" height="60" name="y_meas84" value="0.0" width="80" x="570" y="1320"/>
+          <AnalogIn channel="85" cyclic="1" height="60" name="y_meas85" value="0.0" width="80" x="20" y="1420"/>
+          <AnalogIn channel="86" cyclic="1" height="60" name="y_meas86" value="0.0" width="80" x="130" y="1420"/>
+          <AnalogIn channel="87" cyclic="1" height="60" name="y_meas87" value="0.0" width="80" x="240" y="1420"/>
+          <AnalogIn channel="88" cyclic="1" height="60" name="y_meas88" value="0.0" width="80" x="350" y="1420"/>
+          <AnalogIn channel="89" cyclic="1" height="60" name="y_meas89" value="0.0" width="80" x="460" y="1420"/>
+          <AnalogIn channel="90" cyclic="1" height="60" name="y_meas90" value="0.0" width="80" x="570" y="1420"/>
+          <AnalogIn channel="91" cyclic="1" height="60" name="y_meas91" value="0.0" width="80" x="20" y="1520"/>
+          <AnalogIn channel="92" cyclic="1" height="60" name="y_meas92" value="0.0" width="80" x="130" y="1520"/>
+          <AnalogIn channel="93" cyclic="1" height="60" name="y_meas93" value="0.0" width="80" x="240" y="1520"/>
+          <AnalogIn channel="94" cyclic="1" height="60" name="y_meas94" value="0.0" width="80" x="350" y="1520"/>
+          <AnalogIn channel="95" cyclic="1" height="60" name="y_meas95" value="0.0" width="80" x="460" y="1520"/>
+          <AnalogIn channel="96" cyclic="1" height="60" name="y_meas96" value="0.0" width="80" x="570" y="1520"/>
+          <AnalogIn channel="97" cyclic="1" height="60" name="quats1" value="1.0" width="80" x="20" y="1720"/>
+          <AnalogIn channel="98" cyclic="1" height="60" name="quats2" value="0.0" width="80" x="130" y="1720"/>
+          <AnalogIn channel="99" cyclic="1" height="60" name="quats3" value="0.0" width="80" x="240" y="1720"/>
+          <AnalogIn channel="100" cyclic="1" height="60" name="quats4" value="0.0" width="80" x="350" y="1720"/>
+          <AnalogIn channel="101" cyclic="1" height="60" name="quats5" value="1.0" width="80" x="460" y="1720"/>
+          <AnalogIn channel="102" cyclic="1" height="60" name="quats6" value="1.0" width="80" x="570" y="1720"/>
+          <AnalogIn channel="103" cyclic="1" height="60" name="quats7" value="-1.806" width="80" x="20" y="1820"/>
+          <AnalogIn channel="104" cyclic="1" height="60" name="quats8" value="0.0" width="80" x="130" y="1820"/>
+          <AnalogIn channel="105" cyclic="1" height="60" name="quats9" value="0.0" width="80" x="240" y="1820"/>
+          <AnalogIn channel="106" cyclic="1" height="60" name="quats10" value="0.0" width="80" x="350" y="1820"/>
+          <AnalogIn channel="107" cyclic="1" height="60" name="quats11" value="0.0" width="80" x="460" y="1820"/>
+          <AnalogIn channel="108" cyclic="1" height="60" name="quats12" value="0.0" width="80" x="570" y="1820"/>
+          <AnalogIn channel="109" cyclic="1" height="60" name="quats13" value="0.0" width="80" x="20" y="1920"/>
+          <AnalogIn channel="110" cyclic="1" height="60" name="quats14" value="1.787" width="80" x="130" y="1920"/>
+          <AnalogIn channel="111" cyclic="1" height="60" name="quats15" value="0.0" width="80" x="240" y="1920"/>
+          <AnalogIn channel="112" cyclic="1" height="60" name="quats16" value="0.0" width="80" x="350" y="1920"/>
+          <AnalogIn channel="113" cyclic="1" height="60" name="y_d_dot01" value="0.0" width="80" x="20" y="2020"/>
+          <AnalogIn channel="114" cyclic="1" height="60" name="y_d_dot02" value="0.0" width="80" x="130" y="2020"/>
+          <AnalogIn channel="115" cyclic="1" height="60" name="y_d_dot03" value="0.0" width="80" x="240" y="2020"/>
+          <AnalogIn channel="116" cyclic="1" height="60" name="y_d_dot04" value="0.0" width="80" x="350" y="2020"/>
+          <AnalogIn channel="117" cyclic="1" height="60" name="y_d_dot05" value="0.0" width="80" x="460" y="2020"/>
+          <AnalogIn channel="118" cyclic="1" height="60" name="y_d_dot06" value="0.0" width="80" x="570" y="2020"/>
+          <AnalogIn channel="119" cyclic="1" height="60" name="y_d_dot07" value="0.0" width="80" x="20" y="2120"/>
+          <AnalogIn channel="120" cyclic="1" height="60" name="y_d_dot08" value="0.0" width="80" x="130" y="2120"/>
+          <AnalogIn channel="121" cyclic="1" height="60" name="y_d_dot09" value="0.0" width="80" x="240" y="2120"/>
+          <AnalogIn channel="122" cyclic="1" height="60" name="y_d_dot010" value="0.0" width="80" x="350" y="2120"/>
+          <AnalogIn channel="123" cyclic="1" height="60" name="y_d_dot011" value="0.0" width="80" x="460" y="2120"/>
+          <AnalogIn channel="124" cyclic="1" height="60" name="y_d_dot012" value="0.0" width="80" x="570" y="2120"/>
+          <AnalogIn channel="125" cyclic="1" height="60" name="skillToRun1" value="30.0" width="80" x="20" y="2320"/>
+          <AnalogIn channel="126" cyclic="1" height="60" name="skillToRun2" value="0.0" width="80" x="130" y="2320"/>
+          <AnalogIn channel="127" cyclic="1" height="60" name="runExtctrl1" value="0.0" width="80" x="20" y="2420"/>
+          <AnalogIn channel="128" cyclic="1" height="60" name="runExtctrl2" value="0.0" width="80" x="130" y="2420"/>
+          <AnalogIn channel="129" cyclic="1" height="60" name="resetProgram1" value="1.0" width="80" x="20" y="2520"/>
+          <AnalogIn channel="130" cyclic="1" height="60" name="resetProgram2" value="1.0" width="80" x="130" y="2520"/>
+          <AnalogIn channel="131" cyclic="1" height="60" name="kinematicsConverged1" value="0.0" width="80" x="20" y="2620"/>
+          <AnalogIn channel="132" cyclic="1" height="60" name="kinematicsConverged2" value="0.0" width="80" x="130" y="2620"/>
+          <AnalogIn channel="133" cyclic="1" height="60" name="ifkAnalogOut1" value="-0.08" width="80" x="20" y="2720"/>
+          <AnalogIn channel="134" cyclic="1" height="60" name="ifkAnalogOut2" value="-0.101" width="80" x="130" y="2720"/>
+          <AnalogIn channel="135" cyclic="1" height="60" name="ifkAnalogOut3" value="0.073" width="80" x="240" y="2720"/>
+          <AnalogIn channel="136" cyclic="1" height="60" name="ifkAnalogOut4" value="0.0" width="80" x="350" y="2720"/>
+          <AnalogIn channel="137" cyclic="1" height="60" name="ifkAnalogOut5" value="0.33" width="80" x="460" y="2720"/>
+          <AnalogIn channel="138" cyclic="1" height="60" name="ifkAnalogOut6" value="2.62" width="80" x="570" y="2720"/>
+          <AnalogIn channel="139" cyclic="1" height="60" name="ifkAnalogOut7" value="2.545" width="80" x="20" y="2820"/>
+          <AnalogIn channel="140" cyclic="1" height="60" name="ifkAnalogOut8" value="0.075" width="80" x="130" y="2820"/>
+          <AnalogIn channel="141" cyclic="1" height="60" name="ifkDigitalOut1" value="0.0" width="80" x="20" y="2920"/>
+          <AnalogIn channel="142" cyclic="1" height="60" name="ifkDigitalOut2" value="0.0" width="80" x="130" y="2920"/>
+          <AnalogIn channel="143" cyclic="1" height="60" name="ifkDigitalOut3" value="0.0" width="80" x="240" y="2920"/>
+          <AnalogIn channel="144" cyclic="1" height="60" name="ifkDigitalOut4" value="0.0" width="80" x="350" y="2920"/>
+          <AnalogIn channel="145" cyclic="1" height="60" name="ifkDigitalOut5" value="0.0" width="80" x="460" y="2920"/>
+          <AnalogIn channel="146" cyclic="1" height="60" name="ifkDigitalOut6" value="0.0" width="80" x="570" y="2920"/>
+          <AnalogIn channel="147" cyclic="1" height="60" name="ifkDigitalOut7" value="0.0" width="80" x="20" y="3020"/>
+          <AnalogIn channel="148" cyclic="1" height="60" name="ifkDigitalOut8" value="0.0" width="80" x="130" y="3020"/>
+        </GCDocument>
+      </WorkspaceObject>
+      <GCLink fromObject="cfa44627-8255-4787-be65-34c2956eb129" manAdj="0" toObject="57c8ecc9-3546-4de7-bcf8-8151b0425996">
+        <Stroke x="210" y="420"/>
+        <Stroke x="210" y="430"/>
+        <Stroke x="210" y="434"/>
+        <Stroke x="-120" y="434"/>
+        <Stroke x="-120" y="439"/>
+        <Stroke x="-120" y="449"/>
+      </GCLink>
+      <GCLink fromObject="3e9414b3-85f6-405d-bc98-6c3c5e0785c2" manAdj="0" toObject="713e21c0-c2cb-4513-b679-eedc6fe6cdb3">
+        <Stroke x="210" y="650"/>
+        <Stroke x="210" y="660"/>
+        <Stroke x="210" y="660"/>
+        <Stroke x="210" y="649"/>
+        <Stroke x="210" y="649"/>
+        <Stroke x="210" y="659"/>
+      </GCLink>
+      <GCLink fromObject="713e21c0-c2cb-4513-b679-eedc6fe6cdb3" manAdj="0" toObject="81193b6f-ec8e-4b0a-b7c4-be63cff7ad5b">
+        <Stroke x="210" y="686"/>
+        <Stroke x="210" y="696"/>
+        <Stroke x="210" y="696"/>
+        <Stroke x="210" y="687"/>
+        <Stroke x="210" y="687"/>
+        <Stroke x="210" y="697"/>
+      </GCLink>
+      <GCLink fromObject="6781b10e-8516-4fdc-850f-399bc123c054" manAdj="0" toObject="3c69ae16-95c0-4cc0-aee2-66e06e64a345">
+        <Stroke x="210" y="870"/>
+        <Stroke x="210" y="880"/>
+        <Stroke x="210" y="880"/>
+        <Stroke x="210" y="869"/>
+        <Stroke x="210" y="869"/>
+        <Stroke x="210" y="879"/>
+      </GCLink>
+      <GCLink fromObject="18070911-37f2-4f5e-a263-36efd0dd3f9f" manAdj="0" toObject="634252d8-f80e-4c22-a6b2-e0aeac39b58c">
+        <Stroke x="210" y="1210"/>
+        <Stroke x="210" y="1220"/>
+        <Stroke x="45" y="1220"/>
+        <Stroke x="45" y="1219"/>
+        <Stroke x="-120" y="1219"/>
+        <Stroke x="-120" y="1229"/>
+      </GCLink>
+      <GCLink fromObject="634252d8-f80e-4c22-a6b2-e0aeac39b58c" manAdj="0" toObject="db559d42-9d43-4e0a-bae4-70877aee8706">
+        <Stroke x="-120" y="1256"/>
+        <Stroke x="-120" y="1266"/>
+        <Stroke x="-120" y="1271"/>
+        <Stroke x="210" y="1271"/>
+        <Stroke x="210" y="1277"/>
+        <Stroke x="210" y="1287"/>
+      </GCLink>
+      <GCLink fromObject="db559d42-9d43-4e0a-bae4-70877aee8706" manAdj="0" toObject="ea4ff5da-573c-4edf-9ee0-b412448810e6">
+        <Stroke x="210" y="1320"/>
+        <Stroke x="210" y="1330"/>
+        <Stroke x="210" y="1339"/>
+        <Stroke x="210" y="1339"/>
+        <Stroke x="210" y="1349"/>
+        <Stroke x="210" y="1359"/>
+      </GCLink>
+      <GCLink fromObject="4411a428-1300-459f-a5c6-a9f6cbb5b30f" manAdj="0" toObject="333fa6b3-83fd-4169-919a-16156d73c2fb">
+        <Stroke x="210" y="950"/>
+        <Stroke x="210" y="960"/>
+        <Stroke x="210" y="964"/>
+        <Stroke x="-120" y="964"/>
+        <Stroke x="-120" y="969"/>
+        <Stroke x="-120" y="979"/>
+      </GCLink>
+      <GCLink fromObject="333fa6b3-83fd-4169-919a-16156d73c2fb" manAdj="0" toObject="af9513ac-d4d5-4d69-bd2f-1bb32c9afe13">
+        <Stroke x="-120" y="1006"/>
+        <Stroke x="-120" y="1016"/>
+        <Stroke x="-120" y="1021"/>
+        <Stroke x="210" y="1021"/>
+        <Stroke x="210" y="1027"/>
+        <Stroke x="210" y="1037"/>
+      </GCLink>
+      <GCLink fromObject="af9513ac-d4d5-4d69-bd2f-1bb32c9afe13" manAdj="0" toObject="e8b3cf56-218a-4525-9756-aa5e13ad4a12">
+        <Stroke x="210" y="1070"/>
+        <Stroke x="210" y="1080"/>
+        <Stroke x="210" y="1089"/>
+        <Stroke x="210" y="1089"/>
+        <Stroke x="210" y="1099"/>
+        <Stroke x="210" y="1109"/>
+      </GCLink>
+      <GCLink fromObject="3c69ae16-95c0-4cc0-aee2-66e06e64a345" manAdj="0" toObject="4411a428-1300-459f-a5c6-a9f6cbb5b30f">
+        <Stroke x="210" y="906"/>
+        <Stroke x="210" y="916"/>
+        <Stroke x="210" y="916"/>
+        <Stroke x="210" y="907"/>
+        <Stroke x="210" y="907"/>
+        <Stroke x="210" y="917"/>
+      </GCLink>
+      <GCLink fromObject="e8b3cf56-218a-4525-9756-aa5e13ad4a12" manAdj="0" toObject="18070911-37f2-4f5e-a263-36efd0dd3f9f">
+        <Stroke x="210" y="1136"/>
+        <Stroke x="210" y="1146"/>
+        <Stroke x="210" y="1156"/>
+        <Stroke x="210" y="1156"/>
+        <Stroke x="210" y="1167"/>
+        <Stroke x="210" y="1177"/>
+      </GCLink>
+      <GCLink fromObject="ea4ff5da-573c-4edf-9ee0-b412448810e6" manAdj="0" toObject="9a7587ef-fb8f-4e8f-8f97-bdbb7f933d6b">
+        <Stroke x="210" y="1386"/>
+        <Stroke x="210" y="1396"/>
+        <Stroke x="210" y="1426"/>
+        <Stroke x="210" y="1426"/>
+        <Stroke x="210" y="1457"/>
+        <Stroke x="210" y="1467"/>
+      </GCLink>
+      <GCLink fromObject="e17549dd-d8e9-4827-9864-577f42284387" manAdj="0" toObject="840945b6-d3ee-4103-9040-3c3f0cb77a10">
+        <Stroke x="450" y="1790"/>
+        <Stroke x="450" y="1800"/>
+        <Stroke x="450" y="1804"/>
+        <Stroke x="450" y="1804"/>
+        <Stroke x="450" y="1809"/>
+        <Stroke x="450" y="1819"/>
+      </GCLink>
+      <GCLink fromObject="a25a5048-3f93-441a-994d-4b03dbdf1179" manAdj="0" toObject="5d619513-fb32-414f-a1ee-be632fa3aeba">
+        <Stroke x="450" y="2000"/>
+        <Stroke x="450" y="2010"/>
+        <Stroke x="450" y="2010"/>
+        <Stroke x="450" y="1999"/>
+        <Stroke x="450" y="1999"/>
+        <Stroke x="450" y="2009"/>
+      </GCLink>
+      <GCLink fromObject="cc97fe0d-e2ef-4602-a4f5-80766a4ec37d" manAdj="0" toObject="dbdab5ef-1a84-42b9-af6f-2d8522d884f1">
+        <Stroke x="210" y="170"/>
+        <Stroke x="210" y="180"/>
+        <Stroke x="210" y="180"/>
+        <Stroke x="210" y="169"/>
+        <Stroke x="210" y="169"/>
+        <Stroke x="210" y="179"/>
+      </GCLink>
+      <GCLink fromObject="161f0081-4c24-4dd4-a9c4-46e03cb3599c" manAdj="0" toObject="cc97fe0d-e2ef-4602-a4f5-80766a4ec37d">
+        <Stroke x="210" y="126"/>
+        <Stroke x="210" y="136"/>
+        <Stroke x="210" y="136"/>
+        <Stroke x="210" y="127"/>
+        <Stroke x="210" y="127"/>
+        <Stroke x="210" y="137"/>
+      </GCLink>
+      <GCLink fromObject="dbdab5ef-1a84-42b9-af6f-2d8522d884f1" manAdj="0" toObject="4a6001bf-db29-43fa-930d-a90e0427c427">
+        <Stroke x="210" y="206"/>
+        <Stroke x="210" y="216"/>
+        <Stroke x="210" y="236"/>
+        <Stroke x="210" y="236"/>
+        <Stroke x="210" y="257"/>
+        <Stroke x="210" y="267"/>
+      </GCLink>
+      <GCLink fromObject="4a6001bf-db29-43fa-930d-a90e0427c427" manAdj="0" toObject="ef6db0d1-ebe7-40dc-b712-f63c5169e48f">
+        <Stroke x="210" y="300"/>
+        <Stroke x="210" y="310"/>
+        <Stroke x="210" y="314"/>
+        <Stroke x="210" y="314"/>
+        <Stroke x="210" y="319"/>
+        <Stroke x="210" y="329"/>
+      </GCLink>
+      <GCLink fromObject="ef6db0d1-ebe7-40dc-b712-f63c5169e48f" manAdj="0" toObject="cfa44627-8255-4787-be65-34c2956eb129">
+        <Stroke x="210" y="356"/>
+        <Stroke x="210" y="366"/>
+        <Stroke x="210" y="371"/>
+        <Stroke x="210" y="371"/>
+        <Stroke x="210" y="377"/>
+        <Stroke x="210" y="387"/>
+      </GCLink>
+      <GCLink fromObject="6bd2df2f-b79b-423a-b338-852bd11a7891" manAdj="0" toObject="ecef9900-4da5-4f4a-863b-bab8ba8301fd">
+        <Stroke x="750" y="70"/>
+        <Stroke x="750" y="80"/>
+        <Stroke x="750" y="80"/>
+        <Stroke x="750" y="79"/>
+        <Stroke x="750" y="79"/>
+        <Stroke x="750" y="89"/>
+      </GCLink>
+      <GCLink fromObject="8f995a0a-f68d-4632-8acf-58b33efcdd87" manAdj="0" toObject="4a4491f7-7acd-4614-bb3f-d169797baf94">
+        <Stroke x="60" y="1890"/>
+        <Stroke x="60" y="1900"/>
+        <Stroke x="60" y="1904"/>
+        <Stroke x="60" y="1904"/>
+        <Stroke x="60" y="1909"/>
+        <Stroke x="60" y="1919"/>
+      </GCLink>
+      <GCLink fromObject="dc952038-e6df-4e7b-938c-ff478792bbbf" manAdj="0" toObject="9e3a933f-8700-4dbb-838e-1973bc06ba39">
+        <Stroke x="60" y="1790"/>
+        <Stroke x="60" y="1800"/>
+        <Stroke x="60" y="1800"/>
+        <Stroke x="60" y="1799"/>
+        <Stroke x="60" y="1799"/>
+        <Stroke x="60" y="1809"/>
+      </GCLink>
+      <GCLink fromObject="9e3a933f-8700-4dbb-838e-1973bc06ba39" manAdj="0" toObject="8f995a0a-f68d-4632-8acf-58b33efcdd87">
+        <Stroke x="60" y="1836"/>
+        <Stroke x="60" y="1846"/>
+        <Stroke x="60" y="1846"/>
+        <Stroke x="60" y="1846"/>
+        <Stroke x="60" y="1847"/>
+        <Stroke x="60" y="1857"/>
+      </GCLink>
+      <GCLink fromObject="81193b6f-ec8e-4b0a-b7c4-be63cff7ad5b" manAdj="0" toObject="26d0c296-3ec9-49c7-b7e3-c94557d8c30e">
+        <Stroke x="210" y="730"/>
+        <Stroke x="210" y="740"/>
+        <Stroke x="210" y="744"/>
+        <Stroke x="-130" y="744"/>
+        <Stroke x="-130" y="749"/>
+        <Stroke x="-130" y="759"/>
+      </GCLink>
+      <GCLink fromObject="26d0c296-3ec9-49c7-b7e3-c94557d8c30e" manAdj="0" toObject="6781b10e-8516-4fdc-850f-399bc123c054">
+        <Stroke x="-130" y="786"/>
+        <Stroke x="-130" y="796"/>
+        <Stroke x="-130" y="811"/>
+        <Stroke x="210" y="811"/>
+        <Stroke x="210" y="827"/>
+        <Stroke x="210" y="837"/>
+      </GCLink>
+      <GCLink fromObject="cfa44627-8255-4787-be65-34c2956eb129" manAdj="0" toObject="7e2c3d91-fa6a-467c-80e5-f8cd1de95b76">
+        <Stroke x="210" y="420"/>
+        <Stroke x="210" y="430"/>
+        <Stroke x="210" y="434"/>
+        <Stroke x="210" y="434"/>
+        <Stroke x="210" y="439"/>
+        <Stroke x="210" y="449"/>
+      </GCLink>
+      <GCLink fromObject="81193b6f-ec8e-4b0a-b7c4-be63cff7ad5b" manAdj="0" toObject="1bdb5cd9-d669-48ac-af29-c1fb6e0ef127">
+        <Stroke x="210" y="730"/>
+        <Stroke x="210" y="740"/>
+        <Stroke x="210" y="744"/>
+        <Stroke x="210" y="744"/>
+        <Stroke x="210" y="749"/>
+        <Stroke x="210" y="759"/>
+      </GCLink>
+      <GCLink fromObject="1bdb5cd9-d669-48ac-af29-c1fb6e0ef127" manAdj="0" toObject="6781b10e-8516-4fdc-850f-399bc123c054">
+        <Stroke x="210" y="786"/>
+        <Stroke x="210" y="796"/>
+        <Stroke x="210" y="811"/>
+        <Stroke x="210" y="811"/>
+        <Stroke x="210" y="827"/>
+        <Stroke x="210" y="837"/>
+      </GCLink>
+      <GCLink fromObject="4411a428-1300-459f-a5c6-a9f6cbb5b30f" manAdj="0" toObject="2a146e6a-b87d-4991-8918-959a789d2575">
+        <Stroke x="210" y="950"/>
+        <Stroke x="210" y="960"/>
+        <Stroke x="210" y="964"/>
+        <Stroke x="210" y="964"/>
+        <Stroke x="210" y="969"/>
+        <Stroke x="210" y="979"/>
+      </GCLink>
+      <GCLink fromObject="2a146e6a-b87d-4991-8918-959a789d2575" manAdj="0" toObject="af9513ac-d4d5-4d69-bd2f-1bb32c9afe13">
+        <Stroke x="210" y="1006"/>
+        <Stroke x="210" y="1016"/>
+        <Stroke x="210" y="1021"/>
+        <Stroke x="210" y="1021"/>
+        <Stroke x="210" y="1027"/>
+        <Stroke x="210" y="1037"/>
+      </GCLink>
+      <GCLink fromObject="48bf92ba-a2d5-45b6-8b38-cd1a6af19176" manAdj="0" toObject="e17549dd-d8e9-4827-9864-577f42284387">
+        <Stroke x="450" y="1726"/>
+        <Stroke x="450" y="1736"/>
+        <Stroke x="450" y="1741"/>
+        <Stroke x="450" y="1741"/>
+        <Stroke x="450" y="1747"/>
+        <Stroke x="450" y="1757"/>
+      </GCLink>
+      <GCLink fromObject="e880bef1-2cc2-425a-bac9-2536f7c3c4c1" manAdj="0" toObject="efad79df-7c10-43af-9f52-184567f6945b">
+        <Stroke x="450" y="1900"/>
+        <Stroke x="450" y="1910"/>
+        <Stroke x="450" y="1910"/>
+        <Stroke x="450" y="1909"/>
+        <Stroke x="450" y="1909"/>
+        <Stroke x="450" y="1919"/>
+      </GCLink>
+      <GCLink fromObject="840945b6-d3ee-4103-9040-3c3f0cb77a10" manAdj="0" toObject="e880bef1-2cc2-425a-bac9-2536f7c3c4c1">
+        <Stroke x="450" y="1846"/>
+        <Stroke x="450" y="1856"/>
+        <Stroke x="450" y="1856"/>
+        <Stroke x="450" y="1856"/>
+        <Stroke x="450" y="1857"/>
+        <Stroke x="450" y="1867"/>
+      </GCLink>
+      <GCLink fromObject="efad79df-7c10-43af-9f52-184567f6945b" manAdj="0" toObject="a25a5048-3f93-441a-994d-4b03dbdf1179">
+        <Stroke x="450" y="1946"/>
+        <Stroke x="450" y="1956"/>
+        <Stroke x="450" y="1956"/>
+        <Stroke x="450" y="1956"/>
+        <Stroke x="450" y="1957"/>
+        <Stroke x="450" y="1967"/>
+      </GCLink>
+      <GCLink fromObject="5d619513-fb32-414f-a1ee-be632fa3aeba" manAdj="0" toObject="76348937-078f-4960-b1c5-fe75cdd9fa74">
+        <Stroke x="450" y="2036"/>
+        <Stroke x="450" y="2046"/>
+        <Stroke x="450" y="2046"/>
+        <Stroke x="450" y="2046"/>
+        <Stroke x="450" y="2047"/>
+        <Stroke x="450" y="2057"/>
+      </GCLink>
+      <GCLink fromObject="76348937-078f-4960-b1c5-fe75cdd9fa74" manAdj="0" toObject="e25b1ad7-0939-4b35-b600-75b5beba8ab7">
+        <Stroke x="450" y="2090"/>
+        <Stroke x="450" y="2100"/>
+        <Stroke x="450" y="2100"/>
+        <Stroke x="450" y="2099"/>
+        <Stroke x="450" y="2099"/>
+        <Stroke x="450" y="2109"/>
+      </GCLink>
+      <GCLink fromObject="e25b1ad7-0939-4b35-b600-75b5beba8ab7" manAdj="1" toObject="6bd2df2f-b79b-423a-b338-852bd11a7891">
+        <Stroke x="450" y="2136"/>
+        <Stroke x="450" y="2146"/>
+        <Stroke x="976" y="2146"/>
+        <Stroke x="976" y="27"/>
+        <Stroke x="750" y="27"/>
+        <Stroke x="750" y="37"/>
+      </GCLink>
+      <GCLink fromObject="b9badaf2-3647-4db5-83b5-6b170118f222" manAdj="0" toObject="05f052e7-1f5d-4aa3-94a1-598efe89ea2b">
+        <Stroke x="60" y="2046"/>
+        <Stroke x="60" y="2056"/>
+        <Stroke x="60" y="2056"/>
+        <Stroke x="60" y="2055"/>
+        <Stroke x="60" y="2055"/>
+        <Stroke x="60" y="2065"/>
+      </GCLink>
+      <GCLink fromObject="9a7587ef-fb8f-4e8f-8f97-bdbb7f933d6b" manAdj="0" toObject="3b6821aa-83e6-4f9c-a6c4-4e38a72c9997">
+        <Stroke x="210" y="1500"/>
+        <Stroke x="210" y="1510"/>
+        <Stroke x="210" y="1539"/>
+        <Stroke x="60" y="1539"/>
+        <Stroke x="60" y="1569"/>
+        <Stroke x="60" y="1579"/>
+      </GCLink>
+      <GCLink fromObject="9a7587ef-fb8f-4e8f-8f97-bdbb7f933d6b" manAdj="1" toObject="48bf92ba-a2d5-45b6-8b38-cd1a6af19176">
+        <Stroke x="210" y="1500"/>
+        <Stroke x="210" y="1510"/>
+        <Stroke x="210" y="1539"/>
+        <Stroke x="450" y="1539"/>
+        <Stroke x="450" y="1689"/>
+        <Stroke x="450" y="1699"/>
+      </GCLink>
+      <GCLink fromObject="9e2651d6-7a68-4e86-b749-cadae8613f19" manAdj="0" toObject="dc952038-e6df-4e7b-938c-ff478792bbbf">
+        <Stroke x="60" y="1716"/>
+        <Stroke x="60" y="1726"/>
+        <Stroke x="60" y="1736"/>
+        <Stroke x="60" y="1736"/>
+        <Stroke x="60" y="1747"/>
+        <Stroke x="60" y="1757"/>
+      </GCLink>
+      <GCLink fromObject="7e2c3d91-fa6a-467c-80e5-f8cd1de95b76" manAdj="0" toObject="3e9414b3-85f6-405d-bc98-6c3c5e0785c2">
+        <Stroke x="210" y="476"/>
+        <Stroke x="210" y="486"/>
+        <Stroke x="210" y="546"/>
+        <Stroke x="210" y="546"/>
+        <Stroke x="210" y="607"/>
+        <Stroke x="210" y="617"/>
+      </GCLink>
+      <GCLink fromObject="57c8ecc9-3546-4de7-bcf8-8151b0425996" manAdj="0" toObject="3e9414b3-85f6-405d-bc98-6c3c5e0785c2">
+        <Stroke x="-120" y="476"/>
+        <Stroke x="-120" y="486"/>
+        <Stroke x="-120" y="546"/>
+        <Stroke x="210" y="546"/>
+        <Stroke x="210" y="607"/>
+        <Stroke x="210" y="617"/>
+      </GCLink>
+      <GCLink fromObject="3b6821aa-83e6-4f9c-a6c4-4e38a72c9997" manAdj="0" toObject="295e18fb-2940-48b6-8176-41f14d9b1a26">
+        <Stroke x="60" y="1606"/>
+        <Stroke x="60" y="1616"/>
+        <Stroke x="60" y="1616"/>
+        <Stroke x="60" y="1616"/>
+        <Stroke x="60" y="1617"/>
+        <Stroke x="60" y="1627"/>
+      </GCLink>
+      <GCLink fromObject="295e18fb-2940-48b6-8176-41f14d9b1a26" manAdj="0" toObject="9e2651d6-7a68-4e86-b749-cadae8613f19">
+        <Stroke x="60" y="1660"/>
+        <Stroke x="60" y="1670"/>
+        <Stroke x="60" y="1674"/>
+        <Stroke x="60" y="1674"/>
+        <Stroke x="60" y="1679"/>
+        <Stroke x="60" y="1689"/>
+      </GCLink>
+      <GCLink fromObject="4a4491f7-7acd-4614-bb3f-d169797baf94" manAdj="0" toObject="5ec43432-e2e3-48fe-bc8e-b1b612fce9e1">
+        <Stroke x="60" y="1946"/>
+        <Stroke x="60" y="1956"/>
+        <Stroke x="60" y="1956"/>
+        <Stroke x="60" y="1956"/>
+        <Stroke x="60" y="1957"/>
+        <Stroke x="60" y="1967"/>
+      </GCLink>
+      <GCLink fromObject="5ec43432-e2e3-48fe-bc8e-b1b612fce9e1" manAdj="0" toObject="b9badaf2-3647-4db5-83b5-6b170118f222">
+        <Stroke x="60" y="2000"/>
+        <Stroke x="60" y="2010"/>
+        <Stroke x="60" y="2010"/>
+        <Stroke x="60" y="2009"/>
+        <Stroke x="60" y="2009"/>
+        <Stroke x="60" y="2019"/>
+      </GCLink>
+      <GCLink fromObject="18070911-37f2-4f5e-a263-36efd0dd3f9f" manAdj="0" toObject="7e7f31fd-c959-4768-a896-add687a0a1d6">
+        <Stroke x="210" y="1210"/>
+        <Stroke x="210" y="1220"/>
+        <Stroke x="210" y="1220"/>
+        <Stroke x="210" y="1219"/>
+        <Stroke x="210" y="1219"/>
+        <Stroke x="210" y="1229"/>
+      </GCLink>
+      <GCLink fromObject="7e7f31fd-c959-4768-a896-add687a0a1d6" manAdj="0" toObject="db559d42-9d43-4e0a-bae4-70877aee8706">
+        <Stroke x="210" y="1256"/>
+        <Stroke x="210" y="1266"/>
+        <Stroke x="210" y="1271"/>
+        <Stroke x="210" y="1271"/>
+        <Stroke x="210" y="1277"/>
+        <Stroke x="210" y="1287"/>
+      </GCLink>
+      <GCLink fromObject="364e25eb-00e9-492d-b649-bcf421d2e506" manAdj="0" toObject="7602d93a-809f-4933-8800-bd1448e4b98b">
+        <Stroke x="210" y="-184"/>
+        <Stroke x="210" y="-174"/>
+        <Stroke x="210" y="-152"/>
+        <Stroke x="210" y="-152"/>
+        <Stroke x="210" y="-131"/>
+        <Stroke x="210" y="-121"/>
+      </GCLink>
+      <GCLink fromObject="7602d93a-809f-4933-8800-bd1448e4b98b" manAdj="0" toObject="fa9488f8-adc9-43be-81c6-9e8a3ac9563c">
+        <Stroke x="210" y="-94"/>
+        <Stroke x="210" y="-84"/>
+        <Stroke x="210" y="-73"/>
+        <Stroke x="210" y="-73"/>
+        <Stroke x="210" y="-63"/>
+        <Stroke x="210" y="-53"/>
+      </GCLink>
+      <GCLink fromObject="fa9488f8-adc9-43be-81c6-9e8a3ac9563c" manAdj="0" toObject="161f0081-4c24-4dd4-a9c4-46e03cb3599c">
+        <Stroke x="210" y="-20"/>
+        <Stroke x="210" y="-10"/>
+        <Stroke x="210" y="39"/>
+        <Stroke x="210" y="39"/>
+        <Stroke x="210" y="89"/>
+        <Stroke x="210" y="99"/>
+      </GCLink>
+      <GCLink fromObject="ecef9900-4da5-4f4a-863b-bab8ba8301fd" manAdj="0" toObject="92a8d193-ab69-4ea2-87e3-27e44626dd41">
+        <Stroke x="750" y="116"/>
+        <Stroke x="750" y="126"/>
+        <Stroke x="750" y="126"/>
+        <Stroke x="750" y="117"/>
+        <Stroke x="750" y="117"/>
+        <Stroke x="750" y="127"/>
+      </GCLink>
+      <GCLink fromObject="92a8d193-ab69-4ea2-87e3-27e44626dd41" manAdj="0" toObject="e1ff10b5-a0b8-4445-9a23-6a26b0825874">
+        <Stroke x="750" y="160"/>
+        <Stroke x="750" y="170"/>
+        <Stroke x="750" y="170"/>
+        <Stroke x="750" y="159"/>
+        <Stroke x="750" y="159"/>
+        <Stroke x="750" y="169"/>
+      </GCLink>
+      <GCLink fromObject="e1ff10b5-a0b8-4445-9a23-6a26b0825874" manAdj="0" toObject="4a6001bf-db29-43fa-930d-a90e0427c427">
+        <Stroke x="750" y="196"/>
+        <Stroke x="750" y="206"/>
+        <Stroke x="750" y="231"/>
+        <Stroke x="210" y="231"/>
+        <Stroke x="210" y="257"/>
+        <Stroke x="210" y="267"/>
+      </GCLink>
+      <GCLink fromObject="db559d42-9d43-4e0a-bae4-70877aee8706" manAdj="0" toObject="c137a79a-364a-47ad-b308-a6ca7840832e">
+        <Stroke x="210" y="1320"/>
+        <Stroke x="210" y="1330"/>
+        <Stroke x="150" y="1330"/>
+        <Stroke x="150" y="1309"/>
+        <Stroke x="90" y="1309"/>
+        <Stroke x="90" y="1319"/>
+      </GCLink>
+      <GCLink fromObject="c137a79a-364a-47ad-b308-a6ca7840832e" manAdj="0" toObject="ef2c9d6c-a6b6-4c90-8b77-d8c41c1c2d72">
+        <Stroke x="90" y="1346"/>
+        <Stroke x="90" y="1356"/>
+        <Stroke x="90" y="1356"/>
+        <Stroke x="90" y="1337"/>
+        <Stroke x="90" y="1337"/>
+        <Stroke x="90" y="1347"/>
+      </GCLink>
+      <GCLink fromObject="ef2c9d6c-a6b6-4c90-8b77-d8c41c1c2d72" manAdj="0" toObject="cc3392bf-3355-4e8a-b2c1-08c7c2ae8256">
+        <Stroke x="90" y="1380"/>
+        <Stroke x="90" y="1390"/>
+        <Stroke x="90" y="1390"/>
+        <Stroke x="90" y="1379"/>
+        <Stroke x="90" y="1379"/>
+        <Stroke x="90" y="1389"/>
+      </GCLink>
+      <GCLink fromObject="cc3392bf-3355-4e8a-b2c1-08c7c2ae8256" manAdj="1" toObject="51f767a5-8edc-4b8c-b991-b4f7ee9a5f3f">
+        <Stroke x="90" y="1416"/>
+        <Stroke x="90" y="1426"/>
+        <Stroke x="59" y="1426"/>
+        <Stroke x="59" y="1377"/>
+        <Stroke x="-40" y="1377"/>
+        <Stroke x="-40" y="1387"/>
+      </GCLink>
+      <GCLink fromObject="51f767a5-8edc-4b8c-b991-b4f7ee9a5f3f" manAdj="0" toObject="3d9c95b1-a7ef-4072-a92a-aef2c21e8978">
+        <Stroke x="-40" y="1420"/>
+        <Stroke x="-40" y="1430"/>
+        <Stroke x="-40" y="1430"/>
+        <Stroke x="-40" y="1429"/>
+        <Stroke x="-40" y="1429"/>
+        <Stroke x="-40" y="1439"/>
+      </GCLink>
+      <GCLink fromObject="3d9c95b1-a7ef-4072-a92a-aef2c21e8978" manAdj="0" toObject="9a7587ef-fb8f-4e8f-8f97-bdbb7f933d6b">
+        <Stroke x="-40" y="1466"/>
+        <Stroke x="-40" y="1476"/>
+        <Stroke x="85" y="1476"/>
+        <Stroke x="85" y="1457"/>
+        <Stroke x="210" y="1457"/>
+        <Stroke x="210" y="1467"/>
+      </GCLink>
+    </GCDocument>
+  </MacroStep>
+</GCDocument>

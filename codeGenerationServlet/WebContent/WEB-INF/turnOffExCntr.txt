@@ -1,0 +1,6 @@
+<GCStep actionBlockVisible="0" actionText="S LC.proc.command  =  &quot;SwitchOffExtCtrl&quot;;&#10;S LC.proc.status     =  0;&#10;S LC.proc.extCntr = 0;&#10;&#10;S lcSend(LC, &quot;proc&quot;);" fileName="" height="70" id="ID1" name="Switch off ExtCtrl" useIcon="0" width="60" x="X1" y="Y1"/>
+  <GCTransition actionText="LC.proc.status == 1 &amp; i.runExtctrl.get(ARMNBR-1) &lt; 0.5" conditionVisible="0" height="25" id="ID2" width="30" x="X2" y="Y2"/>
+ <GCLink fromObject="ID1" manAdj="0" toObject="ID2">
+    <Stroke x="X3" y="Y3"/>
+    <Stroke x="X4" y="Y4"/>
+  </GCLink>

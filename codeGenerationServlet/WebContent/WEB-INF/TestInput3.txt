@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<Input>
+
+
+<Task robot="fridaRight" labcomm_port="8888" labcomm_ip="" name="task1">
+
+<Primitive function_call="Path6_Move_to_home"/>
+
+<Primitive function_call="Path7_Approach_box"/>
+
+
+<Primitive function_call="Path8_Open_gripper"/>
+
+
+<Primitive function_call="Path9_Move_to_grasp"/>
+
+<Primitive function_call="Path10_Close_gripper"/>
+
+<Primitive function_call="Path11_Retract"/>
+
+<Primitive function_call="Path12_Move_to_box"/>
+
+
+<SkillSpecification>
+
+
+<Action tool="tGrip" id="ForceTranslateAction">
+
+
+<Direction>
+
+<searchVelocity unit="mm/s">20</searchVelocity>
+
+<motionframe>forcesensorframe</motionframe>
+
+<motiondir>z</motiondir>
+<threshold unit="N">2</threshold>
+
+
+</Direction>
+
+
+</Action>
+
+
+<Frame id="forcesensorframe">
+
+<origin>[540 ,-19 ,43]</origin>
+
+<quaternion>[1 ,0 ,0 ,0 ]</quaternion>
+
+</Frame>
+
+
+<ToolTransform id="tGrip">
+
+<trans>[0 ,0 ,100]</trans>
+
+<quaternion>[1 ,0 ,0 ,0 ]</quaternion>
+
+</ToolTransform>
+
+</SkillSpecification>
+
+</Task>
+<Task robot="" labcomm_port="8889" labcomm_ip="" name="task2">
+<Primitive function_call="Path12_Move_to_box"/>
+
+</Task>
+
+</Input>

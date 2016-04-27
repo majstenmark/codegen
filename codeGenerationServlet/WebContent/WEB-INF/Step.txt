@@ -1,0 +1,2 @@
+
+  <GCStep actionBlockVisible="0" actionText="S LC.proc.command  =  &quot;PROCEDURENAME&quot;;&#10;S LC.proc.status     =  0;&#10;S lcSend(LC, &quot;proc&quot;);" fileName="" height="70" id="ID" name="" useIcon="0" width="60" x="X1" y="Y1"/>

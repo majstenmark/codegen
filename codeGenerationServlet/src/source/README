@@ -1,0 +1,49 @@
+README for JGrafchart developers.
+
+Building
+========
+
+Building is automated using Apache Ant tasks.
+The tasks are specified in build.xml and buildNoCompile.xml for use in a terminal and in Eclipse respectively.
+
+Eclipse
+=======
+
+In Eclipse you must also set the environment to refresh after finished Ant jobs (set per Ant build file):
+
+	(Menu) Run - External Tools - External Tools Configuration...
+		Refresh tab
+			Check Refresh resourced upon completion.
+			Select "The entire workspace"
+
+It is also a good idea to globally enable periodic automatic refresh of the Eclipse workspaces:
+
+	(Menu) Window - Preferences - General - Workspace
+		Check "Refresh automatically"
+
+To run from Eclipse, create a launcher with:
+
+	Main tab - Main class: grafchart.sfc.Editor
+	Arguments tab - VM arguments: -Duser.dir=${project_loc:/BV_JGrafchart}/bin
+
+Warnings in generated code
+
+	Open the special context menu for the Problems view (down arrow to the right) - Configure Contents...
+	Configure to show all errors and only warnings in non-generated code by making a custom working set.
+
+Libs
+====
+
+Updating external libraries can be far from trivial. All libraries and their
+respective versions should be documented in lib/Libs.txt.
+
+xmlBlaster
+----------
+
+ * Download and unpack the new release.
+ * Create a new distribution jar, i.e. xmlBlasterDist.jar ::
+ 
+     JAVA_HOME=<...> ./build dist
+
+ * Replace JGrafchart's lib/xmlBlaster.jar with the new xmlBlaster distibution jar.
+

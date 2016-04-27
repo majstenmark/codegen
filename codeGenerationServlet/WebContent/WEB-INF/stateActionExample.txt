@@ -1,0 +1,35 @@
+// Set references
+S o.refs25 = 0; // zero velocity, f1-tool1-x 
+S o.refs26 = -20; // search velocity, f1-tool1-y
+S o.refs27 = 5; // force control, f1-tool1-z
+S o.refs28 = 0; // zero velocity, f1-tool1-xRot
+S o.refs29 = 0; // zero velocity, f1-tool1-yRot
+S o.refs30 = 0; // zero velocity, f1-tool1-zRot
+
+//Set control of all outputs
+//          coord              type              active                 K/M                  D          Sampling period             max(u)
+S o.ctrlpar1 = 1;  S o.ctrlpar2 = 2;  S o.ctrlpar3 = 1;  S o.ctrlpar4 = 0;  S o.ctrlpar5 = 0;  S o.ctrlpar6 = 0.004;  S o.ctrlpar7 = 10;  //x
+S o.ctrlpar11 = 2; S o.ctrlpar12 = 2; S o.ctrlpar13 = 1; S o.ctrlpar14 = 0; S o.ctrlpar15 = 0; S o.ctrlpar16 = 0.004; S o.ctrlpar17 = 10; //y
+S o.ctrlpar21 = 3; S o.ctrlpar22 = 3; S o.ctrlpar23 = 1; S o.ctrlpar24 = M; S o.ctrlpar25 = D; S o.ctrlpar26 = 0.004; S o.ctrlpar27 = 1.5*abs(ref); //z
+S o.ctrlpar31 = 4; S o.ctrlpar32 = 2; S o.ctrlpar33 = 1; S o.ctrlpar34 = 1; S o.ctrlpar35 = 0; S o.ctrlpar36 = 0.004; S o.ctrlpar37 = 0.1; //x-rot
+S o.ctrlpar41 = 5; S o.ctrlpar42 = 2; S o.ctrlpar43 = 1; S o.ctrlpar44 = 1; S o.ctrlpar45 = 0; S o.ctrlpar46 = 0.004; S o.ctrlpar47 = 0.1; //y-rot
+S o.ctrlpar51 = 6; S o.ctrlpar52 = 2; S o.ctrlpar53 = 1; S o.ctrlpar54 = 1; S o.ctrlpar55 = 0; S o.ctrlpar56 = 0.004; S o.ctrlpar57 = 0.1; //z-rot
+
+// Set outputs, i.e, the Cf-matrix
+S o.Cf1=1;  S o.Cf2=0;  S o.Cf3=0;  S o.Cf4=0;  S o.Cf5=0;  S o.Cf6=0;  S o.Cf7=0;  S o.Cf8=0;  S o.Cf9=0;  S o.Cf10=0; S o.Cf11=0; S o.Cf12=0;
+S o.Cf13=0; S o.Cf14=1; S o.Cf15=0; S o.Cf16=0; S o.Cf17=0; S o.Cf18=0; S o.Cf19=0; S o.Cf20=0; S o.Cf21=0; S o.Cf22=0; S o.Cf23=0; S o.Cf24=0;
+S o.Cf25=0; S o.Cf26=0; S o.Cf27=1; S o.Cf28=0; S o.Cf29=0; S o.Cf30=0; S o.Cf31=0; S o.Cf32=0; S o.Cf33=0; S o.Cf34=0; S o.Cf35=0; S o.Cf36=0;
+S o.Cf37=0; S o.Cf38=0; S o.Cf39=0; S o.Cf40=1; S o.Cf41=0; S o.Cf42=0; S o.Cf43=0; S o.Cf44=0; S o.Cf45=0; S o.Cf46=0; S o.Cf47=0; S o.Cf48=0;
+S o.Cf49=0; S o.Cf50=0; S o.Cf51=0; S o.Cf52=0; S o.Cf53=1; S o.Cf54=0; S o.Cf55=0; S o.Cf56=0; S o.Cf57=0; S o.Cf58=0; S o.Cf59=0; S o.Cf60=0;
+S o.Cf61=0; S o.Cf62=0; S o.Cf63=0; S o.Cf64=0; S o.Cf65=0; S o.Cf66=1; S o.Cf67=0; S o.Cf68=0; S o.Cf69=0; S o.Cf70=0; S o.Cf71=0; S o.Cf72=0;
+
+// Set redund_weight, i.e, the Mq-matrix
+S o.redund_weight1=1;  S o.redund_weight2=0;  S o.redund_weight3=0;  S o.redund_weight4=0;  S o.redund_weight5=0;  S o.redund_weight6=0;  S o.redund_weight7=0;
+S o.redund_weight15=0;  S o.redund_weight16=1;  S o.redund_weight17=0;  S o.redund_weight18=0;  S o.redund_weight19=0;  S o.redund_weight20=0;  S o.redund_weight21=0;
+S o.redund_weight29=0;  S o.redund_weight30=0;  S o.redund_weight31=1;  S o.redund_weight32=0;  S o.redund_weight33=0;  S o.redund_weight34=0;  S o.redund_weight35=0;
+S o.redund_weight43=0;  S o.redund_weight44=0;  S o.redund_weight45=0;  S o.redund_weight46=1;  S o.redund_weight47=0;  S o.redund_weight48=0;  S o.redund_weight49=0;
+S o.redund_weight57=0;  S o.redund_weight58=0;  S o.redund_weight59=0;  S o.redund_weight60=0;  S o.redund_weight61=1;  S o.redund_weight62=0;  S o.redund_weight63=0;
+S o.redund_weight71=0;  S o.redund_weight72=0;  S o.redund_weight73=0;  S o.redund_weight74=0;  S o.redund_weight75=0;  S o.redund_weight76=1;  S o.redund_weight77=0;
+S o.redund_weight85=0;  S o.redund_weight86=0;  S o.redund_weight87=0;  S o.redund_weight88=0;  S o.redund_weight89=0;  S o.redund_weight90=0;  S o.redund_weight91=1;
+
+S o.state1 = 102;

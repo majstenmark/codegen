@@ -1,0 +1,5 @@
+
+  <GCStep actionBlockVisible="0" actionText="S LOOP_COUNTER = 0;&#10;" fileName="" height="70" id="ID" name="" useIcon="0" width="60" x="X1" y="Y1"/>
+    <IntegerVariable constant="0" exp="" height="45" initialValue="0" name="LOOP_COUNTER" updated="0" value="0" width="65" x="250" y="400"/>
+  <StringList height="65" initialValue="VALUES1;" name="PICK_LIST_NAME" width="85" x="990" y="350"/>
+  <StringList height="65" initialValue="VALUES2;" name="PLACE_LIST_NAME" width="85" x="990" y="450"/> 
