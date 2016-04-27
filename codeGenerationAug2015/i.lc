@@ -1,0 +1,16 @@
+//// Extctrl ---> JGrafchart
+
+// Communication and coordinaiton
+sample double skillToRun[2];	// RAPID issued
+sample double runExtctrl[2];
+sample double resetProgram[2];
+sample double kinematicsConverged[2];
+
+// Measurments
+sample double y_meas[96];
+sample double quats[16];
+sample double y_d_dot0[12];
+
+// Inputs Integrated to ExtCtrl
+sample double y_meas_extR[3];
+sample double y_meas_extL[3];

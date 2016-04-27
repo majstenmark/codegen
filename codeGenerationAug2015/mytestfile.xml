@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<GCDocument color="-1" dimTicks="25" dpwsInterface="" dpwsPort="-1" height="607" horizontalScrollBar="1" modifiable="1" name="J1" saveVersion="8" scale="0.73" simulationMode="0" socketHost="" socketIsServer="0" socketPort="-1" socketSendMode="Changed" threadSpeed="4" tokenLuminance="0" verticalScrollBar="1" viewPositionX="-70" viewPositionY="-45" width="978" x="0" y="0">
+<LabCommObject height="60" input="1" isSocketServer="false" name="robot" orca="0" output="1" socketHost="192.168.125.1" socketPort="8888" specification="sample struct {&#10;string command;&#10;int status;&#10;int extCntr;&#10;int sensor1;&#10;int sensor2;&#10;int sensor3;&#10;int sensor4;&#10;int sensor5;&#10;int sensor6;&#10;}proc;" version="2013" width="60" x="20" y="20"/>
+<MacroStep actionText="" fileName="" height="70" id="05a29194-2582-44b9-acce-839b1759bff1" name="" resumeMode="Default" useIcon="0" width="60" x="500" y="230">
+<GCDocument color="-1" dimTicks="25" dpwsInterface="" dpwsPort="-1" height="607" horizontalScrollBar="1" modifiable="1" name="J1" saveVersion="8" scale="0.73" simulationMode="0" socketHost="" socketIsServer="0" socketPort="-1" socketSendMode="Changed" threadSpeed="4" tokenLuminance="0" verticalScrollBar="1" viewPositionX="-70" viewPositionY="-45" width="978" x="0" y="0">
+<EnterStep actionBlockVisible="0" actionText="" fileName="" height="70" id="d0b05c31-a5b7-4f32-a122-5130a2d1894e" name="" useIcon="0" width="60" x="500" y="0"/>
+<GCTransition actionText="1" conditionVisible="1" height="25" id="16744fe2-c1ed-4da9-bf5a-e73d93a3eece" width="30" x="515" y="75"/>
+<GCTransition actionText="1" conditionVisible="1" height="25" id="130bc66a-f68d-448f-a2b6-410b20f48039" width="30" x="440" y="75"/>
+<GCTransition actionText="1" conditionVisible="1" height="25" id="ce31d010-b7d8-4e25-91ff-52aee003c393" width="30" x="590" y="75"/>
+<GCLink fromObject="05a29194-2582-44b9-acce-839b1759bff1" manAdj="0" toObject="28de1005-d39e-4c83-955a-1ed8decfebce">
+<Stroke x="530" y="301"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="304"/>
+</GCLink>
+<GCLink fromObject="05a29194-2582-44b9-acce-839b1759bff1" manAdj="0" toObject="28de1005-d39e-4c83-955a-1ed8decfebce">
+<Stroke x="530" y="301"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="304"/>
+</GCLink>
+<GCLink fromObject="05a29194-2582-44b9-acce-839b1759bff1" manAdj="0" toObject="28de1005-d39e-4c83-955a-1ed8decfebce">
+<Stroke x="530" y="301"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="304"/>
+</GCLink>
+<GCLink fromObject="16744fe2-c1ed-4da9-bf5a-e73d93a3eece" manAdj="0" toObject="1ad71263-e9f8-4655-895e-3fec369bceb7">
+<Stroke x="530" y="101"/>
+<Stroke x="507" y="101"/>
+<Stroke x="507" y="-1"/>
+<Stroke x="530" y="-1"/>
+</GCLink>
+<GCLink fromObject="ce31d010-b7d8-4e25-91ff-52aee003c393" manAdj="0" toObject="e4915585-eee1-4f21-b2f1-84def7d0cc16">
+<Stroke x="605" y="101"/>
+<Stroke x="605" y="107"/>
+<Stroke x="605" y="107"/>
+<Stroke x="605" y="114"/>
+</GCLink>
+<ExitStep actionBlockVisible="0" actionText="" fileName="" height="70" id="e4915585-eee1-4f21-b2f1-84def7d0cc16" name="" useIcon="0" width="60" x="575" y="115"/>
+</GCDocument>
+</MacroStep>
+<GCStep actionText="S robot.proc.command = &quot;move&quot;;&#10;S robot.proc.status = 0;&#10;S robot.proc.extCntr = 0;&#10;S lcSend(robot, &quot;proc&quot;);&#10;" conditionVisible="1" fileName="" height="70" id="cf383bad-8a1c-4880-a87c-ef2bb267c0f8" name="move2" useIcon="0" width="60" x="500" y="345"/>
+<GCStep actionText="S robot.proc.command = &quot;move&quot;;&#10;S robot.proc.status = 0;&#10;S robot.proc.extCntr = 0;&#10;S lcSend(robot, &quot;proc&quot;);&#10;" conditionVisible="1" fileName="" height="70" id="53b89b35-5630-4fbd-8078-aa0435daa6df" name="move3" useIcon="0" width="60" x="500" y="460"/>
+<GCInitialStep actionBlockVisible="0" actionText="" conditionVisible="1" fileName="" height="70" id="7bd488c0-ad49-44bf-97ce-72be940e0960" name="Initial state" useIcon="0" width="60" x="500" y="0"/>
+<GCStep actionText="S robot.proc.command = &quot;move&quot;;&#10;S robot.proc.status = 0;&#10;S robot.proc.extCntr = 0;&#10;S lcSend(robot, &quot;proc&quot;);&#10;" conditionVisible="1" fileName="" height="70" id="5b2fe44d-4677-40f7-aa32-817b7577aa73" name="move1" useIcon="0" width="60" x="500" y="115"/>
+<GCTransition actionText="robot.proc.status == 1" conditionVisible="1" height="25" id="3292c5f8-0d07-44fb-a086-881335e3fbd0" width="30" x="515" y="190"/>
+<GCTransition actionText="1" conditionVisible="1" height="25" id="907f6daa-91c6-48b8-a182-fe1a6f37f89f" width="30" x="515" y="75"/>
+<GCTransition actionText="1" conditionVisible="1" height="25" id="28de1005-d39e-4c83-955a-1ed8decfebce" width="30" x="515" y="305"/>
+<GCTransition actionText="robot.proc.status == 1" conditionVisible="1" height="25" id="b74ef912-49d3-4951-bac7-59609be4624b" width="30" x="515" y="420"/>
+<GCLink fromObject="05a29194-2582-44b9-acce-839b1759bff1" manAdj="0" toObject="28de1005-d39e-4c83-955a-1ed8decfebce">
+<Stroke x="530" y="301"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="302"/>
+<Stroke x="530" y="304"/>
+</GCLink>
+<GCLink fromObject="cf383bad-8a1c-4880-a87c-ef2bb267c0f8" manAdj="0" toObject="b74ef912-49d3-4951-bac7-59609be4624b">
+<Stroke x="530" y="416"/>
+<Stroke x="530" y="417"/>
+<Stroke x="530" y="417"/>
+<Stroke x="530" y="419"/>
+</GCLink>
+<GCLink fromObject="7bd488c0-ad49-44bf-97ce-72be940e0960" manAdj="0" toObject="907f6daa-91c6-48b8-a182-fe1a6f37f89f">
+<Stroke x="530" y="71"/>
+<Stroke x="530" y="72"/>
+<Stroke x="530" y="72"/>
+<Stroke x="530" y="74"/>
+</GCLink>
+<GCLink fromObject="5b2fe44d-4677-40f7-aa32-817b7577aa73" manAdj="0" toObject="3292c5f8-0d07-44fb-a086-881335e3fbd0">
+<Stroke x="530" y="186"/>
+<Stroke x="530" y="187"/>
+<Stroke x="530" y="187"/>
+<Stroke x="530" y="189"/>
+</GCLink>
+<GCLink fromObject="3292c5f8-0d07-44fb-a086-881335e3fbd0" manAdj="0" toObject="05a29194-2582-44b9-acce-839b1759bff1">
+<Stroke x="530" y="216"/>
+<Stroke x="530" y="222"/>
+<Stroke x="530" y="222"/>
+<Stroke x="530" y="229"/>
+</GCLink>
+<GCLink fromObject="907f6daa-91c6-48b8-a182-fe1a6f37f89f" manAdj="0" toObject="5b2fe44d-4677-40f7-aa32-817b7577aa73">
+<Stroke x="530" y="101"/>
+<Stroke x="530" y="107"/>
+<Stroke x="530" y="107"/>
+<Stroke x="530" y="114"/>
+</GCLink>
+<GCLink fromObject="28de1005-d39e-4c83-955a-1ed8decfebce" manAdj="0" toObject="cf383bad-8a1c-4880-a87c-ef2bb267c0f8">
+<Stroke x="530" y="331"/>
+<Stroke x="530" y="337"/>
+<Stroke x="530" y="337"/>
+<Stroke x="530" y="344"/>
+</GCLink>
+<GCLink fromObject="b74ef912-49d3-4951-bac7-59609be4624b" manAdj="0" toObject="53b89b35-5630-4fbd-8078-aa0435daa6df">
+<Stroke x="530" y="446"/>
+<Stroke x="530" y="452"/>
+<Stroke x="530" y="452"/>
+<Stroke x="530" y="459"/>
+</GCLink>
+</GCDocument>
+

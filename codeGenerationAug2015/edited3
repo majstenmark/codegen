@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GCDocument color="-1" dimTicks="25" dpwsInterface="" dpwsPort="-1" height="607" horizontalScrollBar="1" modifiable="1" name="J1" saveVersion="8" scale="0.73" simulationMode="0" socketHost="" socketIsServer="0" socketPort="-1" socketSendMode="Changed" threadSpeed="4" tokenLuminance="0" verticalScrollBar="1" viewPositionX="-70" viewPositionY="-45" width="978" x="0" y="0">
+  <LabCommObject height="60" input="0" isSocketServer="0" name="o" orca="0" output="0" socketHost="null" socketPort="8888" specification="// Controller parameters&#10;sample double ctrlpar[240];&#10;sample double chains[120];&#10;sample double chains_params[120];&#10;sample double Cf[144];&#10;sample double redund_weight[196];&#10;&#10;// References&#10;sample double refs[48];&#10;sample double quat_refs[16];&#10;&#10;// Special features&#10;sample double detuning[2];&#10;sample double freeDrive[2];&#10;&#10;// Outputs Integrated to ExtCtrl&#10;sample double ifkDigitalIn[8];" version="2013" width="60" x="20" y="20"/>
+  <LabCommObject height="60" input="0" isSocketServer="0" name="i" orca="0" output="0" socketHost="null" socketPort="8888" specification="//// Extctrl ---&gt; JGrafchart&#10;&#10;// Communication and coordinaiton&#10;sample double skillToRun[2];&#9;// RAPID issued&#10;sample double runExtctrl[2];&#10;sample double resetProgram[2];&#10;sample double kinematicsConverged[2];&#10;&#10;// Measurments&#10;sample double y_meas[96];&#10;sample double quats[16];&#10;sample double y_d_dot0[12];&#10;&#10;// Inputs Integrated to ExtCtrl&#10;sample double y_meas_extR[3];&#10;sample double y_meas_extL[3];" version="2013" width="60" x="20" y="120"/>
+  <GCStep actionBlockVisible="0" actionText="" fileName="" height="70" id="0775fe17-2456-4027-ab88-92bad2310211" name="" useIcon="0" width="60" x="500" y="115"/>
+  <GCInitialStep actionBlockVisible="0" actionText="" fileName="" height="70" id="6b2c734a-e0b2-4ba3-8c26-52c89670024c" name="" useIcon="0" width="60" x="500" y="0"/>
+  <GCTransition actionText="i.y_meas_extR.get(0) &gt; 4.0 &amp; i.y_meas_extR.get(0) &gt;= 3.0" conditionVisible="1" height="25" id="bc865439-142b-4c69-a135-477b22a0437b" width="30" x="515" y="75"/>
+  <GCTransition actionText="i.y_meas_extR.get(0) &gt; 4.0 | i.y_meas_extR.get(0) &gt;= 3.0" conditionVisible="1" height="25" id="842e7b29-8687-4a17-b35a-5e625ea6a4be" width="30" x="515" y="190"/>
+  <MacroStep actionText=";" fileName="" height="70" id="c05d47a3-23f6-46b9-bc71-fe00c46dd1b9" name="" resumeMode="Default" useIcon="0" width="60" x="500" y="255">
+    <GCDocument color="-1" height="400" scale="1.0" socketSendMode="Inherit" viewPositionX="0" viewPositionY="0" width="400" x="400" y="600">
+      <ExitStep actionBlockVisible="0" actionText=";" fileName="" height="85" id="ba29aa18-582d-4fea-9e65-37ae5ad3c2d1" name="" useIcon="0" width="60" x="170" y="195"/>
+      <EnterStep actionBlockVisible="0" actionText=";" fileName="" height="85" id="8097f49d-1bdb-4f09-aa50-f80814e65ce8" name="" useIcon="0" width="60" x="170" y="50"/>
+    </GCDocument>
+  </MacroStep>
+  <GCLink fromObject="0775fe17-2456-4027-ab88-92bad2310211" manAdj="0" toObject="842e7b29-8687-4a17-b35a-5e625ea6a4be">
+    <Stroke x="530" y="186"/>
+    <Stroke x="530" y="189"/>
+  </GCLink>
+  <GCLink fromObject="6b2c734a-e0b2-4ba3-8c26-52c89670024c" manAdj="0" toObject="bc865439-142b-4c69-a135-477b22a0437b">
+    <Stroke x="530" y="71"/>
+    <Stroke x="530" y="74"/>
+  </GCLink>
+  <GCLink fromObject="bc865439-142b-4c69-a135-477b22a0437b" manAdj="0" toObject="0775fe17-2456-4027-ab88-92bad2310211">
+    <Stroke x="530" y="101"/>
+    <Stroke x="530" y="114"/>
+  </GCLink>
+  <GCLink fromObject="842e7b29-8687-4a17-b35a-5e625ea6a4be" manAdj="0" toObject="c05d47a3-23f6-46b9-bc71-fe00c46dd1b9_0">
+    <Stroke x="530" y="216"/>
+    <Stroke x="530" y="226"/>
+    <Stroke x="530" y="235"/>
+    <Stroke x="530" y="235"/>
+    <Stroke x="530" y="244"/>
+    <Stroke x="530" y="254"/>
+  </GCLink>
+</GCDocument>

@@ -1,0 +1,11 @@
+sample struct {
+string command;
+int status;
+int extCntr;
+int sensor1;
+int sensor2;
+int sensor3;
+int sensor4;
+int sensor5;
+int sensor6;
+}proc;

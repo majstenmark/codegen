@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Input>
+<Task name="task1" labcomm_ip="" labcomm_port="8888" robot="irb120">
+<Primitive name = "move1" function_call="move">
+</Primitive>
+<SkillSpecification>
+<Action tool="tGrip" id="ForceTranslateAction">
+<Direction>
+<searchVelocity unit="mm/s">20</searchVelocity>
+<motionframe>forcesensorframe</motionframe>
+<motiondir>z</motiondir>
+<threshold unit="N">2</threshold>
+</Direction>
+<Direction>
+<searchVelocity unit="mm/s">20</searchVelocity>
+<motionframe>forcesensorframe</motionframe>
+<motiondir>y</motiondir>
+<threshold unit="N">2</threshold>
+</Direction>
+</Action>
+<Frame id="forcesensorframe">
+<origin>[540 ,-19 ,43]</origin>
+<quaternion>[1 ,0 ,0 ,0 ]</quaternion>
+</Frame>
+<ToolTransform id="tGrip">
+<trans>[0 ,0 ,100]</trans>
+<quaternion>[1 ,0 ,0 ,0 ]</quaternion>
+</ToolTransform>
+</SkillSpecification>
+<Primitive name = "move2" function_call="move">
+</Primitive>
+<Primitive name = "move3" function_call="move">
+</Primitive>
+</Task>
+</Input>

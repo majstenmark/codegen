@@ -1,0 +1,17 @@
+// Controller parameters
+sample double ctrlpar[240];
+sample double chains[120];
+sample double chains_params[120];
+sample double Cf[144];
+sample double redund_weight[196];
+
+// References
+sample double refs[48];
+sample double quat_refs[16];
+
+// Special features
+sample double detuning[2];
+sample double freeDrive[2];
+
+// Outputs Integrated to ExtCtrl
+sample double ifkDigitalIn[8];
