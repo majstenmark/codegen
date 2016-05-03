@@ -1,0 +1,27 @@
+Execute
+-------
+
+=======================    ======================  =======  ==========================================
+File                       Purpose                 Version  Website
+=======================    ======================  =======  ==========================================
+JGo.jar                    Graphics                    5.0  http://www.nwoods.com
+jhall.jar                  JavaHelp                 2.0.05  https://javahelp.dev.java.net
+jutils.jar                 Argument parsing              ?  https://jutils.dev.java.net
+regler.jar                 IO, GUI                       ?  N/A, Internal
+xmlBlaster.jar             XML                       2.0.0  http://www.xmlblaster.org
+dpws/*                     DPWS4J                    1.3.0  https://forge.soa4d.org/projects/dpws4j/
+labcomm/*                  LabComm                       -  N/A, Internal
+=======================    ======================  =======  ==========================================
+
+
+
+Build
+-----
+
+===========================  ====================  =========  ===================================
+File                         Purpose               Version    Website
+===========================  ====================  =========  ===================================
+jastadd2.jar                 Compiler              R20110902  http://www.jastadd.org
+javacc.jar                   Compiler                  5.0.0  http://java.net/projects/javacc/
+junit.jar                    Unit tests                 4.10  http://www.junit.org
+===========================  ====================  =========  ===================================

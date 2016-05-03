@@ -1,0 +1,169 @@
+%header {: // Generated from AST/LabCommParser.all
+package AST;:};
+%embed {: // Generated from AST/LabCommParser.all
+public static class SourceError extends Error {
+    public SourceError(String msg) {
+      super(msg);
+    }
+  }
+  class Events extends Parser.Events {
+    public void syntaxError(Symbol token) {
+      StringBuffer s = new StringBuffer();
+      s.append(token.getLine(token.getStart()) + ", " + token.getColumn(token.getStart()) + "\n");
+      s.append("  *** Syntactic error: unexpected token " + Terminals.NAMES[token.getId()]);
+      throw new SourceError(s.toString());
+        //super.syntaxError(token);
+        //throw new RuntimeException(token.getLine(token.getStart()) + ", " + 
+	// token.getColumn(token.getStart()) + ": Syntax Error");
+    }
+    public void scannerError(Scanner.Exception e) {
+      StringBuffer s = new StringBuffer();
+      s.append(e.line + ", " + e.column + "\n");
+      s.append("  *** Lexical error: " + e.getMessage());
+      throw new SourceError(s.toString());
+        //super.scannerError(e);
+        //throw new RuntimeException("Unexpected token");
+    }
+
+  }
+
+        {
+            report = new Events(); // Use error handler in parser
+        }:};
+%terminals RBRACK;
+%terminals SAMPLE;
+%terminals BYTE;
+%terminals LBRACK;
+%terminals BOOLEAN;
+%terminals RBRACE;
+%terminals COMMA;
+%terminals INTEGER_LITERAL;
+%terminals IDENTIFIER;
+%terminals TYPEDEF;
+%terminals LBRACE;
+%terminals DOUBLE;
+%terminals UNDERSCORE;
+%terminals STRUCT;
+%terminals SHORT;
+%terminals SEMICOLON;
+%terminals INT;
+%terminals FLOAT;
+%terminals VOID;
+%terminals LONG;
+%terminals STRING;
+%typeof user_type = "UserType";
+%typeof decl_list = "List";
+%typeof type_decl = "TypeDecl";
+%typeof prim_type = "PrimType";
+%typeof var_decl = "Field";
+%typeof type = "Type";
+%typeof goal = "Program";
+%typeof dim = "Dim";
+%typeof var_decl_list = "List";
+%typeof exp = "Exp";
+%typeof struct_type = "StructType";
+%typeof sample_decl = "SampleDecl";
+%typeof dim_list = "List";
+%typeof exp_list = "List";
+%typeof decl = "Decl";
+%goal goal;
+goal =
+    {: return new Program();:}
+
+  | decl_list.l {: return new Program(l);:}
+  ;
+
+decl_list =
+    decl.d {: return new List().add(d);:}
+
+  | decl_list.l decl.d {: return l.add(d);:}
+  ;
+
+decl =
+    type_decl.t {: return t;:}
+
+  | sample_decl.s {: return s;:}
+  ;
+
+var_decl_list =
+    var_decl.v {: return new List().add(v);:}
+
+  | var_decl_list.l var_decl.v {: return l.add(v);:}
+  ;
+
+var_decl =
+    type.t IDENTIFIER.IDENTIFIER SEMICOLON.SEMICOLON {: return new Field(t, ((String)IDENTIFIER.value));:}
+
+  | type.t IDENTIFIER.IDENTIFIER dim_list.d SEMICOLON.SEMICOLON {: return new Field(new ParseArrayType(t, d), ((String)IDENTIFIER.value));:}
+  ;
+
+type_decl =
+    TYPEDEF.TYPEDEF type.t IDENTIFIER.IDENTIFIER SEMICOLON.SEMICOLON {: return new TypeDecl(t, ((String)IDENTIFIER.value));:}
+
+  | TYPEDEF.TYPEDEF type.t IDENTIFIER.IDENTIFIER dim_list.d SEMICOLON.SEMICOLON {: return new TypeDecl(new ParseArrayType(t, d), ((String)IDENTIFIER.value));:}
+  ;
+
+sample_decl =
+    SAMPLE.SAMPLE type.t IDENTIFIER.IDENTIFIER SEMICOLON.SEMICOLON {: return new SampleDecl(t, ((String)IDENTIFIER.value));:}
+
+  | SAMPLE.SAMPLE type.t IDENTIFIER.IDENTIFIER dim_list.d SEMICOLON.SEMICOLON {: return new SampleDecl(new ParseArrayType(t, d), ((String)IDENTIFIER.value));:}
+
+  | SAMPLE.SAMPLE VOID.VOID IDENTIFIER.IDENTIFIER SEMICOLON.SEMICOLON {: return new SampleDecl(new VoidType(), ((String)IDENTIFIER.value));:}
+  ;
+
+type =
+    prim_type.p {: return p;:}
+
+  | user_type.u {: return u;:}
+
+  | struct_type.s {: return s;:}
+  ;
+
+prim_type =
+    BOOLEAN.BOOLEAN {: return new PrimType(((String)BOOLEAN.value), ASTNode.LABCOMM_BOOLEAN);:}
+
+  | BYTE.BYTE {: return new PrimType(((String)BYTE.value), ASTNode.LABCOMM_BYTE);:}
+
+  | SHORT.SHORT {: return new PrimType(((String)SHORT.value), ASTNode.LABCOMM_SHORT);:}
+
+  | INT.INT {: return new PrimType(((String)INT.value), ASTNode.LABCOMM_INT);:}
+
+  | LONG.LONG {: return new PrimType(((String)LONG.value), ASTNode.LABCOMM_LONG);:}
+
+  | FLOAT.FLOAT {: return new PrimType(((String)FLOAT.value), ASTNode.LABCOMM_FLOAT);:}
+
+  | DOUBLE.DOUBLE {: return new PrimType(((String)DOUBLE.value), ASTNode.LABCOMM_DOUBLE);:}
+
+  | STRING.STRING {: return new PrimType(((String)STRING.value), ASTNode.LABCOMM_STRING);:}
+  ;
+
+user_type =
+    IDENTIFIER.IDENTIFIER {: return new UserType(((String)IDENTIFIER.value));:}
+  ;
+
+struct_type =
+    STRUCT.STRUCT LBRACE.LBRACE var_decl_list.l RBRACE.RBRACE {: return new StructType(l);:}
+  ;
+
+dim_list =
+    dim.d {: return new List().add(d);:}
+
+  | dim_list.l dim.d {: return l.add(d);:}
+  ;
+
+dim =
+    LBRACK.LBRACK exp_list.e RBRACK.RBRACK {: return new Dim(e);:}
+  ;
+
+exp_list =
+    exp.e {: return new List().add(e);:}
+
+  | exp_list.l COMMA.COMMA exp.e {: return l.add(e);:}
+  ;
+
+exp =
+    INTEGER_LITERAL.INTEGER_LITERAL {: return new IntegerLiteral(((String)INTEGER_LITERAL.value));:}
+
+  | UNDERSCORE.UNDERSCORE {: return new VariableSize();:}
+  ;
+
